@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import MediaPost from './components/MediaPost.js'
 import BoxPost from './components/BoxPost.js'
 import TopBar from './components/TopBar.js'
+import CommentForm from './components/CommentForm.js'
 
 class App extends Component {
   render() {
@@ -12,7 +13,8 @@ class App extends Component {
                   <TopBar/>      
                   <BoxPost/>
                   <MediaPost/>
-                  <MediaPost/> 
+                  <MediaPost/>her
+                  <CommentForm/> 
               </div>
           </section>
       </div>
