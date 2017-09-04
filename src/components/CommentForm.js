@@ -1,13 +1,12 @@
 import React, { Component } from 'react'
 
 
-class CommentForm extends Component {
+function CommentForm(){
 
-	render(){
+  
+    return (
 
-		return (
-
-			<article className="media">
+      <article className="media">
   <figure className="media-left">
     <p className="image is-64x64">
       <img src={"http://bulma.io/images/placeholders/128x128.png"}/>
@@ -37,11 +36,12 @@ class CommentForm extends Component {
 </article>
 
 
-			)
-	}
+      )
 
 
 }
+
+
 
 
 

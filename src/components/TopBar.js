@@ -1,16 +1,10 @@
 import React, { Component } from 'react'
 
+function TopBar(){
 
+  return(
 
-class TopBar extends Component{
-
-
-	render(){
-
-
-		return(
-
-			<nav className="level is-mobile">
+      <nav className="level is-mobile">
   <div className="level-left">
     <p className="level-item">
       <a>All</a>
@@ -45,9 +39,10 @@ class TopBar extends Component{
 </nav>
 
 
-			)
-	}
+      )
+
 }
+
 
 
 

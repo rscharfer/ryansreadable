@@ -2,20 +2,14 @@ import React from 'react'
 
 
 
-class MediaPost extends React.Component{
+function MediaPost(){
 
+    return (
 
-
-
-
-	render(){
-
-		return (
-
-		
-			<div className="columns is-centered">
-			<div className="column is-8">
-				<article className="media">
+    
+      <div className="columns is-centered">
+      <div className="column is-8">
+        <article className="media">
   <figure className="media-left">
     <p className="image is-64x64">
       <img src={"http://bulma.io/images/placeholders/128x128.png"}/>
@@ -50,13 +44,12 @@ class MediaPost extends React.Component{
 </div>
 </div>
 
-			
-			
+      
+      
 
 
-		
-		)
-	}
+    
+    )
 }
 
 

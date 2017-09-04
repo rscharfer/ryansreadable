@@ -1,15 +1,9 @@
 import React from 'react'
 
 
-class BoxPost extends React.Component {
+function BoxPost(){
 
-
-
-
-
-  render(){
-
-    return (      
+  return (      
 
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
@@ -32,7 +26,7 @@ class BoxPost extends React.Component {
           </div>
           </div>
           )
-  }
+
 }
 
 
