@@ -10,13 +10,13 @@ function TopBar(){
       <a>All</a>
     </p>
     <p className="level-item">
-      <a>Cat 1</a>
+      <a>Javascript</a>
     </p>
     <p className="level-item">
-      <a>Cat 2</a>
+      <a>React</a>
     </p>
     <p className="level-item">
-      <a>Cat 3</a>
+      <a>Angular</a>
     </p>
   </div>
 
