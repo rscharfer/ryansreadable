@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function PostMainPage(){
+function PostDetailPage(){
 
   return (      
 
@@ -18,8 +18,8 @@ function PostMainPage(){
                 <li><span>Ryan Scharfer&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;Jan 5th, 2017&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;34 Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
                   
               </ul>
             </nav>
@@ -31,10 +31,4 @@ function PostMainPage(){
 }
 
 
-export default PostMainPage
-
-
-
-
-
-    
+export default PostDetailPage

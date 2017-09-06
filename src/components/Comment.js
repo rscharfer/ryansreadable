@@ -2,7 +2,7 @@ import React from 'react'
 
 
 
-function MediaPost(){
+function Comment(){
 
     return (
 
@@ -23,22 +23,17 @@ function MediaPost(){
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
       </p>
     </div>
-    <nav className="level is-mobile">
-      <div className="level-left">
-        <a className="level-item">
-          <span className="icon is-small"><i className="fa fa-reply"></i></span>
-        </a>
-        <a className="level-item">
-          <span className="icon is-small"><i className="fa fa-retweet"></i></span>
-        </a>
-        <a className="level-item">
-          <span className="icon is-small"><i className="fa fa-heart"></i></span>
-        </a>
-      </div>
-    </nav>
+
   </div>
   <div className="media-right">
-    <button className="delete"></button>
+     <nav className="breadcrumb" aria-label="breadcrumbs">
+                <ul>
+               
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                  
+              </ul>
+            </nav>
   </div>
 </article>
 </div>
@@ -54,4 +49,4 @@ function MediaPost(){
 
 
 
-export default MediaPost
+export default Comment
