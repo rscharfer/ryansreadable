@@ -8,7 +8,7 @@ function PostDetailPage(){
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">
-              <p className="title">Main column</p>
+              <p className="title">Post Detail</p>
               <p className="subtitle">Total Votes: 124</p>
               <div className="content">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.</p>

@@ -8,7 +8,7 @@ function Comment(){
 
     
       <div className="columns is-centered">
-      <div className="column is-8">
+      <div className="column is-10">
         <article className="media">
   <figure className="media-left">
     <p className="image is-64x64">
@@ -18,7 +18,7 @@ function Comment(){
   <div className="media-content">
     <div className="content">
       <p>
-        <strong>John Smith</strong> <small>Jan 5th, 2014 06:23pm</small>
+        <strong>John Smith</strong> <small>Jan 5th, 2014 06:23pm</small><small>&nbsp;&nbsp;Total votes:20</small>
         <br/>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
       </p>
@@ -31,6 +31,8 @@ function Comment(){
                
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
+                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>
                   
               </ul>
             </nav>
