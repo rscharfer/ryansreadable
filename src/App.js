@@ -6,6 +6,7 @@ import TopBar from './components/TopBar.js'
 import DetailedPost from './components/DetailedPost.js'
 import NewCommentForm from './components/NewCommentForm.js'
 import NewPostForm from './components/NewPostForm.js'
+import StatefulComponent from './components/StatefulComponent.js'
 
 class App extends Component {
   render() {
@@ -13,7 +14,7 @@ class App extends Component {
       <div>
           <section className="section">
               <div className="container">        
-                  <TopBar/>      
+                  <TopBar/>   
                   <SimplePost/>
                   <Comment/>
                   <Comment/>
@@ -21,6 +22,7 @@ class App extends Component {
                   <DetailedPost/>
                   <NewCommentForm/>
                   <NewPostForm/>
+                  <StatefulComponent/>
               </div>
           </section>
       </div>

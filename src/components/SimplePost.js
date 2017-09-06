@@ -3,6 +3,8 @@ import React from 'react'
 
 function SimplePost(){
 
+  fetch("http://localhost:5001/categories",{ headers: { 'Authorization': 'crazyPants' }}).then(res=>res.json()).then((json)=>console.log(json));
+
   return (      
 
       <div className="columns is-centered">
