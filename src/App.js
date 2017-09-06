@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import Comment from './components/Comment.js'
-import PostMainPage from './components/PostMainPage.js'
+import SimplePost from './components/SimplePost.js'
 import TopBar from './components/TopBar.js'
 
-import PostDetailPage from './components/PostDetailPage.js'
+import DetailedPost from './components/DetailedPost.js'
 import NewCommentForm from './components/NewCommentForm.js'
 import NewPostForm from './components/NewPostForm.js'
 
@@ -14,11 +14,11 @@ class App extends Component {
           <section className="section">
               <div className="container">        
                   <TopBar/>      
-                  <PostMainPage/>
+                  <SimplePost/>
                   <Comment/>
                   <Comment/>
              
-                  <PostDetailPage/>
+                  <DetailedPost/>
                   <NewCommentForm/>
                   <NewPostForm/>
               </div>
