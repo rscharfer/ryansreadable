@@ -6,8 +6,8 @@ function NewCommentForm(){
   
     return (
 
-    	<div className="columns">
-    	<div className="column is-half">
+    	<div className="columns is-centered">
+    	<div className="column is-8">
 
       <div className="field">
     <label className="label">Username</label>

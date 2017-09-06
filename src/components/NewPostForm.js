@@ -5,7 +5,8 @@ function NewPostForm(){
 
   
     return (
-<div>
+<div className="columns is-centered">
+<div className=" column is-8">
   <div className="field">
     <label className="label">Title</label>
     <div className="control">
@@ -54,7 +55,7 @@ function NewPostForm(){
 </div>
 
 </div>
-
+</div>
 
       )
 
