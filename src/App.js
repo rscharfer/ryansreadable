@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import MediaPost from './components/MediaPost.js'
-import BoxPost from './components/BoxPost.js'
+import PostMainPage from './components/PostMainPage.js'
 import TopBar from './components/TopBar.js'
 import CommentForm from './components/NewCommentForm.js'
 
@@ -11,7 +11,7 @@ class App extends Component {
           <section className="section">
               <div className="container">        
                   <TopBar/>      
-                  <BoxPost/>
+                  <PostMainPage/>
                   <MediaPost/>
                   <MediaPost/>
                   <CommentForm/> 
