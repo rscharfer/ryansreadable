@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
-import Comment from './components/Comment.js'
-import SimplePost from './components/SimplePost.js'
 import TopBar from './components/TopBar.js'
-
-import DetailedPost from './components/DetailedPost.js'
-import NewCommentForm from './components/NewCommentForm.js'
-import NewPostForm from './components/NewPostForm.js'
-import StatefulComponent from './components/StatefulComponent.js'
-import { Route } from 'react-router-dom';
 import PostContainer from './components/PostContainer.js'
+import NewPostForm from './components/NewPostForm.js'
+import { Route } from 'react-router-dom';
+
 
 class App extends Component {
 
@@ -47,14 +42,8 @@ class App extends Component {
                   <Route exact path="/" render={
                     ()=><PostContainer/>
                   }/>
-                  <Comment/>
-                  <Comment/>
                   
-             
-                  <DetailedPost/>
-                  <NewCommentForm/>
-                  <NewPostForm/>
-                  <StatefulComponent/>
+                 
               </div>
           </section>
 

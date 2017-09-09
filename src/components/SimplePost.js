@@ -3,7 +3,6 @@ import React from 'react'
 
 function SimplePost(props){
 
-  fetch("http://localhost:5001/categories",{ headers: { 'Authorization': 'crazyPants' }}).then(res=>res.json()).then((json)=>console.log(json));
 
   return (      
 
