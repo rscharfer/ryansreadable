@@ -1,7 +1,7 @@
 import React from 'react'
 
 
-function SimplePost(){
+function SimplePost(props){
 
   fetch("http://localhost:5001/categories",{ headers: { 'Authorization': 'crazyPants' }}).then(res=>res.json()).then((json)=>console.log(json));
 
@@ -10,13 +10,13 @@ function SimplePost(){
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">
-              <p className="title">Simple Post</p>
-              <p className="subtitle">Total Votes: 124</p>
+              <p className="title">{props.meta.title}</p>
+              <p className="subtitle">Total Votes: {props.meta.voteScore}</p>
             
              <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                <li><span>Ryan Scharfer&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><span>&nbsp;&nbsp;&nbsp;Jan 5th, 2017&nbsp;&nbsp;&nbsp;</span></li>
+                <li><span>{props.meta.author}&nbsp;&nbsp;&nbsp;</span></li>
+                  <li><span>&nbsp;&nbsp;&nbsp;{props.meta.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;34 Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>

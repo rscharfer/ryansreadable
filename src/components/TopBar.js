@@ -1,22 +1,40 @@
 import React, { Component } from 'react'
+import jsObject from '../PostObjects/JavaScriptPostObject.js'
+import { Link } from 'react-router-dom'
+
+
 
 function TopBar(){
+
+
+  const createPost = ()=>{
+
+  	console.log('button pop')
+
+  	fetch("http://localhost:3001/posts",{
+  		headers: { 'authorization': 'crazypassword',
+  					'Content-Type': 'application/json' },
+  		method:'POST',
+  		body:JSON.stringify(jsObject)
+
+  	}).then(res=>console.log(res))
+  }
 
   return(
 
       <nav className="level is-mobile">
   <div className="level-left">
     <p className="level-item">
-      <a>All</a>
+      <Link to="/">All</Link>
     </p>
     <p className="level-item">
-      <a>Javascript</a>
+      <Link to="Javascript">Javascript</Link>
     </p>
     <p className="level-item">
-      <a>React</a>
+      <Link to="React">React</Link>
     </p>
     <p className="level-item">
-      <a>Angular</a>
+      <Link to="Angular">Angular</Link>
     </p>
   </div>
 
@@ -34,7 +52,7 @@ function TopBar(){
       <a>Date</a>
     </p>
     <p className="level-item">
-      <a className="button is-success">Create New Post</a>
+      <a className="button is-success" onClick={createPost}>Create New Post</a>
     </p></div>
 </nav>
 
