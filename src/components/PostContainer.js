@@ -16,8 +16,8 @@ class PostContainer extends Component {
 
 	componentDidMount(){
 
-		
-		const posts = fetch("http://localhost:3001/"+this.props.cat+'/'+'posts',{headers:{authorization:'crazypassword'}})
+		console.log(`http://localhost:3001/${this.props.cat?'/'+this.props.cat:''}/posts`)
+		const posts = fetch(`http://localhost:3001${this.props.cat?'/'+this.props.cat:''}/posts`,{headers:{authorization:'crazypassword'}})
 					  .then(res=>res.json(),err=>console.log(`There was an error`,err))
 					  .then(data=>this.setState({posts:data}),err=>console.log(`There was another error`,err))
 	}

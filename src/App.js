@@ -15,7 +15,7 @@ class App extends Component {
   constructor(props){
     super(props),
     this.state = {
-      addPostWindowShown:true
+      addPostWindowShown:false
     }
     this.togWindow = ()=>{
     console.log('new post window toggled')
