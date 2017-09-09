@@ -1,23 +1,50 @@
 import React, { Component } from 'react'
 
 
-function NewPostForm(props){
+class NewPostForm extends Component{
 
-  
-    return (
+    constructor(props){
+    super();
+    this.postToServer = this.postToServer.bind(this);
+    this.state = {
+      userName : '',
+      title : '',
+      category : '',
+      message : '',
+    }
+    
+}
+
+    postToServer(event){
+
+    
+
+    
+
+}
+
+
+    render(){
+
+ return (
 <div className="columns is-centered">
 <div className=" column is-8">
   <div className="field">
     <label className="label">Title</label>
     <div className="control">
-      <input className="input" type="text" placeholder="My Post Title"/>
+      <input className="input" type="text" onChange={
+        (e)=>this.setState( {title:e.target.value} )
+      } 
+      placeholder="My Post Title"/>
     </div>
   </div>
 
   <div className="field">
     <label className="label">Username</label>
     <div className="control has-icons-left">
-      <input className="input is-success" type="text" placeholder="Joe Smith"/>
+      <input className="input is-success" type="text" onChange={
+        (e)=>this.setState( {userName:e.target.value} )
+      }placeholder="Joe Smith"/>
       <span className="icon is-small is-left">
         <i className="fa fa-user"></i>
       </span>
@@ -28,7 +55,9 @@ function NewPostForm(props){
   <label className="label">Category</label>
   <div className="control">
     <div className="select">
-      <select>
+      <select onChange={
+        (e)=>this.setState( {category:e.target.value} )
+      }>
         <option>Javascript</option>
         <option>React</option>
         <option>Angular</option>
@@ -40,17 +69,19 @@ function NewPostForm(props){
 <div className="field">
   <label className="label">Message</label>
   <div className="control">
-    <textarea className="textarea" placeholder="Post your message here"></textarea>
+    <textarea className="textarea" onChange={
+      (e)=>this.setState( {message:e.target.value} )
+    }placeholder="Post your message here"></textarea>
   </div>
 </div>
 
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary">Submit</button>
+    <button className="button is-primary" onClick={this.postToServer}>Submit</button>
   </div>
   <div className="control">
-    <button className="button is-link" onClick={props.closeWindow}>Cancel</button>
+    <button className="button is-link" onClick={this.props.closeWindow}>Cancel</button>
   </div>
 </div>
 
@@ -58,6 +89,7 @@ function NewPostForm(props){
 </div>
 
       )
+} 
 
 
 }
