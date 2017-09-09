@@ -4,21 +4,8 @@ import { Link } from 'react-router-dom'
 
 
 
-function TopBar(){
+function TopBar(props){
 
-
-  const createPost = ()=>{
-
-  	console.log('button pop')
-
-  	fetch("http://localhost:3001/posts",{
-  		headers: { 'authorization': 'crazypassword',
-  					'Content-Type': 'application/json' },
-  		method:'POST',
-  		body:JSON.stringify(jsObject)
-
-  	}).then(res=>console.log(res))
-  }
 
   return(
 
@@ -52,7 +39,7 @@ function TopBar(){
       <a>Date</a>
     </p>
     <p className="level-item">
-      <a className="button is-success" onClick={createPost}>Create New Post</a>
+      <a className="button is-success" onClick={props.openWindow}>Create New Post</a>
     </p></div>
 </nav>
 

@@ -17,8 +17,8 @@ class App extends Component {
     this.state = {
       addPostWindowShown:true
     }
-    this.togPostWindow = ()=>{
-    console.log('clicked')
+    this.togWindow = ()=>{
+    console.log('new post window toggled')
     if(this.state.addPostWindowShown) this.setState({addPostWindowShown:false})
     else this.setState({addPostWindowShown:true})
     }
@@ -34,7 +34,7 @@ class App extends Component {
           
            <section className="section">
               <div className="container">        
-                  <TopBar/>   
+                  <TopBar openWindow={this.togWindow}/>   
                    <Route exact path="/angular" render={
                     ()=><PostContainer cat="Angular"/>
                   }/>
@@ -63,7 +63,7 @@ class App extends Component {
       }
       {this.state.addPostWindowShown&&(
 
-          <NewPostForm closeWindow={this.togPostWindow}/>
+          <NewPostForm closeWindow={this.togWindow}/>
 
         )}
 
