@@ -17,7 +17,15 @@ class App extends Component {
     this.state = {
       addPostWindowShown:true
     }
+    this.togPostWindow = ()=>{
+    console.log('clicked')
+    if(this.state.addPostWindowShown) this.setState({addPostWindowShown:false})
+    else this.setState({addPostWindowShown:true})
+    }
   }
+
+
+  
   render() {
     return (
       <div>
@@ -55,7 +63,7 @@ class App extends Component {
       }
       {this.state.addPostWindowShown&&(
 
-          <NewPostForm/>
+          <NewPostForm closeWindow={this.togPostWindow}/>
 
         )}
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 
 
-function NewPostForm(){
+function NewPostForm(props){
 
   
     return (
@@ -50,7 +50,7 @@ function NewPostForm(){
     <button className="button is-primary">Submit</button>
   </div>
   <div className="control">
-    <button className="button is-link">Cancel</button>
+    <button className="button is-link" onClick={props.closeWindow}>Cancel</button>
   </div>
 </div>
 
