@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import PostConstructor from './PostConstructor.js'
 
 
+
 class NewPostForm extends Component{
 
     constructor(props){
@@ -10,18 +11,23 @@ class NewPostForm extends Component{
     this.state = {
       userName : '',
       title : '',
-      category : '',
+      category : 'Javascript',
       message : '',
     }
     
 }
 
-    postToServer(event){
+    postToServer(){
 
-    
-
-    
-
+    const newPost = new PostConstructor(this.state);
+    const stringified = JSON.stringify(newPost);
+    const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+    fetch("http://localhost:3001/posts",{
+      headers:headers,
+      method:'POST',
+      body:stringified
+    }).then(response=>response.json()).then(json=>console.log(json));
+    this.props.closeWindow();
 }
 
 
