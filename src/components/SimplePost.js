@@ -1,9 +1,10 @@
 import React from 'react'
+import VoteUp from './VoteUp.js'
 
 
 function SimplePost(props){
 
-
+  console.log('props is ',props)
   return (      
 
       <div className="columns is-centered">
@@ -17,7 +18,7 @@ function SimplePost(props){
                 <li><span>{props.meta.author}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{props.meta.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;34 Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
+                  <VoteUp postID={props.meta.id}/>                  
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
