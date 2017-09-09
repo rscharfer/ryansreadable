@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import PostConstructor from './PostConstructor.js'
 
 
 class NewPostForm extends Component{
