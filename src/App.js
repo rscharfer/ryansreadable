@@ -12,37 +12,60 @@ class App extends Component {
     super(props)
 
     this.state = {
-      editPost:false,
+      showPostForm:false,
+      emptyForm:false,
       currentlyEdited:'',
       currentPosts : [],
-      currentlyEditedObject:{}
+      currentlyEditedObject:{},
+
+
     }
 
-    this.togWindow = this.togWindow.bind(this)
+  
+
+    this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
  
     this.refreshState = this.refreshState.bind(this);
+
+    this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
+
+    this.closePostForm = this.closePostForm.bind(this);
 
     
   }
 
-  togWindow(id,parent){
+
+
+    closePostForm(){
+
+      this.setState({showPostForm:false})
+    }
+
+    showPopulatedPostForm(id,parent){
+
+      this.setState({showPostForm:true})
+      this.setState({emptyForm:false})
+
+      this.setState({currentlyEdited:id})
+      this.setState({currentlyEditedObject:parent})
     
 
-    if(this.state.editPost) this.setState({editPost:false})
-    else this.setState({editPost:true})
+    }
 
-    if(id)this.setState({currentlyEdited:id})
-    if(parent)this.setState({currentlyEditedObject:parent})
+    showEmptyPostForm(){
+
+        this.setState({showPostForm:true})
+        this.setState({emptyForm:true})
+        
     }
 
 
 
 
   refreshState(){
-
-  console.log('refresh state called')
-  this.setState(this.state)
-}
+      
+      this.setState(this.state)
+  }
 
 componentDidUpdate(){console.log('updated')}
 
@@ -50,23 +73,23 @@ componentDidUpdate(){console.log('updated')}
   render() {
     return (
       <div>
-      {!this.state.editPost && (
+      {!this.state.showPostForm && (
         
           
            <section className="section">
               <div className="container">        
-                  <TopBar openWindow={this.togWindow}/>   
+                  <TopBar showEmptyPostForm={this.showEmptyPostForm}/>   
                    <Route exact path="/angular" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="Angular"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
                   }/>
                   <Route exact path="/javascript" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="Javascript"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
                   }/>
                   <Route exact path="/react" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="React"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
                   }/>
                   <Route exact path="/" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow}/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm}/>
                   }/>
                   
                  
@@ -76,10 +99,9 @@ componentDidUpdate(){console.log('updated')}
 
         )
       }
-      {this.state.editPost&&(
+      {this.state.showPostForm&&(
 
-          <PostForm
- id={this.state.currentlyEdited} meta={this.state.currentlyEditedObject} closeWindow={this.togWindow}/>
+          <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject} closeWindow={this.closePostForm}/>
 
         )}
 

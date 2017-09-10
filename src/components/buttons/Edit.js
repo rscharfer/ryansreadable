@@ -14,7 +14,9 @@ class Edit extends Component{
 	}
 
 	fillForm(){
-		this.props.openWindow(this.state.IDOfParent,this.state.parent)
+		console.log(this.props)
+		this.props.showPopulatedForm(this.state.IDOfParent,this.state.parent)
+		// change the newPost prop of App
 
 	}
 

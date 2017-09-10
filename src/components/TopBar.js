@@ -38,7 +38,7 @@ function TopBar(props){
       <a>Date</a>
     </p>
     <p className="level-item">
-      <a className="button is-success" onClick={props.openWindow}>Create New Post</a>
+      <a className="button is-success" onClick={props.showEmptyPostForm}>Create New Post</a>
     </p></div>
 </nav>
 

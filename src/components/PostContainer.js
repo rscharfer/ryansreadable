@@ -45,7 +45,7 @@ class PostContainer extends Component {
 				<div>
 				{this.state.posts.filter(post=>!post.deleted).map((post)=>{
 					
-					return <SimplePost key={post.id} updateContainer={this.updateContainer} openWindow={this.props.openWindow} meta={post}/>
+					return <SimplePost key={post.id} updateContainer={this.updateContainer} showPopulatedForm={this.props.showPopulatedForm} meta={post}/>
 				})}
 				</div>
 			)

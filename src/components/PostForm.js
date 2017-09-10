@@ -5,47 +5,66 @@ import PostConstructor from '../constructors/PostConstructor.js'
 
 class PostForm extends Component{
 
-    // every instance of PostForm is initialized with a state that has a lot of empty strings and 'Javascript'
+    // rendered in App.js - props object includes 'meta' and 'closeWindow'
+    // 'meta' props object contains author, body, category, deleted, id, timestamp, title, voteScore
+    // the state of every instance of PostForm is initialized with the values on the props.meta object or default values
     // every instance of PostForm has a postToServer method
+
+
     constructor(props){
       super();
+
+     
       this.postToServer = this.postToServer.bind(this);
+      this.savesEdit = this.savesEdit.bind(this);
       this.state = {
-        userName : props.meta.userName || '',
-        title : props.meta.title || '',
-        category : props.meta.category || 'Javascript',
-        message : props.meta.message || '',
+        userName : props.newPost ? '' : props.meta.author ,
+        title : props.newPost ? '' : props.meta.title,
+        category : props.newPost ? 'Javascript' : props.meta.category,
+        message : props.newPost ? '' : props.meta.message,
+        newPost : props.newPost
       }
+    
     }
 
-    componentDidMount(){
 
-      if(this.props.id) {
-        console.log('http://localhost:3001/posts/'+this.props.id)
-        fetch('http://localhost:3001/posts/'+this.props.id,{headers:{authorization:'crazypassword'}}).then(resp=>resp.json())
-        .then(json=>console.log(this.setState(
-          {title:json.title,
-           userName:json.author,
-           category:json.category,
-           message:json.body
-          }
-          )
-          ))
 
-      }
+    savesEdit(){
+
+      console.log('saved edit')
+      // create "edit object" with new values 
+      const editObject = {title:this.state.title,body:this.state.message};
+      // stringify that "edit object"
+      const stringified = JSON.stringify(editObject);
+      // create headers
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      // make the put to server
+      fetch("http://localhost:3001/posts/"+this.props.meta.id,{
+        headers:headers,
+        method:'PUT',
+        body:stringified
+        })
+
+      this.props.closeWindow();
     }
 
     postToServer(){
 
-    const newPost = new PostConstructor(this.state);
-    const stringified = JSON.stringify(newPost);
-    const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-    fetch("http://localhost:3001/posts",{
-      headers:headers,
-      method:'POST',
-      body:stringified
-    }).then(response=>response.json());
-    this.props.closeWindow();
+      console.log('posted to server')
+      // create a new post with the current state
+      const newPost = new PostConstructor(this.state);
+      // stringify that post
+      const stringified = JSON.stringify(newPost);
+      // create headers
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      // make the post to server
+      fetch("http://localhost:3001/posts",{
+        headers:headers,
+        method:'POST',
+        body:stringified
+        })
+
+      this.props.closeWindow();
 }
 
 
@@ -104,7 +123,7 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.postToServer}>Submit</button>
+    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.savesEdit}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closeWindow}>Cancel</button>
