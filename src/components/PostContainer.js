@@ -28,7 +28,7 @@ class PostContainer extends Component {
 				<div>
 				{this.state.posts.map((post)=>{
 					console.log(post);
-					return <SimplePost key={post.id} meta={post}/>
+					return <SimplePost key={post.id} openWindow={this.props.openWindow} meta={post}/>
 				})}
 				</div>
 			)

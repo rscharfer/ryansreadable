@@ -8,39 +8,54 @@ import { Route } from 'react-router-dom';
 class App extends Component {
 
   constructor(props){
-    super(props),
+
+    super(props)
+
     this.state = {
-      addPostWindowShown:false
+      editPost:false,
+      currentlyEdited:'',
     }
-    this.togWindow = ()=>{
-    console.log('new post window toggled')
-    if(this.state.addPostWindowShown) this.setState({addPostWindowShown:false})
-    else this.setState({addPostWindowShown:true})
-    }
+
+    this.togWindow = this.togWindow.bind(this)
+
+    
   }
 
+  togWindow(id){
+    
+
+    if(this.state.editPost) this.setState({editPost:false})
+    else this.setState({editPost:true})
+
+    if(id)this.setState({currentlyEdited:id})
+    }
+
+
+  openWindowForEditing(){
+    this.setState({editPost:true})
+  }
 
   
   render() {
     return (
       <div>
-      {!this.state.addPostWindowShown && (
+      {!this.state.editPost && (
         
           
            <section className="section">
               <div className="container">        
                   <TopBar openWindow={this.togWindow}/>   
                    <Route exact path="/angular" render={
-                    ()=><PostContainer cat="Angular"/>
+                    ()=><PostContainer openWindow={this.togWindow} cat="Angular"/>
                   }/>
                   <Route exact path="/javascript" render={
-                    ()=><PostContainer cat="Javascript"/>
+                    ()=><PostContainer openWindow={this.togWindow} cat="Javascript"/>
                   }/>
                   <Route exact path="/react" render={
-                    ()=><PostContainer cat="React"/>
+                    ()=><PostContainer openWindow={this.togWindow} cat="React"/>
                   }/>
                   <Route exact path="/" render={
-                    ()=><PostContainer/>
+                    ()=><PostContainer openWindow={this.togWindow}/>
                   }/>
                   
                  
@@ -50,9 +65,9 @@ class App extends Component {
 
         )
       }
-      {this.state.addPostWindowShown&&(
+      {this.state.editPost&&(
 
-          <NewPostForm closeWindow={this.togWindow}/>
+          <NewPostForm id={this.state.currentlyEdited} closeWindow={this.togWindow}/>
 
         )}
 

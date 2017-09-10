@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import jsObject from '../PostObjects/JavaScriptPostObject.js'
 import { Link } from 'react-router-dom'
 
 

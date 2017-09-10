@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-
+import VoteConstructor from '../../constructors/VoteConstructor.js'
 
 class VoteUp extends Component{
 
@@ -12,7 +12,12 @@ class VoteUp extends Component{
 
 	upVote(e){
 			e.preventDefault();
-			console.log(this.state);
+			const id = this.props.postID
+			const voteUrl = 'http://localhost:3001/posts/'+id;
+			const vote = new VoteConstructor('upVote');
+			const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+			fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)}).then(resp=>resp.json()).then(json=>console.log(json))
+			this.props.changeVote('up');
 		}
 
 	render(){

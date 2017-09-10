@@ -1,21 +1,37 @@
 import React, { Component } from 'react'
-import PostConstructor from './PostConstructor.js'
+import PostConstructor from '../constructors/PostConstructor.js'
 
 
 
 class NewPostForm extends Component{
 
     constructor(props){
-    super();
-    this.postToServer = this.postToServer.bind(this);
-    this.state = {
-      userName : '',
-      title : '',
-      category : 'Javascript',
-      message : '',
+      super();
+      this.postToServer = this.postToServer.bind(this);
+      this.state = {
+        userName : '',
+        title : '',
+        category : 'Javascript',
+        message : '',
+      }
     }
-    
-}
+
+    componentDidMount(){
+
+      if(this.props.id) {
+        console.log('http://localhost:3001/posts/'+this.props.id)
+        fetch('http://localhost:3001/posts/'+this.props.id,{headers:{authorization:'crazypassword'}}).then(resp=>resp.json())
+        .then(json=>console.log(this.setState(
+          {title:json.title,
+           userName:json.author,
+           category:json.category,
+           message:json.body
+          }
+          )
+          ))
+
+      }
+    }
 
     postToServer(){
 
@@ -32,6 +48,7 @@ class NewPostForm extends Component{
 
 
     render(){
+       
 
  return (
 <div className="columns is-centered">
@@ -39,7 +56,7 @@ class NewPostForm extends Component{
   <div className="field">
     <label className="label">Title</label>
     <div className="control">
-      <input className="input" type="text" onChange={
+      <input className="input" type="text" value={this.state.title} onChange={
         (e)=>this.setState( {title:e.target.value} )
       } 
       placeholder="My Post Title"/>
@@ -49,7 +66,7 @@ class NewPostForm extends Component{
   <div className="field">
     <label className="label">Username</label>
     <div className="control has-icons-left">
-      <input className="input is-success" type="text" onChange={
+      <input className="input is-success" value={this.state.userName} type="text" onChange={
         (e)=>this.setState( {userName:e.target.value} )
       }placeholder="Joe Smith"/>
       <span className="icon is-small is-left">
@@ -62,7 +79,7 @@ class NewPostForm extends Component{
   <label className="label">Category</label>
   <div className="control">
     <div className="select">
-      <select onChange={
+      <select value={this.state.category} onChange={
         (e)=>this.setState( {category:e.target.value} )
       }>
         <option>Javascript</option>
@@ -76,7 +93,7 @@ class NewPostForm extends Component{
 <div className="field">
   <label className="label">Message</label>
   <div className="control">
-    <textarea className="textarea" onChange={
+    <textarea className="textarea" value={this.state.message} onChange={
       (e)=>this.setState( {message:e.target.value} )
     }placeholder="Post your message here"></textarea>
   </div>
