@@ -8,27 +8,45 @@ class PostContainer extends Component {
 		super(props);
 		this.state = {
 		posts: [], }
+		this.updateContainer = this.updateContainer.bind(this)
 
 	}
 
 	
-
+    updateContainer(id){
+    	
+    	this.setState(
+    		(prevState,props)=>{
+    			return {posts:prevState.posts.filter(post=>post.id!==id)}
+    		}
+		)
+    
+    }
 
 	componentDidMount(){
 
-		console.log(`http://localhost:3001/${this.props.cat?'/'+this.props.cat:''}/posts`)
 		const posts = fetch(`http://localhost:3001${this.props.cat?'/'+this.props.cat:''}/posts`,{headers:{authorization:'crazypassword'}})
-					  .then(res=>res.json(),err=>console.log(`There was an error`,err))
-					  .then(data=>this.setState({posts:data}),err=>console.log(`There was another error`,err))
+					  .then(res=>{
+					  	
+					  	return res.json()
+					  })
+					  .then(data=>{
+					  	console.log(this.state.posts)
+					  	this.setState({posts:data.filter(post=>!post.deleted)})
+					  	console.log(this.state.posts)
+					  })
+					  
 	}
 
 
 	render(){
+
+		console.log('here are the posts',this.state.posts)
 		return (
 				<div>
-				{this.state.posts.map((post)=>{
-					console.log(post);
-					return <SimplePost key={post.id} openWindow={this.props.openWindow} meta={post}/>
+				{this.state.posts.filter(post=>!post.deleted).map((post)=>{
+					
+					return <SimplePost key={post.id} updateContainer={this.updateContainer} openWindow={this.props.openWindow} meta={post}/>
 				})}
 				</div>
 			)

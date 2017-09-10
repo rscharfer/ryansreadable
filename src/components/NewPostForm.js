@@ -42,7 +42,7 @@ class NewPostForm extends Component{
       headers:headers,
       method:'POST',
       body:stringified
-    }).then(response=>response.json()).then(json=>console.log(json));
+    }).then(response=>response.json());
     this.props.closeWindow();
 }
 

@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import VoteUp from './buttons/VoteUp.js'
 import VoteDown from './buttons/VoteDown.js'
 import Edit from './buttons/Edit.js'
+import Delete from './buttons/Delete.js'
 
 class SimplePost extends Component{
 
@@ -35,6 +36,7 @@ class SimplePost extends Component{
 
     return (      
 
+
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">
@@ -48,8 +50,8 @@ class SimplePost extends Component{
                   <li><span>&nbsp;&nbsp;&nbsp;{this.state.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
                   <VoteDown postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
-                  <Edit postID={this.props.meta.id} openWindow={this.props.openWindow}/>                     
-                    <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                  <Edit postID={this.props.meta.id} openWindow={this.props.openWindow}/>
+                  <Delete updateContainer= {this.props.updateContainer} postID={this.props.meta.id} cp={this.props.containerPosts}/>                     
                   
               </ul>
             </nav>

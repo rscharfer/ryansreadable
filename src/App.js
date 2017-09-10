@@ -14,9 +14,12 @@ class App extends Component {
     this.state = {
       editPost:false,
       currentlyEdited:'',
+      currentPosts : [],
     }
 
     this.togWindow = this.togWindow.bind(this)
+ 
+    this.refreshState = this.refreshState.bind(this);
 
     
   }
@@ -31,9 +34,15 @@ class App extends Component {
     }
 
 
-  openWindowForEditing(){
-    this.setState({editPost:true})
-  }
+
+
+  refreshState(){
+
+  console.log('refresh state called')
+  this.setState(this.state)
+}
+
+componentDidUpdate(){console.log('updated')}
 
   
   render() {
@@ -46,16 +55,16 @@ class App extends Component {
               <div className="container">        
                   <TopBar openWindow={this.togWindow}/>   
                    <Route exact path="/angular" render={
-                    ()=><PostContainer openWindow={this.togWindow} cat="Angular"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="Angular"/>
                   }/>
                   <Route exact path="/javascript" render={
-                    ()=><PostContainer openWindow={this.togWindow} cat="Javascript"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="Javascript"/>
                   }/>
                   <Route exact path="/react" render={
-                    ()=><PostContainer openWindow={this.togWindow} cat="React"/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow} cat="React"/>
                   }/>
                   <Route exact path="/" render={
-                    ()=><PostContainer openWindow={this.togWindow}/>
+                    ()=><PostContainer refreshAppState = {this.refreshState} openWindow={this.togWindow}/>
                   }/>
                   
                  
