@@ -10,7 +10,7 @@ class VoteDown extends Component{
 
 	downVote(e){
 			e.preventDefault();
-			const id = this.props.postID
+			const id = this.props.meta.id
 			const voteUrl = 'http://localhost:3001/posts/'+id;
 			const vote = new VoteConstructor('downVote');
 			const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};

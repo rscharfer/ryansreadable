@@ -48,10 +48,10 @@ class SimplePost extends Component{
                 <li><span>{this.props.meta.author}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{this.props.meta.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{this.state.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <VoteUp postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
-                  <VoteDown postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
-                  <Edit postID={this.props.meta.id} meta={this.props.meta} showPopulatedForm={this.props.showPopulatedForm}/>
-                  <Delete updateContainer= {this.props.updateContainer} postID={this.props.meta.id} cp={this.props.containerPosts}/>                     
+                  <VoteUp meta={this.props.meta} changeVote={this.changeVoteTotal}/>
+                  <VoteDown meta={this.props.meta} changeVote={this.changeVoteTotal}/>
+                  <Edit meta={this.props.meta} showPopulatedForm={this.props.showPopulatedForm}/>
+                  <Delete meta={this.props.meta} removePost={this.props.removePost}/>                     
                   
               </ul>
             </nav>

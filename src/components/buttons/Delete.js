@@ -3,29 +3,21 @@ import React, { Component } from 'react'
 
 class Delete extends Component{
 
+	// props include removePost to remove the post from PostContainer and meta for the meta data about the post
 	constructor(props){
 		super();
 		this.deleteFromServer = this.deleteFromServer.bind(this)
-		this.state = {
-			IDOfParent : props.postID || props.commentID,
-			containerPosts: props.cp
-		}
+		
 		
 	}
 
 	deleteFromServer(e){
 		e.preventDefault();
-		const url = 'http://localhost:3001/posts/'+ this.state.IDOfParent;
+		const id = this.props.meta.id
+		const url = 'http://localhost:3001/posts/'+ id;
 		const headers = {authorization:'crazypassword'}
 		fetch(url,{headers:headers,method:'DELETE'})
-		// const postToDelete = this.state.containerPosts.filter(post=>post.id===this.state.IDOfParent)[0];
-		// console.log(postToDelete)
-		this.props.updateContainer(this.state.IDOfParent);
-		
-
-		
-
-	
+		this.props.removePost(id);
 	}
 
 	render(){

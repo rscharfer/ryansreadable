@@ -6,14 +6,14 @@ class PostContainer extends Component {
 
 	constructor(props){
 		super(props);
-		
+
 		this.state = { posts: [] }
-		this.updateContainer = this.updateContainer.bind(this)
+		this.removePost = this.removePost.bind(this)
 
 	}
 
 	
-    updateContainer(id){
+    removePost(id){
     	
     	this.setState(
     		(prevState,props)=>{
@@ -45,7 +45,7 @@ class PostContainer extends Component {
 				<div>
 				{this.state.posts.filter(post=>!post.deleted).map((post)=>{
 					
-					return <SimplePost key={post.id} updateContainer={this.updateContainer} showPopulatedForm={this.props.showPopulatedForm} meta={post}/>
+					return <SimplePost key={post.id} removePost={this.removePost} showPopulatedForm={this.props.showPopulatedForm} meta={post}/>
 				})}
 				</div>
 			)

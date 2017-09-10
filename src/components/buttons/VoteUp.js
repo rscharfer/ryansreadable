@@ -5,14 +5,12 @@ class VoteUp extends Component{
 
 	constructor(props){
 		super(props);
-		//this.state = {postID:props.postID}
-		// props has a postID prop we can use ... we don't need state
 		this.upVote = this.upVote.bind(this)
 	}
 
 	upVote(e){
 			e.preventDefault();
-			const id = this.props.postID
+			const id = this.props.meta.id
 			const voteUrl = 'http://localhost:3001/posts/'+id;
 			const vote = new VoteConstructor('upVote');
 			const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};

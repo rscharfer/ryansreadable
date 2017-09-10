@@ -3,20 +3,19 @@ import React, { Component } from 'react'
 
 class Edit extends Component{
 
+	// props include the meta data for the post being edited and the showPopulatedForm
+
 	constructor(props){
 		super();
 		this.fillForm = this.fillForm.bind(this)
-		this.state = {
-			// IDOfParent : props.postID || props.commentID,
-			parent:props.meta
-		}
+		
 		
 	}
 
 	fillForm(){
-		// console.log(this.props)
-		this.props.showPopulatedForm(this.state.parent)
-		// change the newPost prop of App
+		
+		this.props.showPopulatedForm(this.props.meta)
+		
 
 	}
 
