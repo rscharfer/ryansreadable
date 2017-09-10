@@ -14,18 +14,16 @@ class App extends Component {
     this.state = {
       showPostForm:false,
       emptyForm:false,
-      currentlyEdited:'',
-      currentPosts : [],
-      currentlyEditedObject:{},
-
-
+    //  currentlyEdited:'',
+    //  currentPosts : [],
+    //  currentlyEditedObject:{},
     }
 
   
 
     this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
  
-    this.refreshState = this.refreshState.bind(this);
+    // this.refreshState = this.refreshState.bind(this);
 
     this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
 
@@ -41,13 +39,20 @@ class App extends Component {
       this.setState({showPostForm:false})
     }
 
-    showPopulatedPostForm(id,parent){
+    showPopulatedPostForm(parent){
 
-      this.setState({showPostForm:true})
-      this.setState({emptyForm:false})
+      this.setState({
+        showPostForm:true,
+        emptyForm:false,
+        currentlyEditedObject:parent
 
-      this.setState({currentlyEdited:id})
-      this.setState({currentlyEditedObject:parent})
+      })
+
+      // this.setState({showPostForm:true})
+      // this.setState({emptyForm:false})
+
+      // // this.setState({currentlyEdited:id})
+      // this.setState({currentlyEditedObject:parent})
     
 
     }
@@ -62,12 +67,12 @@ class App extends Component {
 
 
 
-  refreshState(){
+//   refreshState(){
       
-      this.setState(this.state)
-  }
+//       this.setState(this.state)
+//   }
 
-componentDidUpdate(){console.log('updated')}
+// componentDidUpdate(){console.log('updated')}
 
   
   render() {
@@ -80,16 +85,16 @@ componentDidUpdate(){console.log('updated')}
               <div className="container">        
                   <TopBar showEmptyPostForm={this.showEmptyPostForm}/>   
                    <Route exact path="/angular" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
+                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
                   }/>
                   <Route exact path="/javascript" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
+                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
                   }/>
                   <Route exact path="/react" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
+                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
                   }/>
                   <Route exact path="/" render={
-                    ()=><PostContainer refreshAppState = {this.refreshState} showPopulatedForm={this.showPopulatedPostForm}/>
+                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                   }/>
                   
                  
@@ -99,7 +104,7 @@ componentDidUpdate(){console.log('updated')}
 
         )
       }
-      {this.state.showPostForm&&(
+      {this.state.showPostForm && (
 
           <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject} closeWindow={this.closePostForm}/>
 
