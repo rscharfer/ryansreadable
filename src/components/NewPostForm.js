@@ -5,6 +5,8 @@ import PostConstructor from '../constructors/PostConstructor.js'
 
 class NewPostForm extends Component{
 
+    // every instance of NewPostForm is initialized with a state that has a lot of empty strings and 'Javascript'
+    // every instance of NewPostForm has a postToServer method
     constructor(props){
       super();
       this.postToServer = this.postToServer.bind(this);

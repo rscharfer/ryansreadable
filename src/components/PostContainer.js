@@ -41,7 +41,6 @@ class PostContainer extends Component {
 
 	render(){
 
-		console.log('here are the posts',this.state.posts)
 		return (
 				<div>
 				{this.state.posts.filter(post=>!post.deleted).map((post)=>{
