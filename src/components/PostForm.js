@@ -5,9 +5,13 @@ import PostConstructor from '../constructors/PostConstructor.js'
 
 class PostForm extends Component{
 
-    // rendered in App.js - props object includes 'meta' and 'closeWindow'
+    // props object includes 
+      // 'newPost' - is it a new post or one being edited,  
+      // 'meta' - if being edited, this is the information about the post 
+      // 'closeWindow' - this will toggle the showPostForm on the App state, and hide the form
+
     // 'meta' props object contains author, body, category, deleted, id, timestamp, title, voteScore
-    // the state of every instance of PostForm is initialized with the values on the props.meta object or default values
+    // the state of every instance of PostForm is initialized with the default values or the values on the meta object
     // every instance of PostForm has a postToServer method
 
 
