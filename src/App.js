@@ -12,75 +12,51 @@ class App extends Component {
     super(props)
 
     this.state = {
+
       showPostForm:false,
       emptyForm:false,
-    //  currentlyEdited:'',
-    //  currentPosts : [],
-    //  currentlyEditedObject:{},
+      currentlyEditedObject:undefined
     }
 
   
 
     this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
  
-    // this.refreshState = this.refreshState.bind(this);
-
     this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
 
     this.closePostForm = this.closePostForm.bind(this);
-
-    
   }
 
-
-
-    closePostForm(){
-
-      this.setState({showPostForm:false})
-    }
-
-    showPopulatedPostForm(parent){
+  showEmptyPostForm(){
 
       this.setState({
         showPostForm:true,
-        emptyForm:false,
-        currentlyEditedObject:parent
-
+        emptyForm:true
       })
-
-      // this.setState({showPostForm:true})
-      // this.setState({emptyForm:false})
-
-      // // this.setState({currentlyEdited:id})
-      // this.setState({currentlyEditedObject:parent})
     
+  }
 
-    }
+  showPopulatedPostForm(parent){
 
-    showEmptyPostForm(){
+    this.setState({
+      showPostForm:true,
+      emptyForm:false,
+      currentlyEditedObject:parent
+    })
+  }
 
-        this.setState({showPostForm:true})
-        this.setState({emptyForm:true})
-        
-    }
+  closePostForm(){
 
+    this.setState({showPostForm:false})
+  }
 
-
-
-//   refreshState(){
-      
-//       this.setState(this.state)
-//   }
-
-// componentDidUpdate(){console.log('updated')}
-
-  
   render() {
     return (
       <div>
+
+
       {!this.state.showPostForm && (
-        
-          
+
            <section className="section">
               <div className="container">        
                   <TopBar showEmptyPostForm={this.showEmptyPostForm}/>   
@@ -100,25 +76,22 @@ class App extends Component {
                  
               </div>
           </section>
-
-
         )
       }
+
+
       {this.state.showPostForm && (
 
           <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject} closeWindow={this.closePostForm}/>
-
-        )}
+        )
+      }
 
       </div>
-
-
-    
-
-
   
     );
   }
+
+
 }
 
 export default App;

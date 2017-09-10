@@ -6,21 +6,21 @@ import PostConstructor from '../constructors/PostConstructor.js'
 class PostForm extends Component{
 
     // props object includes 
-      // 'newPost' - is it a new post or one being edited,  
-      // 'meta' - if being edited, this is the information about the post 
-      // 'closeWindow' - this will toggle the showPostForm on the App state, and hide the form
+      // 'newPost' - is the form empty or not?  
+      // 'meta' - if the form is not empty, will be used to populate fields
+      // 'closeWindow' - this will hide the form on click
 
-    // 'meta' props object contains author, body, category, deleted, id, timestamp, title, voteScore
-    // the state of every instance of PostForm is initialized with the default values or the values on the meta object
-    // every instance of PostForm has a postToServer method
+    // 'meta' props object contains author, body, category, deleted, id, timestamp, title, voteScore properties, if the form is empty, the meta prop will be ignored and represents last post to get edited
+    // if the form is empty, it will get the default values, it it's to be populated, will use the meta object
+    // every instance of PostForm has a postToServer and save
 
 
     constructor(props){
       super();
 
-     
       this.postToServer = this.postToServer.bind(this);
-      this.savesEdit = this.savesEdit.bind(this);
+      this.saveEdit = this.saveEdit.bind(this);
+
       this.state = {
         userName : props.newPost ? '' : props.meta.author ,
         title : props.newPost ? '' : props.meta.title,
@@ -33,10 +33,10 @@ class PostForm extends Component{
 
 
 
-    savesEdit(){
+    saveEdit (){
 
       console.log('saved edit')
-      // create "edit object" with new values 
+     
       const editObject = {title:this.state.title,body:this.state.message};
       // stringify that "edit object"
       const stringified = JSON.stringify(editObject);
@@ -127,7 +127,8 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.savesEdit}>Save</button>
+    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.saveEdit
+}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closeWindow}>Cancel</button>

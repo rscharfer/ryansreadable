@@ -6,8 +6,8 @@ class PostContainer extends Component {
 
 	constructor(props){
 		super(props);
-		this.state = {
-		posts: [], }
+		
+		this.state = { posts: [] }
 		this.updateContainer = this.updateContainer.bind(this)
 
 	}
