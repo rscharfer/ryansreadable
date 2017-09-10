@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import TopBar from './components/TopBar.js'
 import PostContainer from './components/PostContainer.js'
-import NewPostForm from './components/NewPostForm.js'
+import PostForm from './components/PostForm.js'
 import { Route } from 'react-router-dom';
 
 
@@ -15,6 +15,7 @@ class App extends Component {
       editPost:false,
       currentlyEdited:'',
       currentPosts : [],
+      currentlyEditedObject:{}
     }
 
     this.togWindow = this.togWindow.bind(this)
@@ -24,13 +25,14 @@ class App extends Component {
     
   }
 
-  togWindow(id){
+  togWindow(id,parent){
     
 
     if(this.state.editPost) this.setState({editPost:false})
     else this.setState({editPost:true})
 
     if(id)this.setState({currentlyEdited:id})
+    if(parent)this.setState({currentlyEditedObject:parent})
     }
 
 
@@ -76,7 +78,8 @@ componentDidUpdate(){console.log('updated')}
       }
       {this.state.editPost&&(
 
-          <NewPostForm id={this.state.currentlyEdited} closeWindow={this.togWindow}/>
+          <PostForm
+ id={this.state.currentlyEdited} meta={this.state.currentlyEditedObject} closeWindow={this.togWindow}/>
 
         )}
 

@@ -3,18 +3,18 @@ import PostConstructor from '../constructors/PostConstructor.js'
 
 
 
-class NewPostForm extends Component{
+class PostForm extends Component{
 
-    // every instance of NewPostForm is initialized with a state that has a lot of empty strings and 'Javascript'
-    // every instance of NewPostForm has a postToServer method
+    // every instance of PostForm is initialized with a state that has a lot of empty strings and 'Javascript'
+    // every instance of PostForm has a postToServer method
     constructor(props){
       super();
       this.postToServer = this.postToServer.bind(this);
       this.state = {
-        userName : '',
-        title : '',
-        category : 'Javascript',
-        message : '',
+        userName : props.meta.userName || '',
+        title : props.meta.title || '',
+        category : props.meta.category || 'Javascript',
+        message : props.meta.message || '',
       }
     }
 
@@ -125,4 +125,4 @@ class NewPostForm extends Component{
 
 
 
-export default NewPostForm
+export default PostForm

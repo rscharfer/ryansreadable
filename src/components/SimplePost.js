@@ -50,7 +50,7 @@ class SimplePost extends Component{
                   <li><span>&nbsp;&nbsp;&nbsp;{this.state.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
                   <VoteDown postID={this.props.meta.id} changeVote={this.changeVoteTotal}/>
-                  <Edit postID={this.props.meta.id} openWindow={this.props.openWindow}/>
+                  <Edit postID={this.props.meta.id} meta={this.props.meta} openWindow={this.props.openWindow}/>
                   <Delete updateContainer= {this.props.updateContainer} postID={this.props.meta.id} cp={this.props.containerPosts}/>                     
                   
               </ul>

@@ -7,13 +7,15 @@ class Edit extends Component{
 		super();
 		this.fillForm = this.fillForm.bind(this)
 		this.state = {
-			IDOfParent : props.postID || props.commentID
+			IDOfParent : props.postID || props.commentID,
+			parent:props.meta
 		}
 		
 	}
 
 	fillForm(){
-		this.props.openWindow(this.state.IDOfParent)
+		this.props.openWindow(this.state.IDOfParent,this.state.parent)
+
 	}
 
 	render(){
