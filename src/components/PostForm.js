@@ -25,7 +25,7 @@ class PostForm extends Component{
         userName : props.newPost ? '' : props.meta.author ,
         title : props.newPost ? '' : props.meta.title,
         category : props.newPost ? 'Javascript' : props.meta.category,
-        message : props.newPost ? '' : props.meta.message,
+        message : props.newPost ? '' : props.meta.body,
         newPost : props.newPost
       }
     
