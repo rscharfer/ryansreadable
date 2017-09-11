@@ -3,6 +3,7 @@ import VoteUp from './buttons/VoteUp.js'
 import VoteDown from './buttons/VoteDown.js'
 import Edit from './buttons/Edit.js'
 import Delete from './buttons/Delete.js'
+import SimplePostTitle from './buttons/SimplePostTitle.js'
 
 class SimplePost extends Component{
 
@@ -40,7 +41,7 @@ class SimplePost extends Component{
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">
-              <p className="title">{this.props.meta.title}</p>
+              <SimplePostTitle meta={this.props.meta}/>
               <p className="subtitle">Total Votes: {this.state.voteTotal}</p>
             
              <nav className="breadcrumb" aria-label="breadcrumbs">
