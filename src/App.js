@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import TopBar from './components/TopBar.js'
 import PostContainer from './components/PostContainer.js'
 import PostForm from './components/PostForm.js'
-import { Route } from 'react-router-dom';
+import PostDetailPage from './components/PostDetailPage.js'
+import { Route, Switch } from 'react-router-dom';
 
 
 class App extends Component {
@@ -59,19 +60,25 @@ class App extends Component {
 
            <section className="section">
               <div className="container">        
-                  <TopBar showEmptyPostForm={this.showEmptyPostForm}/>   
-                   <Route exact path="/angular" render={
-                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
-                  }/>
-                  <Route exact path="/javascript" render={
-                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
-                  }/>
-                  <Route exact path="/react" render={
-                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
-                  }/>
-                  <Route exact path="/" render={
-                    ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
-                  }/>
+                  <TopBar showEmptyPostForm={this.showEmptyPostForm}/>
+                  <Switch>   
+                       <Route exact path="/angular" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
+                      }/>
+                      <Route exact path="/javascript" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
+                      }/>
+                      <Route exact path="/react" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
+                      }/>
+                      <Route exact path="/" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
+                      }/>
+                      <Route path="/angular/:post" component={PostDetailPage}/>
+                      <Route path="/javascript/:post" component={PostDetailPage}/>
+                      <Route path="/react/:post" component={PostDetailPage}/>
+                  </Switch>
+
                   
                  
               </div>
