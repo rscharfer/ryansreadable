@@ -40,7 +40,7 @@ function Comment(props){
      <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
+                  <Edit meta={props.comment} comment={true}  changeEditId={props.changeEditId} showPopulatedForm={props.showPopulatedForm}/>
                   <Delete meta={props.comment} comment={true} removeComment={props.removeComment}/>  
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>

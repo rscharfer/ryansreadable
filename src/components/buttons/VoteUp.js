@@ -14,7 +14,7 @@ class VoteUp extends Component{
 			const voteUrl = 'http://localhost:3001/posts/'+id;
 			const vote = new VoteConstructor('upVote');
 			const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-			fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)}).then(resp=>resp.json()).then(json=>console.log(json))
+			fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
 			this.props.changeVote('up');
 		}
 

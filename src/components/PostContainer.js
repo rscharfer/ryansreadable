@@ -31,9 +31,9 @@ class PostContainer extends Component {
 					  	return res.json()
 					  })
 					  .then(data=>{
-					  	console.log(this.state.posts)
+					  
 					  	this.setState({posts:data.filter(post=>!post.deleted)})
-					  	console.log(this.state.posts)
+					  	
 					  })
 					  
 	}

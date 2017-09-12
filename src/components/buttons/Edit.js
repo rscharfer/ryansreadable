@@ -7,14 +7,17 @@ class Edit extends Component{
 
 	constructor(props){
 		super();
+		this.state={
+			id:''
+		}
 		this.fillForm = this.fillForm.bind(this)
 		
 		
 	}
 
 	fillForm(){
-		
 		this.props.showPopulatedForm(this.props.meta)
+		if(this.props.comment) this.props.changeEditId(this.props.meta.id)
 		
 
 	}

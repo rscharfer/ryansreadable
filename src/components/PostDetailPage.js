@@ -1,7 +1,8 @@
 import React, { Component } from 'react'
 import TopBar from './TopBar.js';
 import DetailedPost from './DetailedPost.js';
-import Comment from './Comment.js';  
+import Comment from './Comment.js';
+import NewCommentForm from './NewCommentForm.js';    
 
 class PostDetailPage extends Component {
 
@@ -10,9 +11,12 @@ class PostDetailPage extends Component {
     this.state = {
       postID : props.match.params.post,
       post:'',
-      comments:[]
+      comments:[],
+      commentBeingEditedID:undefined,
+      commentBeingEdited:false
     }
     this.removeComment = this.removeComment.bind(this)
+    this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
   }
 
 
@@ -30,6 +34,14 @@ class PostDetailPage extends Component {
     )
   }
 
+  changeCommentBeingEditedID(id){
+    this.setState({
+      commentBeingEditedID:id,
+       commentBeingEdited:true
+
+    })
+  }
+
 
 
   render() {
@@ -38,7 +50,8 @@ class PostDetailPage extends Component {
           <section className="section">
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
-                  {this.state.comments.map(comment=><Comment key={comment.id} removeComment={this.removeComment} comment={comment}/>)}
+                  {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedForm={this.props.showPopulatedForm} removeComment={this.removeComment} comment={comment}/>)}
+                  <NewCommentForm commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
               </div>
           </section>
       </div>

@@ -74,9 +74,9 @@ class App extends Component {
                       <Route exact path="/" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                       }/>
-                      <Route path="/angular/:post" component={PostDetailPage}/>
-                      <Route path="/javascript/:post" component={PostDetailPage}/>
-                      <Route path="/react/:post" component={PostDetailPage}/>
+                      <Route path="/angular/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
+                      <Route path="/javascript/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
+                      <Route path="/react/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                   </Switch>
 
                   
