@@ -1,8 +1,15 @@
 import React from 'react'
+import dateFormat from 'dateformat'
 
 
 
-function Comment(){
+function Comment(props){
+
+
+ 
+  const time = dateFormat(props.comment.timestamp, "mmmm dS, yyyy, h:MM:ss TT")
+
+  // props 'comment' contains author, body, deleted, id, parentDeleted, parentID, timestamp, votescore
 
     return (
 
@@ -18,9 +25,9 @@ function Comment(){
   <div className="media-content">
     <div className="content">
       <p>
-        <strong>John Smith</strong> <small>Jan 5th, 2014 06:23pm</small><small>&nbsp;&nbsp;Total votes:20</small>
+        <strong>{props.comment.author}</strong> <small>{time}</small><small>&nbsp;&nbsp;Total votes: {props.comment.voteScore}</small>
         <br/>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin ornare magna eros, eu pellentesque tortor vestibulum ut. Maecenas non massa sem. Etiam finibus odio quis feugiat facilisis.
+        {props.comment.body}
       </p>
     </div>
 
