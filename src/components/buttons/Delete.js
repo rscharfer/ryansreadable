@@ -14,10 +14,10 @@ class Delete extends Component{
 	deleteFromServer(e){
 		e.preventDefault();
 		const id = this.props.meta.id
-		const url = 'http://localhost:3001/posts/'+ id;
+		const url = this.props.comment? 'http://localhost:3001/comments/'+ id : 'http://localhost:3001/posts/'+ id;
 		const headers = {authorization:'crazypassword'}
 		fetch(url,{headers:headers,method:'DELETE'})
-		this.props.removePost(id);
+		this.props.comment? this.props.removeComment(id): this.props.removePost(id);
 	}
 
 	render(){

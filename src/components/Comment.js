@@ -1,5 +1,9 @@
 import React from 'react'
 import dateFormat from 'dateformat'
+import VoteUp from './buttons/VoteUp.js'
+import VoteDown from './buttons/VoteDown.js'
+import Edit from './buttons/Edit.js'
+import Delete from './buttons/Delete.js'
 
 
 
@@ -37,7 +41,7 @@ function Comment(props){
                 <ul>
                
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                  <Delete meta={props.comment} comment={true} removeComment={props.removeComment}/>  
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>
                   

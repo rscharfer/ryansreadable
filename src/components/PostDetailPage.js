@@ -12,6 +12,7 @@ class PostDetailPage extends Component {
       post:'',
       comments:[]
     }
+    this.removeComment = this.removeComment.bind(this)
   }
 
 
@@ -19,6 +20,14 @@ class PostDetailPage extends Component {
     const url = 'http://localhost:3001/posts/'+this.state.postID+'/comments';
     const headers = {authorization:'crazypassword'};
     fetch(url,{headers:headers}).then(resp=>resp.json()).then(json=>this.setState({comments:json}));
+  }
+
+  removeComment(id){
+      this.setState(
+        (prevState,props)=>{
+          return {comments:prevState.comments.filter(comment=>comment.id!==id)}
+        }
+    )
   }
 
 
@@ -29,7 +38,7 @@ class PostDetailPage extends Component {
           <section className="section">
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
-                  {this.state.comments.map(comment=><Comment key={comment.id} comment={comment}/>)}
+                  {this.state.comments.map(comment=><Comment key={comment.id} removeComment={this.removeComment} comment={comment}/>)}
               </div>
           </section>
       </div>
