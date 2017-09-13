@@ -7,8 +7,8 @@ class NewCommentForm extends Component{
   constructor(props){
     super();
     this.state = {
-      message:'',
-      userName:'',
+      message:props.formMessage,
+      userName:props.formUserName,
       parentId:props.parentId,
       newComment:!props.commentBeingEdited,
       id:undefined,
@@ -54,6 +54,7 @@ class NewCommentForm extends Component{
       // stringify that "edit object"
       const stringified = JSON.stringify(editObject);
       // create headers
+      console.log(stringified)
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
       // make the put to server
       fetch("http://localhost:3001/comments/"+this.props.editId,{
@@ -79,8 +80,14 @@ class NewCommentForm extends Component{
 
   getOnClick(bool){
 
-    return bool?this.handleSumbit:this.clearFields
+    return bool?this.handleSumbit:this.saveEdit
   }
+
+  componentWillReceiveProps(nextProps) {
+  
+  if(this.props.formMessage!==nextProps.formMessage||this.props.formUserName!==nextProps.formUserName)
+    this.setState({message:nextProps.formMessage,userName:nextProps.formUserName})
+}
 
   
    render() {

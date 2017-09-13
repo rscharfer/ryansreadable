@@ -16,9 +16,12 @@ class Edit extends Component{
 	}
 
 	fillForm(){
-		console.log('here are teh props',this.props)
-		this.props.showPopulatedForm(this.props.meta)
-		if(this.props.comment) this.props.changeEditId(this.props.meta.id)
+
+		if(!this.props.comment) this.props.showPopulatedForm(this.props.meta)
+		if(this.props.comment){
+			this.props.showPopulatedCommentForm(this.props.meta)
+			this.props.changeEditId(this.props.meta.id)
+		} 
 		
 
 	}

@@ -90,7 +90,7 @@ class App extends Component {
                       <Route path="/redux/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                   </Switch>
 
-                  
+               
                  
               </div>
           </section>

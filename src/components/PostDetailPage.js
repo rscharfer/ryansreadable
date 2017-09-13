@@ -13,13 +13,21 @@ class PostDetailPage extends Component {
       post:'',
       comments:[],
       commentBeingEditedID:undefined,
-      commentBeingEdited:false
+      commentBeingEdited:false,
+      formUserName : '',
+      formMessage:''
     }
     this.removeComment = this.removeComment.bind(this)
     this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
     this.addCommentToState = this.addCommentToState.bind(this)
+    this.showPopulatedCommentForm = this.showPopulatedCommentForm.bind(this)
   }
 
+ showPopulatedCommentForm(meta){
+    this.setState(
+      {formUserName:meta.author,
+      formMessage:meta.body})
+ }
 
   componentDidMount(){
     const url = 'http://localhost:3001/posts/'+this.state.postID+'/comments';
@@ -56,8 +64,8 @@ class PostDetailPage extends Component {
           <section className="section">
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
-                  {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedForm={this.props.showPopulatedForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm addCommentToState={this.addCommentToState} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
+                  {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
+                  <NewCommentForm addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
               </div>
           </section>
       </div>
