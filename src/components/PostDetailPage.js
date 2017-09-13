@@ -21,6 +21,7 @@ class PostDetailPage extends Component {
     this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
     this.addCommentToState = this.addCommentToState.bind(this)
     this.showPopulatedCommentForm = this.showPopulatedCommentForm.bind(this)
+    this.commentBeingEditedFalse = this.commentBeingEditedFalse.bind(this)
   }
 
  showPopulatedCommentForm(meta){
@@ -51,6 +52,10 @@ class PostDetailPage extends Component {
     })
   }
 
+  commentBeingEditedFalse(){
+    this.setState({commentBeingEdited:false})
+  }
+
   addCommentToState(newComment){
     this.setState((prevState,props)=>{
       return {comments: prevState.comments.concat(newComment)}
@@ -65,7 +70,7 @@ class PostDetailPage extends Component {
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
                   {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
+                  <NewCommentForm commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
               </div>
           </section>
       </div>

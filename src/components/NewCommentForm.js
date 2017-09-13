@@ -75,6 +75,8 @@ class NewCommentForm extends Component{
       message:'',
       userName:''
     })
+
+    this.props.commentBeingEditedFalse()
   }
 
 
@@ -87,6 +89,8 @@ class NewCommentForm extends Component{
   
   if(this.props.formMessage!==nextProps.formMessage||this.props.formUserName!==nextProps.formUserName)
     this.setState({message:nextProps.formMessage,userName:nextProps.formUserName})
+  if(this.props.commentBeingEdited!==nextProps.commentBeingEdited)
+    this.setState({newComment:!nextProps.commentBeingEdited})
 }
 
   
