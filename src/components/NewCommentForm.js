@@ -11,7 +11,6 @@ class NewCommentForm extends Component{
       userName:props.formUserName,
       parentId:props.parentId,
       newComment:!props.commentBeingEdited,
-      onclick:this.handleSumbit,
       id:undefined,
     }
     this.handleSumbit = this.handleSumbit.bind(this);
@@ -88,8 +87,6 @@ class NewCommentForm extends Component{
   
   if(this.props.formMessage!==nextProps.formMessage||this.props.formUserName!==nextProps.formUserName)
     this.setState({message:nextProps.formMessage,userName:nextProps.formUserName})
-  if(this.props.commentBeingEdited!==nextProps.commentBeingEdited)
-    this.setState({onclick:nextProps.commentBeingEdited?this.saveEdit:this.handleSumbit})
 }
 
   
@@ -129,7 +126,7 @@ class NewCommentForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-      <button className="button is-primary" onClick={this.state.onclick}>Save</button>
+      <button className="button is-primary" onClick={onclick}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.clearFields}>Cancel</button>
