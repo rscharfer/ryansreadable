@@ -17,6 +17,7 @@ class PostDetailPage extends Component {
     }
     this.removeComment = this.removeComment.bind(this)
     this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
+    this.addCommentToState = this.addCommentToState.bind(this)
   }
 
 
@@ -42,6 +43,11 @@ class PostDetailPage extends Component {
     })
   }
 
+  addCommentToState(newComment){
+    this.setState((prevState,props)=>{
+      return {comments: prevState.comments.concat(newComment)}
+    })
+  }
 
 
   render() {
@@ -51,7 +57,7 @@ class PostDetailPage extends Component {
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
                   {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedForm={this.props.showPopulatedForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
+                  <NewCommentForm addCommentToState={this.addCommentToState} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
               </div>
           </section>
       </div>

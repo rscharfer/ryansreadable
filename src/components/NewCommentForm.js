@@ -37,6 +37,7 @@ class NewCommentForm extends Component{
         })
 
       this.clearFields()
+      this.props.addCommentToState(newPost)
 
 
   }

@@ -71,12 +71,16 @@ class App extends Component {
                       <Route exact path="/react" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
                       }/>
+                      <Route exact path="/redux" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="redux"/>
+                      }/>
                       <Route exact path="/" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                       }/>
                       <Route path="/angular/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                       <Route path="/javascript/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                       <Route path="/react/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
+                      <Route path="/redux/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                   </Switch>
 
                   
