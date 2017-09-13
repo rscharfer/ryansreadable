@@ -22,6 +22,7 @@ class PostDetailPage extends Component {
     this.addCommentToState = this.addCommentToState.bind(this)
     this.showPopulatedCommentForm = this.showPopulatedCommentForm.bind(this)
     this.commentBeingEditedFalse = this.commentBeingEditedFalse.bind(this)
+    this.updatePost = this.updatePost.bind(this);
   }
 
  showPopulatedCommentForm(meta){
@@ -29,6 +30,9 @@ class PostDetailPage extends Component {
       {formUserName:meta.author,
       formMessage:meta.body})
  }
+
+
+
 
   componentDidMount(){
     const url = 'http://localhost:3001/posts/'+this.state.postID+'/comments';
@@ -62,6 +66,17 @@ class PostDetailPage extends Component {
     })
   }
 
+  updatePost(updatedComment,id){
+     this.setState((prevState,props)=>{
+        const changedComment = prevState.comments.filter(comment=>comment.id===id)[0];
+        changedComment.author = updatedComment.author;
+        changedComment.body = updatedComment.body;
+        const restComments = prevState.comments.filter(comment=>comment.id!==id)
+        return {comments:restComments.concat(changedComment)}
+
+     })
+  }
+
 
   render() {
     return (
@@ -70,7 +85,7 @@ class PostDetailPage extends Component {
               <div className="container">             
                   <DetailedPost post={this.state.postID}/>
                   {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID} parentId={this.state.postID}/>
+                  <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID}/>
               </div>
           </section>
       </div>

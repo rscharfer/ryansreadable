@@ -9,7 +9,6 @@ class NewCommentForm extends Component {
         this.state = {
             message: props.formMessage,
             userName: props.formUserName,
-            parentId: props.parentId,
             newComment: !props.commentBeingEdited,
             id: undefined,
         }
@@ -65,6 +64,7 @@ class NewCommentForm extends Component {
                 })
 
                 this.clearFields()
+                this.props.updatePost(editObject,this.props.editId)
 
             }
 
