@@ -77,9 +77,16 @@ class App extends Component {
                       <Route exact path="/" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                       }/>
-                      <Route path="/angular/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
-                      <Route path="/javascript/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
-                      <Route path="/react/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
+                      <Route showPopulatedForm={this.showPopulatedPostForm} path="/angular/:post" render={props=>(
+                          <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm}/>
+                        )} />
+                       <Route showPopulatedForm={this.showPopulatedPostForm} path="/javascript/:post" render={props=>(
+                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                      )} />
+                       <Route showPopulatedForm={this.showPopulatedPostForm} path="/react/:post" render={props=>(
+                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                      )} />
+            
                       <Route path="/redux/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
                   </Switch>
 
