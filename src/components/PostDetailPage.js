@@ -83,7 +83,7 @@ class PostDetailPage extends Component {
       <div>
           <section className="section">
               <div className="container">             
-                  <DetailedPost post={this.state.postID}/>
+                  <DetailedPost commentNumber = {this.state.comments.length} post={this.state.postID}/>
                   {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID}/>
               </div>
