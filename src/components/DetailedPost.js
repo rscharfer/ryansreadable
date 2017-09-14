@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import VoteUp from './buttons/VoteUp.js'
+import VoteDown from './buttons/VoteDown.js'
 
 // postDetails has id, title, body, author, and category props
 class DetailedPost extends Component{
@@ -12,11 +14,28 @@ class DetailedPost extends Component{
         author:''
       }
     }
+    this.changeVoteTotal = this.changeVoteTotal.bind(this)
   }
 
 
   componentDidMount(){
     fetch(`http://localhost:3001/posts/${this.props.post}`,{headers:{authorization:'crazypassword'}}).then(res=>res.json()).then(data=>this.setState({postDetails:data}))
+  }
+
+   changeVoteTotal(direction){
+    
+    if (direction==='up') this.setState((prevState,props)=>{
+      console.log("called up")
+      prevState.postDetails.voteScore++
+      return {prevState}
+
+
+    })
+    else if (direction='down') this.setState((prevState,props)=>{
+      console.log("called down")
+      prevState.postDetails.voteScore--
+      return {prevState}
+    })
   }
 
   render() {return (      
@@ -34,8 +53,8 @@ class DetailedPost extends Component{
                 <li><span>{this.state.postDetails.author}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;Jan 5th, 2017&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{this.props.commentNumber} Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-thumbs-down"></i></span><span>Vote Down</span></a></li>
+                  <VoteUp meta={this.state.postDetails} changeVote={this.changeVoteTotal}/>
+                  <VoteDown meta={this.state.postDetails} changeVote={this.changeVoteTotal}/>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
                   
