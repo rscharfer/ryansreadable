@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import VoteUp from './buttons/VoteUp.js'
 import VoteDown from './buttons/VoteDown.js'
+import Edit from './buttons/Edit.js'
+import Delete from './buttons/Delete.js'
 
 // postDetails has id, title, body, author, and category props
 class DetailedPost extends Component{
@@ -57,6 +59,7 @@ class DetailedPost extends Component{
                   <VoteDown meta={this.state.postDetails} changeVote={this.changeVoteTotal}/>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                  <Delete meta={this.state.postDetails}/>    
                   
               </ul>
             </nav>
