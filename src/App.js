@@ -63,13 +63,13 @@ class App extends Component {
                   <TopBar showEmptyPostForm={this.showEmptyPostForm}/>
                   <Switch>   
                        <Route exact path="/angular" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Angular"/>
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="angular"/>
                       }/>
                       <Route exact path="/javascript" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="Javascript"/>
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="javascript"/>
                       }/>
                       <Route exact path="/react" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="React"/>
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="react"/>
                       }/>
                       <Route exact path="/redux" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="redux"/>
