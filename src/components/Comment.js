@@ -28,7 +28,7 @@ class Comment extends Component{
 
   render(){
 
-    console.log('here are props',this.props)
+ 
     const time = dateFormat(this.props.comment.timestamp, "mmmm dS, yyyy, h:MM:ss TT")
 
     return (    

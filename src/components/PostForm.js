@@ -24,7 +24,7 @@ class PostForm extends Component{
       this.state = {
         userName : props.newPost ? '' : props.meta.author ,
         title : props.newPost ? '' : props.meta.title,
-        category : props.newPost ? 'Javascript' : props.meta.category,
+        category : props.newPost ? 'javascript' : props.meta.category,
         message : props.newPost ? '' : props.meta.body,
         newPost : props.newPost
       }
@@ -107,9 +107,9 @@ class PostForm extends Component{
       <select value={this.state.category} onChange={
         (e)=>this.setState( {category:e.target.value} )
       }>
-        <option>Javascript</option>
-        <option>React</option>
-        <option>Angular</option>
+        <option>udacity</option>
+        <option>react</option>
+        <option>redux</option>
       </select>
     </div>
   </div>

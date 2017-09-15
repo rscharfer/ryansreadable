@@ -7,7 +7,8 @@ import NewCommentForm from './NewCommentForm.js';
 class PostDetailPage extends Component {
 
   constructor(props){
-    super()
+    super(props)
+   
     this.state = {
       postID : props.match.params.post,
       post:'',
@@ -15,7 +16,9 @@ class PostDetailPage extends Component {
       commentBeingEditedID:undefined,
       commentBeingEdited:false,
       formUserName : '',
-      formMessage:''
+      formMessage:'',
+      validPost:false
+
     }
     this.removeComment = this.removeComment.bind(this)
     this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
@@ -32,7 +35,18 @@ class PostDetailPage extends Component {
  }
 
 
-
+ componentWillReceiveProps(nextProps){
+ 
+ console.log("here is component will receive props")
+  nextProps.validPosts.forEach(post=>{
+   
+      if(post.id===this.props.match.params.post){
+        
+        this.setState({validPost:true})
+      } 
+        
+    })
+ }
 
   componentDidMount(){
     const url = 'http://localhost:3001/posts/'+this.state.postID+'/comments';
@@ -79,18 +93,30 @@ class PostDetailPage extends Component {
 
 
   render() {
+
     return (
       <div>
-          <section className="section">
+      {this.state.validPost && (
+        <section className="section">
               <div className="container">             
                   <DetailedPost commentNumber = {this.state.comments.length} post={this.state.postID}/>
                   {this.state.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID}/>
               </div>
           </section>
+          )
+    }
+
+    {!this.state.validPost && (
+        <h1 className="title">Error - Post doesn't exist</h1>
+          )
+    }
+          
       </div>
   
     );
+
+    
   }
 }
 

@@ -11,12 +11,15 @@ class App extends Component {
   constructor(props){
 
     super(props)
+ 
 
     this.state = {
 
       showPostForm:false,
       emptyForm:false,
-      currentlyEditedObject:undefined
+      currentlyEditedObject:undefined,
+      posts : [],
+      categories : []
     }
 
   
@@ -36,6 +39,18 @@ class App extends Component {
       })
     
   }
+  componentDidMount(){
+
+  
+    fetch(`http://localhost:3001/posts`,{headers:{authorization:'crazypassword'}})
+            .then(res=>res.json())
+            .then(data=>this.setState({posts:data.filter(post=>!post.deleted)}))
+
+    fetch(`http://localhost:3001/categories`,{headers:{authorization:'crazypassword'}})
+            .then(res=>res.json())
+            .then(data=>this.setState({categories:data.categories}))
+            
+  }
 
   showPopulatedPostForm(parent){
 
@@ -52,6 +67,7 @@ class App extends Component {
   }
 
   render() {
+ 
     return (
       <div>
 
@@ -62,11 +78,8 @@ class App extends Component {
               <div className="container">        
                   <TopBar showEmptyPostForm={this.showEmptyPostForm}/>
                   <Switch>   
-                       <Route exact path="/angular" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="angular"/>
-                      }/>
-                      <Route exact path="/javascript" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="javascript"/>
+                       <Route exact path="/udacity" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="udacity"/>
                       }/>
                       <Route exact path="/react" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="react"/>
@@ -77,17 +90,17 @@ class App extends Component {
                       <Route exact path="/" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                       }/>
-                      <Route showPopulatedForm={this.showPopulatedPostForm} path="/angular/:post" render={props=>(
-                          <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm}/>
+                      <Route path="/udacity/:post" render={props=>(
+                          <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm}/>
                         )} />
-                       <Route showPopulatedForm={this.showPopulatedPostForm} path="/javascript/:post" render={props=>(
-                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                       <Route path="/redux/:post" render={props=>(
+                        <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                       )} />
-                       <Route showPopulatedForm={this.showPopulatedPostForm} path="/react/:post" render={props=>(
-                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                       <Route path="/react/:post" render={props=>(
+                        <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                       )} />
             
-                      <Route path="/redux/:post" component={PostDetailPage} showPopulatedForm={this.showPopulatedPostForm}/>
+                      
                   </Switch>
 
                

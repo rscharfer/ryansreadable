@@ -14,13 +14,13 @@ function TopBar(props){
       <Link to="/">All</Link>
     </p>
     <p className="level-item">
-      <Link to="/javascript">Javascript</Link>
+      <Link to="/udacity">Udacity</Link>
     </p>
     <p className="level-item">
       <Link to="/react">React</Link>
     </p>
     <p className="level-item">
-      <Link to="/angular">Angular</Link>
+      <Link to="/redux">Redux</Link>
     </p>
   </div>
 
