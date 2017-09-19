@@ -17,7 +17,7 @@ class Delete extends Component{
 		const url = this.props.comment? 'http://localhost:3001/comments/'+ id : 'http://localhost:3001/posts/'+ id;
 		const headers = {authorization:'crazypassword'}
 		fetch(url,{headers:headers,method:'DELETE'})
-		this.props.comment? this.props.removeComment(id): this.props.removePost(id);
+		if(this.props.removeComment) this.props.comment? this.props.removeComment(id): this.props.removePost(id);
 	}
 
 	render(){

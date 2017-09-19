@@ -107,9 +107,12 @@ class PostForm extends Component{
       <select value={this.state.category} onChange={
         (e)=>this.setState( {category:e.target.value} )
       }>
+
         <option>udacity</option>
         <option>react</option>
         <option>redux</option>
+
+
       </select>
     </div>
   </div>
