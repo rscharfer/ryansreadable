@@ -6,7 +6,7 @@ export default function votePostDown(postID){
 	return {
 
 		type:VOTEPOSTDOWN,
-		post:postID,
+		payload:{post:postID}
 		
 	}
 

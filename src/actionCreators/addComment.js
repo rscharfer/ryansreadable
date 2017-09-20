@@ -2,18 +2,21 @@ import uuid from 'uuid/v1';
 
 const ADDCOMMENT = "ADDCOMMENT"
 
-export default function addComment(body,author,parentId){
+export default function addComment(body, author, parentId) {
 
-	return {
+    return {
 
-		type:ADDCOMMENT,
-		post:postID,
-		id : uuid(),
-		timestamp : Date.now(),
-		body : message,
-		author : userName,
-		parentId : parentId
-		
-	}
+        type: ADDCOMMENT,
+        payload: {
+            post: postID,
+            id: uuid(),
+            timestamp: Date.now(),
+            body: message,
+            author: userName,
+            parentId: parentId
+        }
+
+
+    }
 
 }

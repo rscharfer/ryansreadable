@@ -1,17 +1,17 @@
 const DELTEPOST = "DELTEPOST"
 
-export default function deletePost(postID){
+export default function deletePost(postID) {
 
-	return {
+    return {
 
-		type:DELTEPOST,
-		post:postID,
-		
-		
-		
-	}
+        type: DELTEPOST,
+        payload: {
+            post: postID
+        }
+
+
+
+
+    }
 
 }
-
-
-

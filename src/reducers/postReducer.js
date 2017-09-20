@@ -1,14 +1,22 @@
+const EDITPOST = "EDITPOST";
+const ADDPOST = "ADDPOST";
+const ADDCOMMENT = "ADDCOMMENT";
+const EDITCOMMENT = "EDITCOMMENT";
+const DELETEPOST = "DELETEPOST";
+const DELETECOMMENT = "DELETECOMMENT"
+
+
 const postReducer = (state, action) => {
 
     // whole state is passed in, the actions are very flat, meaning the payload is not encapsulated into its own property
 
+    let payload = action.payload;
+
     switch (action.type) {
         case ADDPOST || ADDCOMMENT:
-            let newContent = { ...action };
-            delete newContent.type;
             return {
                 ...state,
-                [action.id]: newContent
+                [payload.id]: {...payload}
             }
 
 
@@ -19,22 +27,22 @@ const postReducer = (state, action) => {
 
         case EDITPOST:
             return { ...store,
-                [action.id] = {
-                    ...store[action.id],
-                    title: action.title,
-                    body: action.body,
-                    author: action.author,
-                    timestamp: action.timestamp
+                [payload.id] = {
+                    ...store[payload.id],
+                    title: payload.title,
+                    body: payload.body,
+                    author: payload.author,
+                    timestamp: payload.timestamp
                 }
             }
 
         case EDITCOMMENT:
             return { ...state,
-                [action.id] = {
-                    ...store[action.id],
-                    body: action.body,
-                    author: action.author,
-                    timestamp: action.timestamp
+                [payload.id] = {
+                    ...store[payload.id],
+                    body: payload.body,
+                    author: payload.author,
+                    timestamp: payload.timestamp
 
                 }
             }

@@ -6,7 +6,8 @@ export default function voteCommentUp(commentID){
 	return {
 
 		type:VOTECOMMENTUP,
-		comment:commentID,
+		payload:{comment:commentID}
+		
 		
 	}
 

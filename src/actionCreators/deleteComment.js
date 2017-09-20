@@ -1,14 +1,17 @@
 const DELETECOMMENT = "DELETECOMMENT"
 
-export default function deleteComment(commentID){
+export default function deleteComment(commentID) {
 
-	return {
+    return {
 
-		type:DELETECOMMENT,
-		post:commentID,
-		
-		
-		
-	}
+        type: DELETECOMMENT,
+        payload: {
+            post: commentID
+        }
+
+
+
+
+    }
 
 }

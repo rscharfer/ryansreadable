@@ -11,7 +11,7 @@ const voteReducer = (state, action) => {
 
     switch (action.type) {
         case VOTEPOSTUP || VOTECOMMENTUP:
-            const id = action.id;
+            const id = action.payload.id;
             return {
                 ...state,
                 [id]: {
@@ -22,7 +22,7 @@ const voteReducer = (state, action) => {
 
 
         case VOTEPOSTDOWN || VOTECOMMENTDOWN:
-        const id = action.id;
+        const id = action.payload.id;
             return {
                 ...state,
                 [id]: {

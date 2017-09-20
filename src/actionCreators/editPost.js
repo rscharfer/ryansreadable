@@ -1,17 +1,20 @@
 const EDITPOST = "EDITPOST"
 
-export default function editPost(postID,title,body,author){
+export default function editPost(postID, title, body, author) {
 
-	return {
+    return {
 
-		type:EDITPOST,
-		post:postID,
-		timestamp: Date.now(),
-		title,
-		body,
-		author
-		
-		
-	}
+        type: EDITPOST,
+        payload: {
+            post: postID,
+            timestamp: Date.now(),
+            title,
+            body,
+            author
+        }
+
+
+
+    }
 
 }
