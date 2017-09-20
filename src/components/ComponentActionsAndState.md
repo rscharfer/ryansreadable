@@ -141,5 +141,24 @@ idOfPostOrComment
 
 
 
+-------------------------------------------------------------
+###ReduxState###
 
-
+posts (non-deleted-posts)
+	voteScore // number
+	timeStamp // number
+	author // string
+	body // string
+	id  // string
+	category  // string
+comments (of non-deleted-posts)
+	voteScore  // number
+	timeStamp  // number
+	author // string
+	body // string
+	id  // string
+	parentPostId  // string
+defaultView (or detailed)  // boolean
+whichDefaultView   // string
+editSomething  // string  // comment,post,none
+editID // string
