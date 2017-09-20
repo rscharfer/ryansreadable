@@ -1,10 +1,10 @@
 ---------------------
 #Comment.js 
 ##Actions##
-VOTECOMMENTUP
-VOTECOMMENTDOWN
-DELETECOMMENT
-EDITCOMMMENT
+VOTECOMMENTUP - done
+VOTECOMMENTDOWN - done
+DELETECOMMENT - done
+EDITCOMMMENT - done
 
 ##State## (pertinent characteristics from each component)
 voteScore
@@ -17,10 +17,10 @@ parentPostId
 ----------------------
 #DetailedPost.js
 ##ACTIONS##
-VOTEPOSTUP
-VOTEPOSTDOWN
-DELETEPOST
-EDITPOST
+VOTEPOSTUP - done
+VOTEPOSTDOWN - done
+DELETEPOST -done
+EDITPOST - done
 
 ##State## (pertinent characteristics from each component)
 voteScore
@@ -33,8 +33,8 @@ category
 ---------------------
 #NewCommentForm.js
 ##ACTIONS##
-COMMENTFORMSAVED
-COMMENTFORMCANCELLED
+COMMENTFORMSAVED - done 
+FORMCANCELLED - done
 
 ##State## (everything that can be changed, plus id, if pertinent)
 author
@@ -58,8 +58,8 @@ comments
 --------------------
 #PostForm.js
 ##ACTIONS##
-POSTFORMSAVED
-POSTFORMCANCELLED
+POSTFORMSAVED - done
+FORMCANCELLED - done
 
 ##State## (everything that can be changed, plus id, if pertinent)
 body
@@ -70,10 +70,10 @@ category
 --------------------
 #SimplePost.js
 ##ACTIONS##
-VOTEPOSTUP
-VOTEPOSTDOWN
-DELETEPOST
-EDITPOST
+VOTEPOSTUP - done
+VOTEPOSTDOWN - done
+DELETEPOST - done
+EDITPOST - done
 
 ##State## (everything that can be changed, plus id, if pertinent)
 voteScore
@@ -85,9 +85,9 @@ category
 --------------------
 #TopBar.js
 ##ACTIONS##
-CREATENEWPOST
-SORTBYVOTETOTAL
-SORTBYDATE
+CREATENEWPOST - done
+SORTBYVOTETOTAL - done
+SORTBYDATE - done
 SHOWONLYREDUX
 SHOWONLYREACT
 SHOWONLYUDACITY
