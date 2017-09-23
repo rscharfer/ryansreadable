@@ -1,6 +1,6 @@
 const RECEIVE_POSTS = 'RECEIVE_POSTS'
 
-export default receivePostsReducer = (state = {},action)=> {
+export default receivePostsReducer = (state = {} ,action)=> {
 
 	switch(action.type){
 		case RECEIVE_POSTS:

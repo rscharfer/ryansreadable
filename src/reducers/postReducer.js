@@ -1,51 +1,41 @@
 const SAVEEDITEDPOST = "SAVEEDITEDPOST";
 const SAVENEWPOST = "SAVENEWPOST";
-const SAVENEWCOMMENT = "SAVENEWCOMMENT";
-const SAVEEDITEDCOMMENT = "SAVEEDITEDCOMMENT";
 const DELETEPOST = "DELETEPOST";
-const DELETECOMMENT = "DELETECOMMENT"
 
 
-const postReducer = (state = {}, action) => {
 
-    // whole state is passed in, the actions are very flat, meaning the payload is not encapsulated into its own property
+const postReducer = (state = [], action) => {
+
+   // here we only want to pass in the posts property of the state
 
     let payload = action.payload;
 
     switch (action.type) {
-        case SAVENEWPOST || SAVENEWCOMMENT:
-            return {
-                ...state,
-                [payload.id]: {...payload}
-            }
 
+        case SAVENEWPOST:
+            // return array of new posts 
+            const deepCopyPosts = state.map(post=>{return{...post})
+            deepCopyPosts.push(action.payload)
+            return deepCopyPosts;
 
-        case DELETEPOST || DELETECOMMENT:
-            let newState = { ...state };
-            delete newState[action.id];
-            return newState
+        case DELETEPOST:
+            const deepCopyPosts = state.map(post=>{return{...post})
+            return deepCopyPosts.filter(post=>post.id!==action.id)
+            
 
         case SAVEEDITEDPOST:
-            return { ...store,
-                [payload.id] = {
-                    ...store[payload.id],
-                    title: payload.title,
-                    body: payload.body,
-                    author: payload.author,
-                    timestamp: payload.timestamp
-                }
-            }
+            const editedPost = state.posts.filter(post=>post.id===action.id);
+            const postCopy = {...editedPost};
+            postCopy.title  = payload.title;
+            postCopy.body  = payload.body;
+            postCopy.author  = payload.author;
+            postCopy.timestamp  = payload.timestamp;
+            otherPosts = state.posts.filter(post=>post.id!==action.id).map(post=>{...post});
+            otherPosts.push(postCopy)
 
-        case SAVEEDITEDCOMMENT:
-            return { ...state,
-                [payload.id] = {
-                    ...store[payload.id],
-                    body: payload.body,
-                    author: payload.author,
-                    timestamp: payload.timestamp
+            return otherPosts
+            
 
-                }
-            }
 
 
 
