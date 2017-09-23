@@ -6,7 +6,7 @@ const DELETEPOST = "DELETEPOST";
 const DELETECOMMENT = "DELETECOMMENT"
 
 
-const postReducer = (state, action) => {
+const postReducer = (state = {}, action) => {
 
     // whole state is passed in, the actions are very flat, meaning the payload is not encapsulated into its own property
 

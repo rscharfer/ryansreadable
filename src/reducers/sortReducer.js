@@ -1,7 +1,7 @@
 const SORTBYDATE = "SORTBYDATE"
 const SORTBYVOTETOTAL = "SORTBYVOTETOTAL"
 
-export default sortReducer = (state,action)=> {
+export default sortReducer = (state = {},action)=> {
 
 	switch(action.type){
 		case SORTBYDATE || SORTBYVOTETOTAL:

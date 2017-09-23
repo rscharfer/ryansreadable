@@ -5,7 +5,7 @@ const VOTECOMMENTDOWN = "VOTECOMMENTDOWN";
 
 
 
-const voteReducer = (state, action) => {
+const voteReducer = (state = {}, action) => {
 
     // state is the entire state here, the ids of comments and posts will be properties in the stae
 

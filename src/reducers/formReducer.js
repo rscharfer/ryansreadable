@@ -7,7 +7,7 @@ const COMMENTFORMCANCELLED = "COMMENTFORMCANCELLED";
 
 
 
-const formReducer = (state,action) => {
+const formReducer = (state = {},action) => {
 
 	switch(action.type) {
 
