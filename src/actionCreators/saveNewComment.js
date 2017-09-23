@@ -1,12 +1,10 @@
-import uuid from 'uuid/v1';
+const SAVENEWCOMMENT = "SAVENEWCOMMENT"
 
-const ADDCOMMENT = "ADDCOMMENT"
-
-export default function addComment(body, author, parentId) {
+export default function saveNewComment(body, author, parentId) {
 
     return {
 
-        type: ADDCOMMENT,
+        type: SAVENEWCOMMENT,
         payload: {
             post: postID,
             id: uuid(),

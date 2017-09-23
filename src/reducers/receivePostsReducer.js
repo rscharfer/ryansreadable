@@ -8,5 +8,8 @@ export default receivePostsReducer = (state,action)=> {
 			...state,
 			 posts:action.posts
 			}
+
+		default: 
+		return state
 	}
 }

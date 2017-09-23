@@ -1,7 +1,7 @@
-const EDITPOST = "EDITPOST";
-const ADDPOST = "ADDPOST";
-const ADDCOMMENT = "ADDCOMMENT";
-const EDITCOMMENT = "EDITCOMMENT";
+const SAVEEDITEDPOST = "SAVEEDITEDPOST";
+const SAVENEWPOST = "SAVENEWPOST";
+const SAVENEWCOMMENT = "SAVENEWCOMMENT";
+const SAVEEDITEDCOMMENT = "SAVEEDITEDCOMMENT";
 const DELETEPOST = "DELETEPOST";
 const DELETECOMMENT = "DELETECOMMENT"
 
@@ -13,7 +13,7 @@ const postReducer = (state, action) => {
     let payload = action.payload;
 
     switch (action.type) {
-        case ADDPOST || ADDCOMMENT:
+        case SAVENEWPOST || SAVENEWCOMMENT:
             return {
                 ...state,
                 [payload.id]: {...payload}
@@ -25,7 +25,7 @@ const postReducer = (state, action) => {
             delete newState[action.id];
             return newState
 
-        case EDITPOST:
+        case SAVEEDITEDPOST:
             return { ...store,
                 [payload.id] = {
                     ...store[payload.id],
@@ -36,7 +36,7 @@ const postReducer = (state, action) => {
                 }
             }
 
-        case EDITCOMMENT:
+        case SAVEEDITEDCOMMENT:
             return { ...state,
                 [payload.id] = {
                     ...store[payload.id],

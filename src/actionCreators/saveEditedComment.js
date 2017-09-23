@@ -1,12 +1,12 @@
 import uuid from 'uuid/v1';
 
-const EDITCOMMENT = "EDITCOMMENT"
+const SAVEEDITEDCOMMENT = "SAVEEDITEDCOMMENT"
 
-export default function editComment(commentID, body, author) {
+export default function saveEditedComment(commentID, body, author) {
 
     return {
 
-        type: EDITCOMMENT,
+        type: SAVEEDITEDCOMMENT,
         payload: {
             comment: commentID,
             timestamp: Date.now(),

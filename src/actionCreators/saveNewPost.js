@@ -1,12 +1,12 @@
 import uuid from 'uuid/v1';
 
-const ADDPOST = "ADDPOST"
+const SAVENEWPOST = "SAVENEWPOST"
 
-export default function addPost(title) {
+export default function saveNewPost(title) {
 
     return {
 
-        type: ADDPOST,
+        type: SAVENEWPOST,
         payload: {
             id: uuid(),
             timestamp: Date.now(),

@@ -16,6 +16,4 @@ function fetchPosts() {
 
 
 
- // const url = 'http://localhost:3001/posts/'+this.state.postID+'/comments';
-  //  const headers = {authorization:'crazypassword'};
-    // fetch(url,{headers:headers}).then(resp=>resp.json()).then(json=>this.setState({comments:json}));
+// a thunk returns a function with dispatch as an argument

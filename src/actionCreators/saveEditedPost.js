@@ -1,10 +1,10 @@
-const EDITPOST = "EDITPOST"
+const SAVEEDITEDPOST = "SAVEEDITEDPOST"
 
-export default function editPost(postID, title, body, author) {
+export default function saveEditedPost(postID, title, body, author) {
 
     return {
 
-        type: EDITPOST,
+        type: SAVEEDITEDPOST,
         payload: {
             post: postID,
             timestamp: Date.now(),
