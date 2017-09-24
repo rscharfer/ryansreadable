@@ -13,36 +13,19 @@ const postReducer = (state = [], action) => {
     switch (action.type) {
 
         case SAVENEWPOST:
-            {
-                // return array of new posts 
-                const deepCopyPosts = state.map(post => { return { ...post } })
-                deepCopyPosts.push(action.payload)
-                return deepCopyPosts;
-            }
+            return [...state].concat(action.payload)
 
         case DELETEPOST:
-            {
-                const deepCopyPosts = state.map(post => { return { ...post } })
-                return deepCopyPosts.filter(post => post.id !== action.id)
-            }
-
+            return state.filter(post => post.id !== action.id)
 
         case SAVEEDITEDPOST:
-            {
-                const editedPost = state.posts.filter(post => post.id === action.id);
-                const postCopy = { ...editedPost };
-                postCopy.title = payload.title;
-                postCopy.body = payload.body;
-                postCopy.author = payload.author;
-                postCopy.timestamp = payload.timestamp;
-                otherPosts = state.posts.filter(post => post.id !== action.id).map(post => { return { ...post } });
-                otherPosts.push(postCopy)
 
-                return otherPosts
-
-            }
-
-
+            const postToEdit = state.filter(post => post.id === action.id)[0];
+            postToEdit.title = payload.title;
+            postToEdit.body = payload.body;
+            postToEdit.author = payload.author;
+            postToEdit.timestamp = payload.timestamp;
+            return state.filter(post => post.id !== action.id).concat(postToEdit)
 
 
         default:

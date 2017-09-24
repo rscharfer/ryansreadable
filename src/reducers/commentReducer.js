@@ -11,32 +11,20 @@ const commentReducer = (state = [], action) => {
 
     switch (action.type) {
         case SAVENEWCOMMENT:
-            {
-                const deepCopyComments = state.map(
-                    comment => {
-                        return { ...comment }
-                    })
-                deepCopyComments.push(action.payload)
-                return deepCopyComments
-            }
+            return [...state].concat(action.payload)
+
         case DELETECOMMENT:
-            {
-                const deepCopyComments = state.map(comment => { return { ...comment } })
-                return deepCopyComments.filter(comment => comment.id !== action.id)
 
-            }
+            return state.filter(comment => comment.id !== comment.id)
         case SAVEEDITEDCOMMENT:
-            {
-                const editedComment = state.posts.filter(post => post.id === action.id);
-                const commentCopy = { ...editedComment };
-                commentCopy.body = payload.body;
-                commentCopy.author = payload.author;
-                commentCopy.timestamp = payload.timestamp;
-                otherComments = state.posts.filter(post => post.id !== action.id).map(post => { return { ...post } });
-                otherComments.push(commentCopy)
-
-                return otherComments
-            }
+            
+                const editedComment = state.filter(comment => comment.id === action.id)[0];
+                editedComment.body = payload.body;
+                editedComment.author = payload.author;
+                editedComment.timestamp = payload.timestamp;
+                return state.filter(post => post.id !== action.id).concat(editedComment);
+           
+            
         default:
             return state
     }
