@@ -17,14 +17,14 @@ const commentReducer = (state = [], action) => {
 
             return state.filter(comment => comment.id !== comment.id)
         case SAVEEDITEDCOMMENT:
-            
-                const editedComment = state.filter(comment => comment.id === action.id)[0];
-                editedComment.body = payload.body;
-                editedComment.author = payload.author;
-                editedComment.timestamp = payload.timestamp;
-                return state.filter(post => post.id !== action.id).concat(editedComment);
-           
-            
+
+            const editedComment = state.filter(comment => comment.id === action.id)[0];
+            editedComment.body = payload.body;
+            editedComment.author = payload.author;
+            editedComment.timestamp = payload.timestamp;
+            return state.filter(post => post.id !== action.id).concat(editedComment);
+
+
         default:
             return state
     }

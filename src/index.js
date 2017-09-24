@@ -5,12 +5,12 @@ import App from './App';
 import registerServiceWorker from './registerServiceWorker';
 import { BrowserRouter } from 'react-router-dom';
 import { createStore } from 'redux'
-import combinedReducer from './reducers.combinedReducer.js'
+import reducer from './reducers/reducer.js'
 
 ReactDOM.render(
 <BrowserRouter>
 	<App />
 </BrowserRouter>
 	, document.getElementById('root'));
-const store = createStore();
+const store = createStore(reducer);
 registerServiceWorker();
