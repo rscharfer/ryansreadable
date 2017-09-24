@@ -1,8 +1,10 @@
 const SET_SORT = "SET_SORT"
 
-// can be sort by vote total or sort by date
+
 
 export default function setSort(sort){
+
+	// sort can be 'by vote total' or 'by date'
 
 	return {
 

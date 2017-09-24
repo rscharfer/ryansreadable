@@ -1,14 +1,9 @@
-const SORTBYDATE = "SORTBYDATE"
-const SORTBYVOTETOTAL = "SORTBYVOTETOTAL"
 
-export default sortReducer = (state = {},action)=> {
+export default sortReducer = (state = 'by vote total', action)=> {
 
 	switch(action.type){
-		case SORTBYDATE || SORTBYVOTETOTAL:
-			return {
-			...state,
-			 sort:action.type
-			}
+		case SET_SORT:
+			return action.sort
 
 		default: 
 		return state
