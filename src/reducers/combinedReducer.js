@@ -1,10 +1,12 @@
 import {combineReducers} from 'redux'
+import postReducer from './postReducer.js'
+import commentReducer from './commentReducer.js'
 
 
 export default combineReducers({
 
-	posts,
-	comments,
+	posts : postReducer,
+	comments : commentReducer,
 	url,
 	detailPostId,
 	sort,
