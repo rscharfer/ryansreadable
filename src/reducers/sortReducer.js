@@ -1,5 +1,7 @@
+const SET_SORT = "SET_SORT"
 
-export default sortReducer = (state = 'by vote total', action)=> {
+
+const sortReducer = (state = 'by vote total', action)=> {
 
 	switch(action.type){
 		case SET_SORT:
@@ -9,3 +11,7 @@ export default sortReducer = (state = 'by vote total', action)=> {
 		return state
 	}
 }
+
+
+
+export default sortReducer

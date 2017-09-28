@@ -2,6 +2,9 @@ import postReducer from './postReducer.js'
 import commentReducer from './commentReducer.js'
 import sortReducer from './sortReducer.js'
 import postFormOpenReducer from './postFormOpenReducer.js'
+import commentBeingEditedReducer from './commentBeingEditedReducer.js'
+import postBeingEditedReducer from './postBeingEditedReducer.js'
+import lastDetailedPostReducer from './lastDetailedPostReducer.js'
 
 
 
@@ -37,3 +40,6 @@ function reducer (state,action){
 	
 	
 }
+
+
+export default reducer

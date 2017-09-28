@@ -4,7 +4,7 @@ const CANCEL_EDITED_COMMENT = "CANCEL_EDITED_COMMENT";
 
 
 
-const editCommentReducer = (state = {}, action) => {
+const commentBeingEditedReducer = (state = {}, action) => {
 
     switch(action.type) {
 
