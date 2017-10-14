@@ -7,16 +7,28 @@ class Delete extends Component{
 	// props include removePost to remove the post from PostContainer and meta for the meta data about the post
 	constructor(props){
 		super();
-		this.deleteFromServer = this.deleteFromServer.bind(this)
+		this.delete = this.delete.bind(this)
 		
 		
 	}
 
-	deleteFromServer(e){
+	delete(id){
 		
 
-		e.preventDefault();
-		const id = this.props.meta.id
+		
+		if(this.props.posts.includes(id)){
+
+			console.log(`a post with the id of ${id} should be deleted.`)
+			this.props.removePostFromStore(id);
+			this.props.removePostFromServer(id);
+
+		}
+
+		else {
+			console.log(`a comment with the id of ${id} should be deleted.`)
+			this.props.removeCommentFromServer(id);
+			this.props.removeCommentFromStore(id);
+		}
 		// const url = this.props.comment? 'http://localhost:3001/comments/'+ id : 'http://localhost:3001/posts/'+ id;
 
 		// const headers = {authorization:'crazypassword'}
@@ -28,7 +40,7 @@ class Delete extends Component{
 	render(){
 
 		
-		return (<li><a onClick={()=>this.props.removePost(this.props.meta.id)}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
+		return (<li><a onClick={(e)=>e.preventDefault(),this.props.delete(this.props.meta.id)}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
 
 
 	}
@@ -36,17 +48,16 @@ class Delete extends Component{
 
 }
 
-// const mapStateToProps = (state) => {
+const mapStateToProps = (state) => {
   
-//   const posts = state.postsByCategory.react.items.concat(state.postsByCategory.redux.items).concat(state.postsByCategory.udacity.items);
-//   const comments = [];
+  const posts = state.postsByCategory.react.items.concat(state.postsByCategory.redux.items).concat(state.postsByCategory.udacity.items);
   
-//   return {
-//     posts,
-//     comments
+  
+  return {
+    posts
 
-//   }
-// }
+  }
+}
 
 
 const mapDispatchToProps = dispatch => {
