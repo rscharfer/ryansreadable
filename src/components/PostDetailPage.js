@@ -103,7 +103,7 @@ class PostDetailPage extends Component {
               <div className="container">             
                   <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post.id}/>
                   {this.props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState} formUserName={this.state.formUserName} formMessage={this.state.formMessage} commentBeingEdited={this.state.commentBeingEdited} editId={this.state.commentBeingEditedID}/>
+                  <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState}/>
               </div>
           </section>
           
@@ -121,18 +121,19 @@ class PostDetailPage extends Component {
 
 
 const mapStateToProps = (state,ownProps) => {
-  console.log('here is the state at the beginning',state)
+  
+  // get the post field from the url
   const postID = ownProps.match.params.post;
-  console.log('here is the postID',postID)
-  console.log('here is the post in question',state.entities.posts[postID])
   const comments = [];
   const sec = state.entities.comments;
-
+  // get the comments from the redux store that pertain to this post
   for (let prop in sec) {
     if(sec[prop].parentId===postID) comments.push(sec[prop])
   }
 
+     // map the pertinent post object and each of the comment objects from the redux store
   return {
+
     post:state.entities.posts[postID],
     comments: comments,
 
