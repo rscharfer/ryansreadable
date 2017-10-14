@@ -64,7 +64,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    removePostFromStore : (id) => dispatch({
+    removePostFromStore : (id) =>dispatch({
       type : 'REMOVE_POST_FROM_STORE',
       id
     }),

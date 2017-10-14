@@ -50,8 +50,12 @@ function entities(
       return Object.assign({}, state, {
         isFetching: true
       })
-    case "REMOVE_POST":
-      console.log(`post removed and the id is`,action.id)
+
+    case "REMOVE_POST_FROM_STORE":
+    const newStore = Object.assign({},state);
+    delete newStore.posts[action.id];
+    return newStore;
+    
     case "REQUEST_COMMENTS":
       return Object.assign({}, state, {
         isFetching: true
