@@ -39,18 +39,18 @@ class App extends Component {
       })
     
   }
-  componentDidMount(){
+  // componentDidMount(){
 
   
-    fetch(`http://localhost:3001/posts`,{headers:{authorization:'crazypassword'}})
-            .then(res=>res.json())
-            .then(data=>this.setState({posts:data.filter(post=>!post.deleted)}))
+  //   fetch(`http://localhost:3001/posts`,{headers:{authorization:'crazypassword'}})
+  //           .then(res=>res.json())
+  //           .then(data=>this.setState({posts:data.filter(post=>!post.deleted)}))
 
-    fetch(`http://localhost:3001/categories`,{headers:{authorization:'crazypassword'}})
-            .then(res=>res.json())
-            .then(data=>this.setState({categories:data.categories}))
+  //   fetch(`http://localhost:3001/categories`,{headers:{authorization:'crazypassword'}})
+  //           .then(res=>res.json())
+  //           .then(data=>this.setState({categories:data.categories}))
             
-  }
+  // }
 
   showPopulatedPostForm(parent){
 

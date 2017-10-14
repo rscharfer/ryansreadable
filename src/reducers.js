@@ -38,29 +38,26 @@ function sortTypePosts(state='byDate', action){
 function entities(
   state = {
     posts:{},
-    comments:{},
-    isFetching:true
+    comments:{}
 
   },
   action
 ) {
+
   switch (action.type) {
     
-    case "REQUEST_POSTS":
-      return Object.assign({}, state, {
-        isFetching: true
-      })
+    // case "REQUEST_POSTS":
+    //   return state
 
     case "REMOVE_POST_FROM_STORE":
     const newStore = Object.assign({},state);
     delete newStore.posts[action.id];
     return newStore;
-    
+
     case "REQUEST_COMMENTS":
-      return Object.assign({}, state, {
-        isFetching: true
-      })
+      return state
     case "RECEIVE_POSTS":
+
       return Object.assign({}, state, {
         
         posts: action.posts.reduce((result,post,index)=>{
@@ -68,15 +65,14 @@ function entities(
           return result
         },{}),
         
-        isFetching: false,
+        
       
       })
       case "RECEIVE_COMMENTS":
       return Object.assign({}, state, {
         
         
-        comments:action.comments,
-        isFetching: false,
+        comments:action.comments
       
       })
     default:

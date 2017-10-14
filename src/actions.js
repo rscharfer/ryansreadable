@@ -10,6 +10,7 @@ function requestPosts() {
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 function receivePosts(json) {
+  console.log('here are the posts received from the server',json)
   return {
     type: RECEIVE_POSTS,
     posts: json.filter(post => !post.deleted),
@@ -48,7 +49,7 @@ export function fetchPosts() {
     // First dispatch: the app state is updated to inform
     // that the API call is starting.
 
-    dispatch(requestPosts())
+  //  dispatch(requestPosts())
 
     // The function called by the thunk middleware can return a value,
     // that is passed on as the return value of the dispatch method.
@@ -60,18 +61,17 @@ export function fetchPosts() {
         headers: { 'Authorization': 'whatever-you-want' }
     })
       .then(
-        response => response.json(),
-        // Do not use catch, because that will also catch
-        // any errors in the dispatch and resulting render,
-        // causing an loop of 'Unexpected batch number' errors.
-        // https://github.com/facebook/react/issues/6895
-        error => console.log('An error occured.', error)
+        response => response.json()
       )
-      .then(json =>
-        // We can dispatch many times!
-        // Here, we update the app state with the results of the API call.
+      .then(json =>{
 
-        dispatch(receivePosts(json))
+        return dispatch(receivePosts(json))
+      }
+        // We can dispatch many times!
+        // // Here, we update the app state with the results of the API call.
+        // console.log('response from server',json),
+       
+
       )
   }
 }
@@ -87,19 +87,7 @@ export function deletePost(id) {
         headers: { 'Authorization': 'whatever-you-want' },
         method: 'DELETE'
     })
-      .then(
-        response => response.json(),
-        // Do not use catch, because that will also catch
-        // any errors in the dispatch and resulting render,
-        // causing an loop of 'Unexpected batch number' errors.
-        // https://github.com/facebook/react/issues/6895
-        error => console.log('An error occured.', error)
-      )
-      .then(json =>
-        // We can dispatch many times!
-        // Here, we update the app state with the results of the API call.
-
-        console.log(`post ${id} now with deleted flag`)
-      )
+      
+      
   }
 }

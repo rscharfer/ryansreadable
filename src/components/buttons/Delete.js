@@ -1,33 +1,28 @@
-import React, { Component } from 'react'
+import React from 'react'
 import {connect} from 'react-redux';
+import { deletePost } from '../../actions'
 
 
-class Delete extends Component{
+const Delete = (props) =>{
 
-	// props include removePost to remove the post from PostContainer and meta for the meta data about the post
-	constructor(props){
-		super();
-		this.delete = this.delete.bind(this)
-		
-		
-	}
-
-	delete(id){
+	
+	
+	const deleteEntity = id => {
 		
 		
 		
-		if(this.props.posts.includes(id)){
+		if(props.posts.includes(id)){
 
 			console.log(`a post with the id of ${id} should be deleted.`)
-			this.props.removePostFromStore(id);
-			this.props.removePostFromServer(id);
+			props.removePostFromStore(id);
+			props.removePostFromServer(id);
 
 		}
 
 		else {
 			console.log(`a comment with the id of ${id} should be deleted.`)
-			this.props.removeCommentFromServer(id);
-			this.props.removeCommentFromStore(id);
+			props.removeCommentFromServer(id);
+			props.removeCommentFromStore(id);
 		}
 		// const url = this.props.comment? 'http://localhost:3001/comments/'+ id : 'http://localhost:3001/posts/'+ id;
 
@@ -37,13 +32,16 @@ class Delete extends Component{
 		
 	}
 
-	render(){
+	
 
 		
-		return (<li><a onClick={(e)=>e.preventDefault(),this.delete(this.props.meta.id)}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
+	return (<li><a onClick={(e)=>{
+		e.preventDefault();
+		deleteEntity(props.meta.id)	
+	}}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
 
 
-	}
+	
 
 
 }
@@ -68,10 +66,7 @@ const mapDispatchToProps = dispatch => {
       type : 'REMOVE_POST_FROM_STORE',
       id
     }),
-    removePostFromServer : (id) => dispatch({
-      type : 'REMOVE_POST_FROM_SERVER',
-      id
-    }),
+    removePostFromServer : (id) => dispatch(deletePost(id)),
     removeCommentFromStore : (id) => dispatch({
       type : 'REMOVE_COMMENT_FROM_STORE',
       id

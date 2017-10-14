@@ -27,7 +27,7 @@ const PostContainer = props => {
 const mapStateToProps = (state, ownProps) => {
   
   const posts = [];
-  console.log(`Here is the category ${ownProps.cat}`)
+
   for (let id in state.entities.posts){
   	if(state.entities.posts[id].category===ownProps.cat) posts.push(state.entities.posts[id])
   		else if (ownProps.cat==="all") posts.push(state.entities.posts[id])

@@ -1,16 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import thunkMiddleware from 'redux-thunk'
+import { Provider } from 'react-redux'
+import { BrowserRouter } from 'react-router-dom';
+import { createStore, applyMiddleware } from 'redux'
+import { composeWithDevTools } from 'redux-devtools-extension';
+
+import registerServiceWorker from './registerServiceWorker';
 import { fetchPosts } from './actions'
 import rootReducer from './reducers'
 import './index.css';
 import App from './App';
-import { Provider } from 'react-redux'
-import registerServiceWorker from './registerServiceWorker';
-import { BrowserRouter } from 'react-router-dom';
-import { createStore, applyMiddleware } from 'redux'
-import reducer from './reducers/reducer.js'
-import { composeWithDevTools } from 'redux-devtools-extension';
 
 
 const store = createStore(
@@ -43,8 +43,7 @@ ReactDOM.render(
 	, document.getElementById('root'));
 registerServiceWorker();
 //store.dispatch(selectCateory('reactjs'))
-store
-  .dispatch(fetchPosts('reactjs'))
-  .then(() => console.log(store.getState()))
+store.dispatch(fetchPosts())
+  
 
 
