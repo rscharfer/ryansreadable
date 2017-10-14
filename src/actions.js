@@ -32,9 +32,7 @@ function receiveComments(json) {
   }
 }
 
-fetch("http://localhost:3001/posts",{
-        headers: { 'Authorization': 'whatever-you-want' }
-    }).then(res=>res.json()).then(data=>console.log(data))
+
 
 
 // Meet our first thunk action creator!
@@ -74,6 +72,34 @@ export function fetchPosts() {
         // Here, we update the app state with the results of the API call.
 
         dispatch(receivePosts(json))
+      )
+  }
+}
+
+
+
+export function deletePost(id) {
+
+
+  return function(dispatch){
+
+    return fetch("http://localhost:3001/posts/"+id,{
+        headers: { 'Authorization': 'whatever-you-want' },
+        method: 'DELETE'
+    })
+      .then(
+        response => response.json(),
+        // Do not use catch, because that will also catch
+        // any errors in the dispatch and resulting render,
+        // causing an loop of 'Unexpected batch number' errors.
+        // https://github.com/facebook/react/issues/6895
+        error => console.log('An error occured.', error)
+      )
+      .then(json =>
+        // We can dispatch many times!
+        // Here, we update the app state with the results of the API call.
+
+        console.log(`post ${id} now with deleted flag`)
       )
   }
 }
