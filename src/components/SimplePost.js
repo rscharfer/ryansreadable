@@ -37,7 +37,7 @@ class SimplePost extends Component{
 
     return (      
 
-
+      
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">

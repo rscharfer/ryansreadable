@@ -81,6 +81,9 @@ class App extends Component {
                        <Route exact path="/udacity" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="udacity"/>
                       }/>
+                      <Route exact path="/" render={
+                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="all"/>
+                      }/>
                       <Route exact path="/react" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="react"/>
                       }/>
