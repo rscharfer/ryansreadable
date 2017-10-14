@@ -50,9 +50,14 @@ function entities(
     //   return state
 
     case "REMOVE_POST_FROM_STORE":
-    const newStore = Object.assign({},state);
+    let newStore = Object.assign({},state);
     delete newStore.posts[action.id];
     return newStore;
+
+    case "REMOVE_COMMENT_FROM_STORE":{
+    let newStore = Object.assign({},state);
+    delete newStore.comments[action.id];
+    return newStore;}
 
     case "REQUEST_COMMENTS":
       return state
