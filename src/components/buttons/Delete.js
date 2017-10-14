@@ -14,7 +14,7 @@ class Delete extends Component{
 
 	delete(id){
 		
-
+		
 		
 		if(this.props.posts.includes(id)){
 
@@ -40,7 +40,7 @@ class Delete extends Component{
 	render(){
 
 		
-		return (<li><a onClick={(e)=>e.preventDefault(),this.props.delete(this.props.meta.id)}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
+		return (<li><a onClick={(e)=>e.preventDefault(),this.delete(this.props.meta.id)}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
 
 
 	}
@@ -49,8 +49,10 @@ class Delete extends Component{
 }
 
 const mapStateToProps = (state) => {
+
+
   
-  const posts = state.postsByCategory.react.items.concat(state.postsByCategory.redux.items).concat(state.postsByCategory.udacity.items);
+  const posts = state.postsByCategory.react.concat(state.postsByCategory.redux).concat(state.postsByCategory.udacity);
   
   
   return {
@@ -85,4 +87,7 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default Delete
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(Delete)
