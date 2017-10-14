@@ -72,6 +72,23 @@ export function fetchPosts() {
         // console.log('response from server',json),
        
 
+      ).then((action)=>{
+
+        const postIDs = action.posts.map(post=>post.id);
+        postIDs.forEach(id=>{
+          fetch("http://localhost:3001/posts/"+id+"/comments",{
+        headers: { 'Authorization': 'whatever-you-want' }
+    }).then(res=>res.json()).then(json=>{
+      
+      return dispatch({
+      type:'COMMENTS_RECEIVED',
+      comments:json
+    })
+    })
+        })
+      }
+      
+
       )
   }
 }

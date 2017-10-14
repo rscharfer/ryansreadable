@@ -100,7 +100,7 @@ class App extends Component {
                         <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                       )} />
                        <Route path="/react/:post" render={props=>{
-                        console.log('route component rendered')
+                        
                         return(
                         <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                       )}

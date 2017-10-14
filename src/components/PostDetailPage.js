@@ -125,7 +125,7 @@ class PostDetailPage extends Component {
 const mapStateToProps = (state,ownProps) => {
 
   const postID = ownProps.match.params.post
-
+ 
 
   return {
     post:state.entities[postID]
