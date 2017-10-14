@@ -91,3 +91,17 @@ export function deletePost(id) {
       
   }
 }
+
+export function deleteComment(id) {
+
+  
+  return function(dispatch){
+    console.log('delete the comment with the id of ',id)
+    return fetch("http://localhost:3001/comments/"+id,{
+        headers: { 'Authorization': 'whatever-you-want' },
+        method: 'DELETE'
+    })
+      
+      
+  }
+}
