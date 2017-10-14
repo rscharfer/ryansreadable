@@ -9,19 +9,7 @@ class PostDetailPage extends Component {
 
   constructor(props){
     super(props)
-    console.log(props);
-   
-    // this.state = {
-    //   postID : props.match.params.post,
-    //   post:'',
-    //   comments:[],
-    //   commentBeingEditedID:undefined,
-    //   commentBeingEdited:false,
-    //   formUserName : '',
-    //   formMessage:'',
-    //   validPost:true
 
-    // }
     // this.removeComment = this.removeComment.bind(this)
     // this.changeCommentBeingEditedID = this.changeCommentBeingEditedID.bind(this)
     // this.addCommentToState = this.addCommentToState.bind(this)
@@ -122,6 +110,8 @@ class PostDetailPage extends Component {
 
 const mapStateToProps = (state,ownProps) => {
   
+  
+
   // get the post field from the url
   const postID = ownProps.match.params.post;
   const comments = [];

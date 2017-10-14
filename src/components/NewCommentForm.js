@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import CommentConstructor from '../constructors/CommentConstructor.js'
 
-// props has 'comment'
+
 class NewCommentForm extends Component {
 
     constructor(props) {
@@ -13,9 +13,9 @@ class NewCommentForm extends Component {
             id: undefined,
         }
         this.handleSumbit = this.handleSumbit.bind(this);
-     
+
         this.clearFields = this.clearFields.bind(this);
-   
+
 
     }
 
@@ -64,7 +64,7 @@ class NewCommentForm extends Component {
                 })
 
                 this.clearFields()
-                this.props.updatePost(editObject,this.props.editId)
+                this.props.updatePost(editObject, this.props.editId)
 
             }
 
@@ -130,10 +130,10 @@ class NewCommentForm extends Component {
             <
             span className = "icon is-small is-left" >
             <
-            i className = "fa fa-user" > < /i> <
-            /span> <
-            /div> <
-            /div>
+            i className = "fa fa-user" > < /i> < /
+            span > <
+            /div> < /
+            div >
 
 
             <
@@ -146,8 +146,8 @@ class NewCommentForm extends Component {
             value = { this.state.message } onChange = {
                 (e) => this.setState({ message: e.target.value })
             }
-            placeholder = "Post your message here" > < /textarea> <
-            /div> <
+            placeholder = "Post your message here" > < /textarea> < /
+            div > <
             /div>
 
 
@@ -157,18 +157,18 @@ class NewCommentForm extends Component {
             div className = "control" >
             <
             button className = "button is-primary"
-            onClick = { this.handleSumbit(this.state.newComment) } > Save < /button> <
-            /div> <
+            onClick = { this.handleSumbit(this.state.newComment) } > Save < /button> < /
+            div > <
             div className = "control" >
             <
             button className = "button is-link"
-            onClick = { this.clearFields } > Cancel < /button> <
-            /div> <
+            onClick = { this.clearFields } > Cancel < /button> < /
+            div > <
             /div>
 
             <
-            /div> <
-            /div>
+            /div> < /
+            div >
 
 
         )
@@ -179,7 +179,22 @@ class NewCommentForm extends Component {
 
 
 
+const mapDispatchToProps = dispatch => {
+  return {
+    submitNewCommentToServer : (comment) =>dispatch({
+      type : 'SUBMIT_NEW_COMMENT_TO_SERVER',
+      comment
+    }),
 
+    submitNewCommentToStore : (comment) =>dispatch({
+      type : 'SUBMIT_NEW_COMMENT_TO_STORE',
+      comment
+    }),
+  
+    
+
+  }
+}
 
 
 export default NewCommentForm
