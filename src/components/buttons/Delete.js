@@ -49,14 +49,27 @@ class Delete extends Component{
 // }
 
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     removePostFromStore : (id) => dispatch({
-//       type : 'REMOVE_POST_FROM_STORE',
-//       id
-//     })
-//   }
-// }
+const mapDispatchToProps = dispatch => {
+  return {
+    removePostFromStore : (id) => dispatch({
+      type : 'REMOVE_POST_FROM_STORE',
+      id
+    }),
+    removePostFromServer : (id) => dispatch({
+      type : 'REMOVE_POST_FROM_SERVER',
+      id
+    }),
+    removeCommentFromStore : (id) => dispatch({
+      type : 'REMOVE_COMMENT_FROM_STORE',
+      id
+    }),
+    removeCommentFromServer : (id) => dispatch({
+      type : 'REMOVE_COMMENT_FROM_SERVER',
+      id
+    }),
+
+  }
+}
 
 
 
