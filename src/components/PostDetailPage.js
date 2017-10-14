@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import TopBar from './TopBar.js';
 import DetailedPost from './DetailedPost.js';
 import Comment from './Comment.js';
-import NewCommentForm from './NewCommentForm.js';    
+import NewCommentForm from './NewCommentForm.js';
+import {connect} from 'react-redux';    
 
 class PostDetailPage extends Component {
 
@@ -117,6 +118,27 @@ class PostDetailPage extends Component {
     );
 
     
+  }
+}
+
+
+const mapStateToProps = (state,ownProps) => {
+
+  const postID = ownProps.match.params.post
+
+
+  return {
+    post:state.entities[postID]
+
+  }
+}
+
+
+const mapDispatchToProps = dispatch => {
+  return {
+   
+    
+
   }
 }
 
