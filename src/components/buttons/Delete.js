@@ -13,14 +13,14 @@ const Delete = (props) =>{
 		
 		if(props.posts.includes(id)){
 
-			console.log(`a post with the id of ${id} should be deleted.`)
+			
 			props.removePostFromStore(id);
 			props.removePostFromServer(id);
 
 		}
 
 		else {
-			console.log(`a comment with the id of ${id} should be deleted.`)
+	
 			props.removeCommentFromServer(id);
 			props.removeCommentFromStore(id);
 		}

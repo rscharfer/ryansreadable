@@ -99,9 +99,12 @@ class App extends Component {
                        <Route path="/redux/:post" render={props=>(
                         <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                       )} />
-                       <Route path="/react/:post" render={props=>(
+                       <Route path="/react/:post" render={props=>{
+                        console.log('route component rendered')
+                        return(
                         <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
-                      )} />
+                      )}
+                      } />
             
                       
                   </Switch>

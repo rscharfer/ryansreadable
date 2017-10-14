@@ -17,7 +17,7 @@ class PostDetailPage extends Component {
       commentBeingEdited:false,
       formUserName : '',
       formMessage:'',
-      validPost:false
+      validPost:true
 
     }
     this.removeComment = this.removeComment.bind(this)

@@ -58,7 +58,7 @@ class DetailedPost extends Component{
                   <VoteUp meta={this.state.postDetails} changeVote={this.changeVoteTotal}/>
                   <VoteDown meta={this.state.postDetails} changeVote={this.changeVoteTotal}/>
                   <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>
+                
                   <Delete meta={this.state.postDetails}/>    
                   
               </ul>

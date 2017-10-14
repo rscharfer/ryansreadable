@@ -10,7 +10,7 @@ function requestPosts() {
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 function receivePosts(json) {
-  console.log('here are the posts received from the server',json)
+
   return {
     type: RECEIVE_POSTS,
     posts: json.filter(post => !post.deleted),
