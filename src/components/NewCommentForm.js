@@ -110,23 +110,12 @@ class NewCommentForm extends Component {
 
         return (
 
-            <
-            div className = "columns is-centered" >
-            <
-            div className = "column is-8" >
-
-            <
-            div className = "field" >
-            <
-            label className = "label" > Username < /label> <
-            div className = "control has-icons-left" >
-            <
-            input className = "input is-success"
-            value = { this.state.userName } type = "text"
-            onChange = {
-                (e) => this.setState({ userName: e.target.value })
-            }
-            placeholder = "Joe Smith" / >
+            <div className = "columns is-centered">
+                <div className = "column is-8">
+                    <div className = "field">
+                        <label className = "label" > Username </label> 
+                        <div className = "control has-icons-left" >
+                            <input className = "input is-success" value = { this.state.userName } type = "text" onChange = { (e) => this.setState({ userName: e.target.value })} placeholder = "Joe Smith" / >
             <
             span className = "icon is-small is-left" >
             <
@@ -162,13 +151,10 @@ class NewCommentForm extends Component {
             div className = "control" >
             <
             button className = "button is-link"
-            onClick = { this.clearFields } > Cancel < /button> < /
-            div > <
-            /div>
+            onClick = { this.clearFields } > Cancel </button> </div> </div>
 
-            <
-            /div> < /
-            div >
+            </div> 
+            </div>
 
 
         )
