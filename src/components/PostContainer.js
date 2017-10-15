@@ -15,7 +15,7 @@ const PostContainer = props => {
 		<div>
 				{props.posts.filter(post=>!post.deleted).map((post)=>{
 					
-					return <SimplePost key={post.id} showPopulatedForm={props.showPopulatedForm} meta={post}/>
+					return <SimplePost key={post.id} postId={post.id} showPopulatedForm={props.showPopulatedForm}/>
 				})}
 				</div>
 		)

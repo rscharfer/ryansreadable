@@ -65,15 +65,17 @@ class SimplePost extends Component{
 
 }
 
-// function mapStateToProps(state){
+function mapStateToProps(state,ownProps){
 
-//   return {
-//     post:
-//   }
-// }
+  return {
+    post:state.entities.posts[ownProps.postId]
+  }
+}
 
 
-export default SimplePost
+export default connect(mapStateToProps,null)(SimplePost)
+
+
 
 
 
