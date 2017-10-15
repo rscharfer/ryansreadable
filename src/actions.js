@@ -36,10 +36,10 @@ export function submitEditedCommentToStore(comment){
 }
 
 
-export function submitNewCommentToStore(comment){
+export function addNewCommentToStore(comment){
 
   return {
-    type : 'SUBMIT_NEW_COMMENT_TO_STORE',
+    type : 'ADD_NEW_COMMENT_TO_STORE',
     comment
   }
 }

@@ -58,6 +58,14 @@ function entities(
     delete newStore.posts[action.id];
     return newStore;
 
+
+    case "ADD_NEW_COMMENT_TO_STORE":
+    
+    return Object.assign({},state,{
+
+      comments[action.comment.id] = comment
+    })
+
     case "REMOVE_COMMENT_FROM_STORE":{
     let newStore = Object.assign({},state);
     delete newStore.comments[action.id];

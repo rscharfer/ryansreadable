@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { submitNewCommentToServer, submitNewCommentToStore, submitEditedCommentToStore, submitEditedCommentToServer  } from '../actions'
+import { submitNewCommentToServer, addNewCommentToStore, submitEditedCommentToStore, submitEditedCommentToServer  } from '../actions'
 
 
 class NewCommentForm extends Component {
@@ -92,7 +92,7 @@ class NewCommentForm extends Component {
             userName: ''
         })
 
-        this.props.commentBeingEditedFalse()
+     //   this.props.commentBeingEditedFalse()
     }
 
 
