@@ -38,6 +38,17 @@ export function voteUpOnStore(id, isComment) {
   }
 }
 
+export function voteDownOnStore(id, isComment) {
+
+
+
+  return {
+    type: 'VOTE_DOWN_ON_STORE',
+    id,
+    isComment
+  }
+}
+
 
 
 
@@ -176,6 +187,36 @@ export function voteUpOnServer(id,isComment) {
 
       const voteUrl = 'http://localhost:3001/comments/'+id;
       const vote = new VoteConstructor('upVote');
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+      
+
+    }
+      
+  }
+     
+  }
+
+
+
+  export function voteDownOnServer(id,isComment) {
+
+  
+  return function(dispatch){
+  
+    if(!isComment){
+      
+      const voteUrl = 'http://localhost:3001/posts/'+id;
+      const vote = new VoteConstructor('downVote');
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+     return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+    }
+
+    else {
+
+
+      const voteUrl = 'http://localhost:3001/comments/'+id;
+      const vote = new VoteConstructor('downVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
       return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
       
