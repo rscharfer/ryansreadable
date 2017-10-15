@@ -192,6 +192,21 @@ export function submitEditedCommentToServer(comment){
   return function(dispatch){
 
 
+     const editObject = { author: comment.userName, body: comment.message, timestamp: Date.now() };
+                // stringify that "edit object"
+                const stringified = JSON.stringify(editObject);
+                // create headers
+              
+                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
+                // make the put to server
+                return fetch("http://localhost:3001/comments/" + comment.id, {
+                    headers: headers,
+                    method: 'PUT',
+                    body: stringified
+                })
+
+               
+
   }
 }
 
