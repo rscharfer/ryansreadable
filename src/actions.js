@@ -38,9 +38,11 @@ export function submitEditedCommentToStore(comment){
 
 export function addNewCommentToStore(comment){
 
+  const newComment = new CommentConstructor(comment);
+
   return {
     type : 'ADD_NEW_COMMENT_TO_STORE',
-    comment
+    comment : newComment
   }
 }
 

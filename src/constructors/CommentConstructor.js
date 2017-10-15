@@ -10,6 +10,9 @@ class CommentConstructor {
     this.body = message;
     this.author = userName;
     this.parentId = parentId;
+    this.voteScore = 0;
+    this.deleted = false;
+    this.parentDeleted = false;
  
     
 

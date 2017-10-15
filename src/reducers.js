@@ -60,10 +60,13 @@ function entities(
 
 
     case "ADD_NEW_COMMENT_TO_STORE":
+    const id = action.comment.id
+    const commentsCopy = state.comments;
+    commentsCopy[id] = action.comment
     
     return Object.assign({},state,{
 
-      comments[action.comment.id] = comment
+    comments:commentsCopy
     })
 
     case "REMOVE_COMMENT_FROM_STORE":{

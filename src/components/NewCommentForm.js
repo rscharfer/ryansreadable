@@ -29,9 +29,9 @@ class NewCommentForm extends Component {
         if (newComment) {
 
             return () => {
-
-                this.props.submitNewCommentToServer(this.state);
-                this.props.submitNewCommentToStore(this.state);
+                console.log('here is the parent id passed to the action createor', this.props.postId)
+                this.props.submitNewCommentToServer({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
+                this.props.submitNewCommentToStore({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
 
                // const newPost = new CommentConstructor(this.state);
                 // stringify that comment
@@ -158,18 +158,16 @@ const mapDispatchToProps = dispatch => {
   return {
     submitNewCommentToServer : (comment) =>dispatch(submitNewCommentToServer(comment)),
 
-    submitNewCommentToStore : (comment) =>dispatch(submitNewCommentToStore(comment)),
+    submitNewCommentToStore : (comment) =>dispatch(addNewCommentToStore(comment)),
 
     submitEditedCommentToServer : (comment) =>dispatch(submitEditedCommentToServer(comment)),
 
     submitEditedCommentToStore : (comment) =>dispatch(submitEditedCommentToStore(comment)),
 
-
-  
-    
-
   }
 }
+
+
 
 
 
