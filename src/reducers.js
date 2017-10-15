@@ -101,6 +101,12 @@ function postsByCategory(state = {
 }, action) {
   switch (action.type) {
     
+    case "REMOVE_POST_FROM_STORE":
+      let orig = state[action.category]
+      orig.splice(orig.indexOf(action.id),1)
+      return Object.assign({},state,{
+        [action.category] : orig
+      })
     case "RECEIVE_POSTS":
       return Object.assign({}, state, {
         react: action.posts.reduce((result,post)=>{
