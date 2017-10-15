@@ -27,6 +27,14 @@ export function removeCommentfromStore(id){
   }
 }
 
+export function submitEditedCommentToStore(comment){
+  
+  return {
+      type : 'SUBMIT_EDITED_COMMENT_TO_STORE',
+      comment
+  }
+}
+
 
 export function submitNewCommentToStore(comment){
 
@@ -168,13 +176,22 @@ export function deleteComment(id) {
 
   
   return function(dispatch){
-    console.log('delete the comment with the id of ',id)
+    
     return fetch("http://localhost:3001/comments/"+id,{
         headers: { 'Authorization': 'whatever-you-want' },
         method: 'DELETE'
     })
       
       
+  }
+}
+
+
+export function submitEditedCommentToServer(comment){
+
+  return function(dispatch){
+
+
   }
 }
 
