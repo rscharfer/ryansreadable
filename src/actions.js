@@ -1,5 +1,6 @@
 import fetch from 'isomorphic-fetch'
 import VoteConstructor from './constructors/VoteConstructor.js'
+import CommentConstructor from './constructors/CommentConstructor.js'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 function requestPosts() {
@@ -23,6 +24,15 @@ export function removeCommentfromStore(id){
   return {
       type : 'REMOVE_COMMENT_FROM_STORE',
       id
+  }
+}
+
+
+export function submitNewCommentToStore(comment){
+
+  return {
+    type : 'SUBMIT_NEW_COMMENT_TO_STORE',
+    comment
   }
 }
 
@@ -229,4 +239,31 @@ export function voteUpOnServer(id,isComment) {
 
       
       
+  }
+
+
+
+  export function submitNewCommentToServer(comment){
+
+
+
+    return function(dispatch){
+
+
+                const newPost = new CommentConstructor(this.state);
+                // stringify that comment
+                const stringified = JSON.stringify(newPost);
+                // create headers
+                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
+                // make the post to server
+                return fetch("http://localhost:3001/comments", {
+                    headers: headers,
+                    method: 'POST',
+                    body: stringified
+                })
+
+                
+              
+
+    }
   }

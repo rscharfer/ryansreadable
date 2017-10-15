@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import CommentConstructor from '../constructors/CommentConstructor.js'
 import { connect } from 'react-redux'
+import { submitNewCommentToServer, submitNewCommentToStore } from '../actions'
 
 
 class NewCommentForm extends Component {
@@ -152,15 +152,9 @@ class NewCommentForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitNewCommentToServer : (comment) =>dispatch({
-      type : 'SUBMIT_NEW_COMMENT_TO_SERVER',
-      comment
-    }),
+    submitNewCommentToServer : (comment) =>dispatch(submitNewCommentToServer(comment)),
 
-    submitNewCommentToStore : (comment) =>dispatch({
-      type : 'SUBMIT_NEW_COMMENT_TO_STORE',
-      comment
-    }),
+    submitNewCommentToStore : (comment) =>dispatch(submitNewCommentToStore(comment)),
   
     
 
