@@ -7,14 +7,14 @@ const Delete = (props) =>{
 
 	
 	
-	const deleteEntity = id => {
+	const deleteEntity = (id, category) => {
 		
 		
 		
 		if(props.posts.includes(id)){
 
 			
-			props.removePostFromStore(id);
+			props.removePostFromStore(id,category);
 			props.removePostFromServer(id);
 
 		}
@@ -37,11 +37,8 @@ const Delete = (props) =>{
 		
 	return (<li><a onClick={(e)=>{
 		e.preventDefault();
-		deleteEntity(props.meta.id)	
+		deleteEntity(props.meta.id, props.meta.category)	
 	}}><span className="icon is-small"><i className="fa fa-close"></i></span><span>Delete</span></a></li>)
-
-
-	
 
 
 }
