@@ -16,29 +16,29 @@ class DetailedPost extends Component{
     //     author:''
     //   }
     // }
-    this.changeVoteTotal = this.changeVoteTotal.bind(this)
+    // this.changeVoteTotal = this.changeVoteTotal.bind(this)
   }
 
 
-  componentDidMount(){
-    fetch(`http://localhost:3001/posts/${this.props.post}`,{headers:{authorization:'crazypassword'}}).then(res=>res.json()).then(data=>this.setState({postDetails:data}))
-  }
+  // componentDidMount(){
+  //   fetch(`http://localhost:3001/posts/${this.props.post}`,{headers:{authorization:'crazypassword'}}).then(res=>res.json()).then(data=>this.setState({postDetails:data}))
+  // }
 
-   changeVoteTotal(direction){
+  //  changeVoteTotal(direction){
     
-    if (direction==='up') this.setState((prevState,props)=>{
-      console.log("called up")
-      prevState.postDetails.voteScore++
-      return {prevState}
+  //   if (direction==='up') this.setState((prevState,props)=>{
+  //     console.log("called up")
+  //     prevState.postDetails.voteScore++
+  //     return {prevState}
 
 
-    })
-    else if (direction='down') this.setState((prevState,props)=>{
-      console.log("called down")
-      prevState.postDetails.voteScore--
-      return {prevState}
-    })
-  }
+  //   })
+  //   else if (direction='down') this.setState((prevState,props)=>{
+  //     console.log("called down")
+  //     prevState.postDetails.voteScore--
+  //     return {prevState}
+  //   })
+  // }
 
   render() {return (      
 
