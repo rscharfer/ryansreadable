@@ -128,6 +128,8 @@ const mapStateToProps = (state,ownProps) => {
   const postID = ownProps.match.params.post;
   const comments = [];
   const sec = state.entities.comments;
+  const allPosts = state.postsByCategory.react.concat(state.postsByCategory.redux).concat(state.postsByCategory.udacity)
+
   // get the comments from the redux store that pertain to this post
   for (let prop in sec) {
     if(sec[prop].parentId===postID) comments.push(sec[prop])
@@ -138,6 +140,7 @@ const mapStateToProps = (state,ownProps) => {
 
     post:state.entities.posts[postID],
     comments: comments,
+    validPost:allPosts.includes(postID)
 
 
   }
