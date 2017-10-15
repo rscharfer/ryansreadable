@@ -30,27 +30,30 @@ class NewCommentForm extends Component {
 
             return () => {
 
-                console.log('...created new comment')
-                const newPost = new CommentConstructor(this.state);
+                this.props.submitNewCommentToServer(this.state);
+                this.props.submitNewCommentToStore(this.state);
+
+               // const newPost = new CommentConstructor(this.state);
                 // stringify that comment
-                const stringified = JSON.stringify(newPost);
+                // const stringified = JSON.stringify(newPost);
                 // create headers
-                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
-                // make the post to server
-                fetch("http://localhost:3001/comments", {
-                    headers: headers,
-                    method: 'POST',
-                    body: stringified
-                })
+                // const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
+                // // make the post to server
+                // fetch("http://localhost:3001/comments", {
+                //     headers: headers,
+                //     method: 'POST',
+                //     body: stringified
+                // })
 
                 this.clearFields()
-                this.props.addCommentToState(newPost)
+            
             }
         } else {
 
             return () => {
 
-                console.log('...updated a comment')
+                this.props.submitEditedCommentToServer(this.state);
+                this.props.submitEditedCommentToStore(this.state);
                 const editObject = { author: this.state.userName, body: this.state.message, timestamp: Date.now() };
                 // stringify that "edit object"
                 const stringified = JSON.stringify(editObject);
