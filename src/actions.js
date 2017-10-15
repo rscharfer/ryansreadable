@@ -29,7 +29,7 @@ export function removeCommentfromStore(id){
 
 export function voteUpOnStore(id, isComment) {
 
-  
+
 
   return {
     type: 'VOTE_UP_ON_STORE',
@@ -164,7 +164,7 @@ export function voteUpOnServer(id,isComment) {
   return function(dispatch){
   
     if(!isComment){
-
+      console.log('this is not a comment')
       const voteUrl = 'http://localhost:3001/posts/'+id;
       const vote = new VoteConstructor('upVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
