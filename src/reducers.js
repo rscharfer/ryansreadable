@@ -81,7 +81,7 @@ function entities(
 
     }
 
-    case "VOTE_UP_ON_STORE":{
+    case "VOTE_DOWN_ON_STORE":{
 
       let entityInQuestion;
       if(action.isComment){
