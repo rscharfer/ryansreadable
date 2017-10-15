@@ -192,9 +192,9 @@ export function submitEditedCommentToServer(comment){
   return function(dispatch){
 
 
-     const editObject = { author: comment.userName, body: comment.message, timestamp: Date.now() };
+   //  const editObject = { author: comment.userName, body: comment.message, timestamp: Date.now() };
                 // stringify that "edit object"
-                const stringified = JSON.stringify(editObject);
+                const stringified = JSON.stringify(comment);
                 // create headers
               
                 const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
