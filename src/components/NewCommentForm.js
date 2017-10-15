@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import CommentConstructor from '../constructors/CommentConstructor.js'
+import { connect } from 'react-redux'
 
 
 class NewCommentForm extends Component {
@@ -113,13 +114,13 @@ class NewCommentForm extends Component {
             <div className = "columns is-centered">
                 <div className = "column is-8">
                     <div className = "field">
-                        <label className = "label" > Username </label> 
+                        <label className = "label"> Username </label> 
                         <div className = "control has-icons-left" >
-                            <input className = "input is-success" value = { this.state.userName } type = "text" onChange = { (e) => this.setState({ userName: e.target.value })} placeholder = "Joe Smith" / >
+                            <input className = "input is-success" value = { this.state.userName } type = "text" onChange = { (e) => this.setState({ userName: e.target.value })} placeholder = "Joe Smith"/>
                             <span className = "icon is-small is-left">
                                 <i className = "fa fa-user"> </i> 
                             </span> 
-                        </div> 
+                         </div>
                     </div>
 
 
@@ -167,4 +168,6 @@ const mapDispatchToProps = dispatch => {
 }
 
 
-export default NewCommentForm
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(NewCommentForm)
