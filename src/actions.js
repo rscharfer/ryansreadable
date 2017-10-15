@@ -284,7 +284,8 @@ export function voteDownOnServer(id,isComment) {
 
     else {
 
-
+      console.log('vote down on server is called with comment')
+      console.log('comment id is ',id)
       const voteUrl = 'http://localhost:3001/comments/'+id;
       const vote = new VoteConstructor('downVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
