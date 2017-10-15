@@ -51,6 +51,10 @@ function entities(
 
     case "REMOVE_POST_FROM_STORE":
     let newStore = Object.assign({},state);
+
+    for (let commentID in newStore.comments){
+      if (newStore.comments[commentID].parentID === action.id) delete newStore.comments[commentID] 
+    }
     delete newStore.posts[action.id];
     return newStore;
 
