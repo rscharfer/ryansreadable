@@ -1,5 +1,4 @@
 import React from 'react'
-import VoteConstructor from '../../constructors/VoteConstructor.js'
 import {connect} from 'react-redux';
 import { voteUpOnServer, voteUpOnStore } from '../../actions'
 
@@ -7,15 +6,15 @@ const VoteUp = (props) => {
 
 	
 
-	function upVote(id){
-	
-		props.voteUpOnServer(id);
-		props.voteUpOnStore(id);
+	function upVote(e){
+		e.preventDefault();
+		props.voteUpOnServer(props.meta.id);
+		props.voteUpOnStore(props.meta.id);
 			
 	}
 
 	
-		return (<li><a onClick={()=>{upVote(props.meta.id)}}><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>)
+		return (<li><a onClick={upVote}><span className="icon is-small"><i className="fa fa-thumbs-up"></i></span><span>Vote Up</span></a></li>)
 
 	
 }
