@@ -38,7 +38,8 @@ const SimplePost = (props)=>{
 function mapStateToProps(state,ownProps){
 
   return {
-    post:state.entities.posts[ownProps.postId]
+    post:state.entities.posts[ownProps.postId],
+    allEntities:state.entities
   }
 }
 

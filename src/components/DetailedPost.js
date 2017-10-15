@@ -9,13 +9,13 @@ class DetailedPost extends Component{
 
   constructor(props){
     super();
-    this.state = {
-      postDetails:{
-        title:'',
-        body:'',
-        author:''
-      }
-    }
+    // this.state = {
+    //   postDetails:{
+    //     title:'',
+    //     body:'',
+    //     author:''
+    //   }
+    // }
     this.changeVoteTotal = this.changeVoteTotal.bind(this)
   }
 

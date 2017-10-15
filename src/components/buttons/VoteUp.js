@@ -8,6 +8,7 @@ const VoteUp = (props) => {
 
 	function upVote(e){
 		e.preventDefault();
+	
 		props.voteUpOnServer(props.meta.id);
 		props.voteUpOnStore(props.meta.id);
 			

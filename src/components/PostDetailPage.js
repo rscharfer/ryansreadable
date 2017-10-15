@@ -140,7 +140,8 @@ const mapStateToProps = (state,ownProps) => {
 
     post:state.entities.posts[postID],
     comments: comments,
-    validPost:allPosts.includes(postID)
+    validPost:allPosts.includes(postID),
+   
 
 
   }

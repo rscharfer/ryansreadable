@@ -126,18 +126,17 @@ class NewCommentForm extends Component {
             <div className = "field" >
             <label className = "label" > Message </label> 
                 <div className = "control" >
-                <textarea className = "textarea" value = { this.state.message } onChange = { (e) => this.setState({ message: e.target.value }) }
-            placeholder = "Post your message here" > </textarea> </
-            div > 
-                </div>
-                <div className = "field is-grouped" >
-                    <div className = "control" >
-                    <button className = "button is-primary" onClick = { this.handleSumbit(this.state.newComment) } > Save </button> 
-                </div> 
+                <textarea className = "textarea" value = { this.state.message } onChange = { (e) => this.setState({ message: e.target.value }) } placeholder = "Post your message here" > </textarea> 
+            </div> 
+        </div>
+            <div className = "field is-grouped" >
                 <div className = "control" >
-                <button className = "button is-link" onClick = { this.clearFields } > Cancel </button> 
-                </div> 
-            </div>
+                <button className = "button is-primary" onClick = { this.handleSumbit(this.state.newComment) } > Save </button> 
+            </div> 
+            <div className = "control" >
+            <button className = "button is-link" onClick = { this.clearFields } > Cancel </button> 
+            </div> 
+        </div>
         </div> 
         </div>
 
