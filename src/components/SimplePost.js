@@ -4,6 +4,7 @@ import VoteDown from './buttons/VoteDown.js'
 import Edit from './buttons/Edit.js'
 import Delete from './buttons/Delete.js'
 import SimplePostTitle from './buttons/SimplePostTitle.js'
+import { connect } from 'react-redux'
 
 class SimplePost extends Component{
 
@@ -49,10 +50,10 @@ class SimplePost extends Component{
                 <li><span>{this.props.meta.author}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{this.props.meta.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{this.state.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <VoteUp meta={this.props.meta} changeVote={this.changeVoteTotal}/>
-                  <VoteDown meta={this.props.meta} changeVote={this.changeVoteTotal}/>
+                  <VoteUp meta={this.props.meta}/>
+                  <VoteDown meta={this.props.meta}/>
                   <Edit meta={this.props.meta} showPopulatedForm={this.props.showPopulatedForm}/>
-                  <Delete meta={this.props.meta} removePost={this.props.removePost}/>                     
+                  <Delete meta={this.props.meta}/>                     
                   
               </ul>
             </nav>
@@ -63,6 +64,13 @@ class SimplePost extends Component{
   } 
 
 }
+
+// function mapStateToProps(state){
+
+//   return {
+//     post:
+//   }
+// }
 
 
 export default SimplePost

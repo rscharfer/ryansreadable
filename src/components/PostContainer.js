@@ -15,7 +15,7 @@ const PostContainer = props => {
 		<div>
 				{props.posts.filter(post=>!post.deleted).map((post)=>{
 					
-					return <SimplePost key={post.id} removePost={props.removePost} showPopulatedForm={props.showPopulatedForm} meta={post}/>
+					return <SimplePost key={post.id} showPopulatedForm={props.showPopulatedForm} meta={post}/>
 				})}
 				</div>
 		)
@@ -40,20 +40,20 @@ const mapStateToProps = (state, ownProps) => {
 }
 
 
-const mapDispatchToProps = dispatch => {
+// const mapDispatchToProps = dispatch => {
 	
-  return {
-    removePost : (id) => dispatch({
-      type : 'REMOVE_POST',
-      id
-    })
-  }
-}
+//   return {
+//     removePost : (id) => dispatch({
+//       type : 'REMOVE_POST',
+//       id
+//     })
+//   }
+// }
 
 
 export default connect(
   mapStateToProps,
-  mapDispatchToProps
+  null
 )(PostContainer)
 
 // class PostContainer extends Component {
