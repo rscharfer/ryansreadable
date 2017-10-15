@@ -218,8 +218,9 @@ export function submitNewCommentToServer(comment){
   return function(dispatch){
 
 
-                
+                console.log('submit is being called ')
                 const newPost = new CommentConstructor(comment);
+                console.log('this is what the new post looks like',newPost)
                 // stringify that comment
                 const stringified = JSON.stringify(newPost);
                 // create headers
