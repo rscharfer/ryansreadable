@@ -77,7 +77,8 @@ class Comment extends Component{
 function mapStateToProps(state,ownProps){
 
   return {
-    voteScore:state.entities.comments[ownProps.id].votescore
+    
+    voteScore:state.entities.comments[ownProps.id].voteScore
   }
 }
 
