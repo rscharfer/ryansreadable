@@ -4,6 +4,7 @@ import VoteUp from './buttons/VoteUp.js'
 import VoteDown from './buttons/VoteDown.js'
 import Edit from './buttons/Edit.js'
 import Delete from './buttons/Delete.js'
+import { connect } from 'react-redux'
 
 
 
@@ -43,7 +44,7 @@ class Comment extends Component{
               <div className="media-content">
                 <div className="content">
                   <p>
-                    <strong>{this.props.comment.author}</strong> <small>{time}</small><small>&nbsp;&nbsp;Total votes: {this.state.voteTotal}</small>
+                    <strong>{this.props.comment.author}</strong> <small>{time}</small><small>&nbsp;&nbsp;Total votes: {this.props.voteScore}</small>
                     <br/>
                     {this.props.comment.body}
                   </p>
@@ -73,6 +74,11 @@ class Comment extends Component{
 
 }
 
+function mapStateToProps(state,ownProps){
 
+  return {
+    voteScore:state.entities.comments[ownProps.id].votescore
+  }
+}
 
-export default Comment
+export default connect(mapStateToProps,null)(Comment)
