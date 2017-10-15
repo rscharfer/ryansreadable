@@ -6,35 +6,7 @@ import Delete from './buttons/Delete.js'
 import SimplePostTitle from './buttons/SimplePostTitle.js'
 import { connect } from 'react-redux'
 
-class SimplePost extends Component{
-
-  constructor(props){
-    super();
-    // this.state={
-    //   commentTotal : 0,
-    //   voteTotal:props.meta.voteScore,
-    // }
-    // this.changeVoteTotal = this.changeVoteTotal.bind(this);
-  }
-
-  // componentDidMount(){
-
-  //   const url = 'http://localhost:3001/posts/'+this.props.meta.id+'/comments';
-  //   const headers = {authorization:'crazypassword'};
-  //   fetch(url,{headers:headers}).then(resp=>resp.json()).then(json=>this.setState({commentTotal:json.length}));
-
-  // }
-
-  // changeVoteTotal(direction){
-  //   if (direction==='up') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal++})
-  //   else if (direction='down') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal--})
-  // }
-
-
-
-
-  render(){
-
+const SimplePost = (props)=>{
 
     return (      
 
@@ -42,27 +14,25 @@ class SimplePost extends Component{
       <div className="columns is-centered">
       <div className="tile is-parent is-8">
             <article className="tile column is-child box">
-              <SimplePostTitle meta={this.props.post}/>
-              <p className="subtitle">Total Votes: {this.props.post.voteScore}</p>
+              <SimplePostTitle meta={props.post}/>
+              <p className="subtitle">Total Votes: {props.post.voteScore}</p>
             
              <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
-                <li><span>{this.props.post.author}&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><span>&nbsp;&nbsp;&nbsp;{this.props.post.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><span>&nbsp;&nbsp;&nbsp;{this.props.post.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
-                  <VoteUp meta={this.props.post}/>
-                  <VoteDown meta={this.props.post}/>
-                  <Edit meta={this.props.post} showPopulatedForm={this.props.showPopulatedForm}/>
-                  <Delete meta={this.props.post}/>                     
+                <li><span>{props.post.author}&nbsp;&nbsp;&nbsp;</span></li>
+                  <li><span>&nbsp;&nbsp;&nbsp;{props.post.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
+                  <li><span>&nbsp;&nbsp;&nbsp;{props.post.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
+                  <VoteUp meta={props.post}/>
+                  <VoteDown meta={props.post}/>
+                  <Edit meta={props.post} showPopulatedForm={props.showPopulatedForm}/>
+                  <Delete meta={props.post}/>                     
                   
               </ul>
             </nav>
             </article>
           </div>
-          </div>
-          )
-  } 
-
+          </div>)
+   
 }
 
 function mapStateToProps(state,ownProps){

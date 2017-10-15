@@ -116,45 +116,30 @@ class NewCommentForm extends Component {
                         <label className = "label" > Username </label> 
                         <div className = "control has-icons-left" >
                             <input className = "input is-success" value = { this.state.userName } type = "text" onChange = { (e) => this.setState({ userName: e.target.value })} placeholder = "Joe Smith" / >
-            <
-            span className = "icon is-small is-left" >
-            <
-            i className = "fa fa-user" > < /i> < /
-            span > <
-            /div> < /
-            div >
+                            <span className = "icon is-small is-left">
+                                <i className = "fa fa-user"> </i> 
+                            </span> 
+                        </div> 
+                    </div>
 
 
-            <
-            div className = "field" >
-            <
-            label className = "label" > Message < /label> <
-            div className = "control" >
-            <
-            textarea className = "textarea"
-            value = { this.state.message } onChange = {
-                (e) => this.setState({ message: e.target.value })
-            }
-            placeholder = "Post your message here" > < /textarea> < /
-            div > <
-            /div>
-
-
-            <
-            div className = "field is-grouped" >
-            <
-            div className = "control" >
-            <
-            button className = "button is-primary"
-            onClick = { this.handleSumbit(this.state.newComment) } > Save < /button> < /
-            div > <
-            div className = "control" >
-            <
-            button className = "button is-link"
-            onClick = { this.clearFields } > Cancel </button> </div> </div>
-
-            </div> 
+            <div className = "field" >
+            <label className = "label" > Message </label> 
+                <div className = "control" >
+                <textarea className = "textarea" value = { this.state.message } onChange = { (e) => this.setState({ message: e.target.value }) }
+            placeholder = "Post your message here" > </textarea> </
+            div > 
+                </div>
+                <div className = "field is-grouped" >
+                    <div className = "control" >
+                    <button className = "button is-primary" onClick = { this.handleSumbit(this.state.newComment) } > Save </button> 
+                </div> 
+                <div className = "control" >
+                <button className = "button is-link" onClick = { this.clearFields } > Cancel </button> 
+                </div> 
             </div>
+        </div> 
+        </div>
 
 
         )
