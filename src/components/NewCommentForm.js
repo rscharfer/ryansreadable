@@ -8,9 +8,9 @@ class NewCommentForm extends Component {
     constructor(props) {
         super();
         this.state = {
-            message: props.formMessage,
-            userName: props.formUserName,
-            newComment: !props.commentBeingEdited,
+            message: "",
+            userName: "",
+            newComment: true,
             id: undefined,
         }
         this.handleSumbit = this.handleSumbit.bind(this);
@@ -174,4 +174,4 @@ const mapDispatchToProps = dispatch => {
 
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(NewCommentForm)
+export default connect(null,mapDispatchToProps)(NewCommentForm)
