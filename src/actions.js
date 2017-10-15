@@ -17,6 +17,23 @@ function receivePosts(json) {
   }
 }
 
+export function removeCommentfromStore(id){
+  
+  return {
+      type : 'REMOVE_COMMENT_FROM_STORE',
+      id
+  }
+}
+
+export function removePostfromStore(id,category){
+  console.log("here is the id of the post",id)
+  return {
+      type : 'REMOVE_POST_FROM_STORE',
+      id,
+      category
+  }
+}
+
 export const REQUEST_COMMENTS = 'REQUEST_POSTS'
 function requestComments(id) {
   return {

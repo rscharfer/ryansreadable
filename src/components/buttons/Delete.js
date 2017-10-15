@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux';
-import { deletePost, deleteComment } from '../../actions'
+import { deletePost, deleteComment, removePostfromStore, removeCommentfromStore } from '../../actions'
 
 
 const Delete = (props) =>{
@@ -61,19 +61,12 @@ const mapStateToProps = (state) => {
 
 
 const mapDispatchToProps = dispatch => {
+
   return {
-    removePostFromStore : (id) =>dispatch({
-      type : 'REMOVE_POST_FROM_STORE',
-      id
-    }),
+    removePostFromStore : (id,category) =>dispatch(removePostfromStore(id,category)),
     removePostFromServer : (id) => dispatch(deletePost(id)),
     removeCommentFromServer : (id) => dispatch(deleteComment(id)),
-    removeCommentFromStore : (id) => dispatch({
-      type : 'REMOVE_COMMENT_FROM_STORE',
-      id
-    }),
-    
-
+    removeCommentFromStore : (id) => dispatch(removeCommentfromStore(id)),
   }
 }
 

@@ -82,7 +82,7 @@ function entities(
       })
       case "COMMENTS_RECEIVED":
       const origComments = state.comments;
-      console.log('here are the origComments',origComments);
+      
       action.comments.forEach(comment=>{
         origComments[comment.id] = comment
       })
