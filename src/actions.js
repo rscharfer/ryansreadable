@@ -196,6 +196,31 @@ export function submitEditedCommentToServer(comment){
 }
 
 
+export function submitNewCommentToServer(comment){
+
+  return function(dispatch){
+
+
+                
+                const newPost = new CommentConstructor(comment);
+                // stringify that comment
+                const stringified = JSON.stringify(newPost);
+                // create headers
+                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
+                // make the post to server
+                return fetch("http://localhost:3001/comments", {
+                    headers: headers,
+                    method: 'POST',
+                    body: stringified
+                })
+
+              
+                
+  }
+}
+
+
+
 export function voteUpOnServer(id,isComment) {
 
   
@@ -259,28 +284,3 @@ export function voteUpOnServer(id,isComment) {
   }
 
 
-
-  export function submitNewCommentToServer(comment){
-
-
-
-    return function(dispatch){
-
-
-                const newPost = new CommentConstructor(this.state);
-                // stringify that comment
-                const stringified = JSON.stringify(newPost);
-                // create headers
-                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
-                // make the post to server
-                return fetch("http://localhost:3001/comments", {
-                    headers: headers,
-                    method: 'POST',
-                    body: stringified
-                })
-
-                
-              
-
-    }
-  }
