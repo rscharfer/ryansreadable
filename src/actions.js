@@ -262,11 +262,11 @@ export function voteUpOnServer(id,isComment) {
       
   }
      
-  }
+}
 
 
 
-  export function voteDownOnServer(id,isComment) {
+export function voteDownOnServer(id,isComment) {
 
   
   return function(dispatch){
@@ -290,12 +290,7 @@ export function voteUpOnServer(id,isComment) {
 
     }
       
-  }
-
-
-
-      
-      
-  }
+  }      
+}
 
 
