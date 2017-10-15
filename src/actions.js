@@ -1,4 +1,5 @@
 import fetch from 'isomorphic-fetch'
+import VoteConstructor from './constructors/VoteConstructor.js'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 function requestPosts() {
@@ -24,6 +25,10 @@ export function removeCommentfromStore(id){
       id
   }
 }
+
+
+
+
 
 export function removePostfromStore(id,category){
   console.log("here is the id of the post",id)
@@ -139,3 +144,36 @@ export function deleteComment(id) {
       
   }
 }
+
+
+export function voteUpOnServer(id,isComment) {
+
+  
+  return function(dispatch){
+  
+    if(!isComment){
+
+      const voteUrl = 'http://localhost:3001/posts/'+id;
+      const vote = new VoteConstructor('upVote');
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+     return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+    }
+
+    else {
+
+
+      const voteUrl = 'http://localhost:3001/comments/'+id;
+      const vote = new VoteConstructor('upVote');
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+      
+
+    }
+      
+  }
+
+
+
+      
+      
+  }
