@@ -3,7 +3,8 @@ import TopBar from './TopBar.js';
 import DetailedPost from './DetailedPost.js';
 import Comment from './Comment.js';
 import NewCommentForm from './NewCommentForm.js';
-import {connect} from 'react-redux';    
+import {connect} from 'react-redux';
+import { Redirect } from 'react-router-dom'    
 
 class PostDetailPage extends Component {
 
@@ -84,24 +85,35 @@ class PostDetailPage extends Component {
 
   render() {
 
-    return (
-      <div>
+      const valid = this.props.validPost;
       
+      return (
+
+        <div>
+        { valid?(
         <section className="section">
               <div className="container">             
                   <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post.id}/>
                   {this.props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm updatePost={this.updatePost} commentBeingEditedFalse={this.commentBeingEditedFalse} addCommentToState={this.addCommentToState}/>
               </div>
-          </section>
+          </section>) 
+
+        :(<Redirect to="/"/>)}
           
     
 
    
           
-      </div>
+      </div>)
   
-    );
+    
+
+
+
+
+    
+
 
     
   }
