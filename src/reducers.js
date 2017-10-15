@@ -63,6 +63,24 @@ function entities(
     delete newStore.comments[action.id];
     return newStore;}
 
+    case "VOTE_UP_ON_STORE":{
+
+      let entityInQuestion;
+      if(action.isComment){
+        for (let comment in state.comments){
+          if (comment === action.id) state.comments[comment].voteScore++
+        }
+      }
+      else{
+        for (let post in state.posts){
+        if (post===action.id) state.posts[post].voteScore++
+      }
+      } 
+
+      return Object.assign({},state)
+
+    }
+
     case "REQUEST_COMMENTS":
       return state
     case "RECEIVE_POSTS":

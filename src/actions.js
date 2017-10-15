@@ -27,6 +27,18 @@ export function removeCommentfromStore(id){
 }
 
 
+export function voteUpOnStore(id, isComment) {
+
+  
+
+  return {
+    type: 'VOTE_UP_ON_STORE',
+    id,
+    isComment
+  }
+}
+
+
 
 
 
