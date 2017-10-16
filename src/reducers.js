@@ -1,4 +1,6 @@
 import { combineReducers } from 'redux'
+import { _map } from 'lodash.map'
+import { _orderby } from 'lodash.orderby' 
 
 
 function selectedView(state = 'all', action) {
