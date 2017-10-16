@@ -16,9 +16,9 @@ export function sortByDate() {
   return {type:"SORT_BY_DATE"}
 }
 
-export function sortByVotes(){
+export function sortByVoteTotal(){
 
-  return {type:"SORT_BY_VOTES"}
+  return {type:"SORT_BY_VOTE_TOTAL"}
 }
 
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'

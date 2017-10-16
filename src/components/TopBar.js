@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { sortByDate, sortByVotes } from '../actions'
+import { sortByDate, sortByVoteTotal } from '../actions'
 
 
 
@@ -38,13 +38,13 @@ function TopBar(props){
    <p className="level-item">
       <a onClick={(e)=>{
     e.preventDefault();
-    console.log('sort by votes')  
+    props.sortByVoteTotal();  
   }}>Votes</a>
     </p>
     <p className="level-item">
       <a onClick={(e)=>{
     e.preventDefault();
-    console.log('sort by date')  
+    props.sortByDate();  
   }}>Date</a>
     </p>
     <p className="level-item">
@@ -69,7 +69,7 @@ function mapDispatchToProps(dispatch){
 
   return {
     sortByDate: ()=>dispatch(sortByDate()),
-    sortByVotes:()=>dispatch(sortByVotes())
+    sortByVoteTotal:()=>dispatch(sortByVoteTotal())
   }
 }
 
