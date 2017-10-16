@@ -10,7 +10,7 @@ import _map from 'lodash.map';
 
 const PostDetailPage = (props) => {
 
-    const valid = this.props.validPost;
+    const valid = props.validPost;
 
     const nonDeletedComments = props.comments.filter(comment=>!comment.deleted);
     let orderedComments;
@@ -27,9 +27,9 @@ const PostDetailPage = (props) => {
         { valid?(
         <section className="section">
               <div className="container">             
-                  <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post}/>
-                  {this.props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm postId={this.props.post.id}/>
+                  <DetailedPost commentNumber = {props.comments.length} post={props.post}/>
+                  {props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
+                  <NewCommentForm postId={props.post.id}/>
               </div>
           </section>) 
 
@@ -153,7 +153,7 @@ export default connect(
  
 //  //  nextProps.validPosts.forEach(post=>{
    
-//  //      if(post.id===this.props.match.params.post){
+//  //      if(post.id===props.match.params.post){
         
 //  //        this.setState({validPost:true})
 //  //      } 
@@ -207,7 +207,7 @@ export default connect(
 
 //   render() {
 
-//       const valid = this.props.validPost;
+//       const valid = props.validPost;
       
 //       return (
 
@@ -215,9 +215,9 @@ export default connect(
 //         { valid?(
 //         <section className="section">
 //               <div className="container">             
-//                   <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post}/>
-//                   {this.props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-//                   <NewCommentForm postId={this.props.post.id}/>
+//                   <DetailedPost commentNumber = {props.comments.length} post={props.post}/>
+//                   {props.comments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
+//                   <NewCommentForm postId={props.post.id}/>
 //               </div>
 //           </section>) 
 
