@@ -13,7 +13,7 @@ function selectedView(state = 'all', action) {
 }
 
 
-function sortTypeComments(state='byDate', action){
+function sortType(state='byDate', action){
 
   switch (action.type) {
     case "SELECT_VIEW":
@@ -25,16 +25,16 @@ function sortTypeComments(state='byDate', action){
 }
 
 
-function sortTypePosts(state='byDate', action){
+// function sortTypePosts(state='byDate', action){
 
-  switch (action.type) {
-    case "SELECT_VIEW":
-      return action.sort
-    default:
-      return state
-  }
+//   switch (action.type) {
+//     case "SELECT_VIEW":
+//       return action.sort
+//     default:
+//       return state
+//   }
 
-}
+// }
 
 
 function entities(
@@ -181,8 +181,8 @@ function postsByCategory(state = {
 
 const rootReducer = combineReducers({
   selectedView,
-  sortTypeComments,
-  sortTypePosts,
+  
+  sortType,
   entities,
   postsByCategory
 

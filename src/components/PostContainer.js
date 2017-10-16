@@ -12,6 +12,7 @@ const PostContainer = props => {
 
 
 	const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
+
     const orderedPosts = _orderBy(nonDeletedPosts,'timestamp','asc')
     
 
@@ -38,7 +39,8 @@ const mapStateToProps = (state, ownProps) => {
   }
 
   return {
-    posts
+    posts,
+    
 
   }
 }
