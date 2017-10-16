@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import SimplePost from './SimplePost.js';
 import {connect} from 'react-redux';
+import { orderBy, map } from 'lodash'
 
 
 const PostContainer = props => {
@@ -9,11 +10,20 @@ const PostContainer = props => {
 
 
 
+	// const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
+	// console.log('here are the nonDeletedPosts',nonDeletedPosts)
 
+	var nonDeletedPosts = [{timestamp:23},{timestamp:25}]
+//	console.log('here is the maptest ',map)
+//	console.log('here is the orderbytest ',orderBy)
+	console.log('here is orderby',orderBy)
+	console.log('here is map',map)
+
+ //const orderedPosts = _orderby(nonDeletedPosts,['timestamp'],['desc'])
 
 	return (
 		<div>
-				{props.posts.filter(post=>!post.deleted).map((post)=>{
+				{[].map((post)=>{
 					
 					return <SimplePost key={post.id} postId={post.id} showPopulatedForm={props.showPopulatedForm}/>
 				})}
