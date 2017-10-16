@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PostConstructor from '../constructors/PostConstructor.js'
 import { connect } from 'react-redux'
+import { saveEditedPostToStore, saveEditedPostToServer, saveNewPostToStore, saveNewPostToServer  } from '../actions'
 
 
 
@@ -146,7 +147,28 @@ class PostForm extends Component{
 }
 
 
+function mapDispatchToProps(dispatch) {
 
+  return {
+    saveEditedPost:(post)=>{
+      dispatch(saveEditedPostToStore(post))
+      dispatch(saveEditedPostToServer(post))
+    },
+
+    saveNewPost:(post)=>{
+      dispatch(saveNewPostToStore(post))
+      dispatch(saveNewPostToServer(post))
+    }
+
+  }
+}
+
+function mapStateToProps(state){
+
+  return {
+
+  }
+}
 
 
 
