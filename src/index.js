@@ -15,7 +15,7 @@ import App from './App';
 
 const store = createStore(
   rootReducer,{
-  selectedView:"",
+  selectedView:"all",
   sortTypeComments:"",
   sortTypePosts:"",
   entities:{posts:{},comments:{}},
