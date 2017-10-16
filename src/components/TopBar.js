@@ -1,9 +1,13 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { sortByDate, sortByVotes } from '../actions'
 
 
 
 function TopBar(props){
+
+
 
 
   return(
@@ -54,6 +58,21 @@ function TopBar(props){
 }
 
 
+function mapStateToProps(state){
+
+  return {
+    detailedShowing:state.selectedView
+  }
+}
+
+function mapDispatchToProps(dispatch){
+
+  return {
+    sortByDate: dispatch(sortByDate()),
+    sortByVotes:dispatch(sortByVotes())
+  }
+}
 
 
-export default TopBar
+
+export default connect(mapStateToProps,mapDispatchToProps)(TopBar)

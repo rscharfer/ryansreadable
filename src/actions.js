@@ -10,6 +10,17 @@ function requestPosts() {
   }
 }
 
+
+export function sortByDate() {
+
+  return {type:"SORT_BY_DATE"}
+}
+
+export function sortByVotes(){
+
+  return {type:"SORT_BY_VOTES"}
+}
+
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 function receivePosts(json) {
 
