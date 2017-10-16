@@ -68,8 +68,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
 
   return {
-    sortByDate: dispatch(sortByDate()),
-    sortByVotes:dispatch(sortByVotes())
+    sortByDate: ()=>dispatch(sortByDate()),
+    sortByVotes:()=>dispatch(sortByVotes())
   }
 }
 
