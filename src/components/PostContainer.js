@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import { Route } from 'react-router-dom';
 import SimplePost from './SimplePost.js';
 import {connect} from 'react-redux';
-import { orderBy, map } from 'lodash'
+import _orderBy from 'lodash.orderby'
+import _map from 'lodash.map'
 
 
 const PostContainer = props => {
@@ -16,8 +17,9 @@ const PostContainer = props => {
 	var nonDeletedPosts = [{timestamp:23},{timestamp:25}]
 //	console.log('here is the maptest ',map)
 //	console.log('here is the orderbytest ',orderBy)
-	console.log('here is orderby',orderBy)
-	console.log('here is map',map)
+	console.log('here is _orderBy',_orderBy)
+	console.log('here is _map',_map)
+	//console.log('here is test',test)
 
  //const orderedPosts = _orderby(nonDeletedPosts,['timestamp'],['desc'])
 
