@@ -40,7 +40,7 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     posts,
-    
+    sort:state.sortType
 
   }
 }
