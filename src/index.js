@@ -16,7 +16,7 @@ import App from './App';
 const store = createStore(
   rootReducer,{
   selectedView:"all",
-  sortType:"byDate",
+  sortType:"byVoteTotal",
   entities:{posts:{},comments:{}},
   postsByCategory:{
   	react:[],

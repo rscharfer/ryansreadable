@@ -12,8 +12,12 @@ const PostContainer = props => {
 
 
 	const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
+	let orderedPosts;
 
-    const orderedPosts = _orderBy(nonDeletedPosts,'timestamp','asc')
+    if (props.sort==="byDate")
+    	orderedPosts = _orderBy(nonDeletedPosts,'timestamp','desc')
+    else if (props.sort==="byVoteTotal")
+    	orderedPosts = _orderBy(nonDeletedPosts,'voteScore','desc')
     
 
 	return (

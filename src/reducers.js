@@ -16,8 +16,10 @@ function selectedView(state = 'all', action) {
 function sortType(state='byDate', action){
 
   switch (action.type) {
-    case "SELECT_VIEW":
-      return action.sort
+    case "SORT_BY_DATE":
+      return 'byDate'
+    case "SORT_BY_VOTE_TOTAL":
+      return 'byVoteTotal'
     default:
       return state
   }
