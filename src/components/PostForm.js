@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import PostConstructor from '../constructors/PostConstructor.js'
+import { connect } from 'react-redux'
 
 
 
@@ -76,17 +77,14 @@ class PostForm extends Component{
        
 
  return (
-<div className="columns is-centered">
-<div className=" column is-8">
-  <div className="field">
-    <label className="label">Title</label>
-    <div className="control">
-      <input className="input" type="text" value={this.state.title} onChange={
-        (e)=>this.setState( {title:e.target.value} )
-      } 
-      placeholder="My Post Title"/>
-    </div>
-  </div>
+    <div className="columns is-centered">
+      <div className=" column is-8">
+        <div className="field">
+          <label className="label">Title</label>
+          <div className="control">
+            <input className="input" type="text" value={this.state.title} onChange={ (e)=>this.setState( {title:e.target.value} )} placeholder="My Post Title"/>
+          </div>
+        </div>
 
   <div className="field">
     <label className="label">Username</label>
@@ -152,4 +150,4 @@ class PostForm extends Component{
 
 
 
-export default PostForm
+export default connect(mapStateToProps,mapDispatchToProps)(PostForm)
