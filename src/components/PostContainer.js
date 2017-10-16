@@ -11,21 +11,13 @@ const PostContainer = props => {
 
 
 
-	// const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
-	// console.log('here are the nonDeletedPosts',nonDeletedPosts)
-
-	var nonDeletedPosts = [{timestamp:23},{timestamp:25}]
-//	console.log('here is the maptest ',map)
-//	console.log('here is the orderbytest ',orderBy)
-	console.log('here is _orderBy',_orderBy)
-	console.log('here is _map',_map)
-	//console.log('here is test',test)
-
- //const orderedPosts = _orderby(nonDeletedPosts,['timestamp'],['desc'])
+	const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
+    const orderedPosts = _orderBy(nonDeletedPosts,'timestamp','asc')
+    
 
 	return (
 		<div>
-				{[].map((post)=>{
+				{orderedPosts.map((post)=>{
 					
 					return <SimplePost key={post.id} postId={post.id} showPopulatedForm={props.showPopulatedForm}/>
 				})}
