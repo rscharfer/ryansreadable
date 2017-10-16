@@ -32,10 +32,16 @@ function TopBar(props){
       <strong>Order By:</strong>
     </p>
    <p className="level-item">
-      <a>Votes</a>
+      <a onClick={(e)=>{
+    e.preventDefault();
+    console.log('sort by votes')  
+  }}>Votes</a>
     </p>
     <p className="level-item">
-      <a>Date</a>
+      <a onClick={(e)=>{
+    e.preventDefault();
+    console.log('sort by date')  
+  }}>Date</a>
     </p>
     <p className="level-item">
       <a className="button is-success" onClick={props.showEmptyPostForm}>Create New Post</a>
