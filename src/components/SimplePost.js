@@ -21,7 +21,7 @@ const SimplePost = (props)=>{
                 <ul>
                 <li><span>{props.post.author}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{props.post.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><span>&nbsp;&nbsp;&nbsp;{props.post.commentTotal} Comments&nbsp;&nbsp;&nbsp;</span></li>
+                  <li><span>&nbsp;&nbsp;&nbsp;{props.commentNumber} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp meta={props.post}/>
                   <VoteDown meta={props.post}/>
                   <Edit meta={props.post} showPopulatedForm={props.showPopulatedForm}/>
@@ -37,9 +37,17 @@ const SimplePost = (props)=>{
 
 function mapStateToProps(state,ownProps){
 
+  const comments = state.entities.comments;
+  let commentNumber = 0;
+  for (let commentId in comments){
+    if (comments[commentId].parentId===ownProps.postId) commentNumber++;
+  }
+
   return {
     post:state.entities.posts[ownProps.postId],
-    allEntities:state.entities
+    allEntities:state.entities,
+    commentNumber
+
   }
 }
 
