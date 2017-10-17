@@ -37,38 +37,14 @@ class PostForm extends Component{
 
     saveEdit (){
 
-      console.log('saved edit')
-     
-      const editObject = {title:this.state.title,body:this.state.message};
-      // stringify that "edit object"
-      const stringified = JSON.stringify(editObject);
-      // create headers
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      // make the put to server
-      fetch("http://localhost:3001/posts/"+this.props.meta.id,{
-        headers:headers,
-        method:'PUT',
-        body:stringified
-        })
+      this.props.saveEditedPost(this.state)
 
       this.props.closeWindow();
     }
 
     postToServer(){
 
-      console.log('posted to server')
-      // create a new post with the current state
-      const newPost = new PostConstructor(this.state);
-      // stringify that post
-      const stringified = JSON.stringify(newPost);
-      // create headers
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      // make the post to server
-      fetch("http://localhost:3001/posts",{
-        headers:headers,
-        method:'POST',
-        body:stringified
-        })
+      this.props.saveNewPost(this.state)
 
       this.props.closeWindow();
 }

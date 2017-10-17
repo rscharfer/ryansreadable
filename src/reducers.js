@@ -55,21 +55,22 @@ function entities(
     const postId = action.post.id
     const postsCopy = Object.assign({},state.posts,{
 
-      postId: post
+      postId: action.post
     })
 
-    return Object.assign({},store,{
+    return Object.assign({},state,{
 
       posts: postsCopy
     })
 
     case "SAVE_NEW_POST_TO_STORE":{
 
+    console.log('SAVE_NEW_POST_TO_STORE was dispatched and heard by reducer')
     const postId = action.post.id
     const postsCopy = Object.assign({},state.posts)
     postsCopy[postId] = action.post
 
-    return Object.assign({},store,{
+    return Object.assign({},state,{
 
       posts: postsCopy
     })
