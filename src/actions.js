@@ -1,6 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import VoteConstructor from './constructors/VoteConstructor.js'
 import CommentConstructor from './constructors/CommentConstructor.js'
+import PostConstructor from './constructors/CommentConstructor.js'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 function requestPosts() {
@@ -294,6 +295,26 @@ export function voteUpOnServer(id,isComment) {
       
   }
      
+}
+
+
+export function saveNewPostToServer(post){
+
+
+  return function(dispatch){
+
+      const newPost = new PostConstructor(post);
+      // stringify that post
+      const stringified = JSON.stringify(newPost);
+      // create headers
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      // make the post to server
+      return fetch("http://localhost:3001/posts",{
+        headers:headers,
+        method:'POST',
+        body:stringified
+        })
+  }
 }
 
 
