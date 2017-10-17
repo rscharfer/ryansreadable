@@ -21,6 +21,24 @@ export function sortByVoteTotal(){
   return {type:"SORT_BY_VOTE_TOTAL"}
 }
 
+
+export function saveEditedPostToStore(post){
+
+  return {
+    type:"SAVE_EDITED_POST_TO_STORE",
+    post
+  }
+}
+
+
+export function saveNewPostToStore(post){
+
+  return {
+    type:"SAVE_NEW_POST_TO_STORE",
+    post
+  }
+}
+
 export const RECEIVE_POSTS = 'RECEIVE_POSTS'
 function receivePosts(json) {
 
