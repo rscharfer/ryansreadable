@@ -26,7 +26,7 @@ class PostForm extends Component{
       this.state = {
         userName : props.newPost ? '' : props.meta.author ,
         title : props.newPost ? '' : props.meta.title,
-        category : props.newPost ? 'javascript' : props.meta.category,
+        category : props.newPost ? 'udacity' : props.meta.category,
         message : props.newPost ? '' : props.meta.body,
         newPost : props.newPost
       }
@@ -44,7 +44,7 @@ class PostForm extends Component{
 
     postToServer(){
 
-      console.log('does the state have the title in it?',this.state)
+
 
       this.props.saveNewPost(this.state)
 
