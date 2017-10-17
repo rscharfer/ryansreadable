@@ -313,7 +313,27 @@ export function saveNewPostToServer(post){
         headers:headers,
         method:'POST',
         body:stringified
-        })
+        }).then(res=>console.log('response:new post to server',res))
+  }
+}
+
+
+export function saveEditedPostToServer(post){
+
+
+  return function(dispatch){
+
+      const editObject = {title:post.title,body:post.message};
+      // stringify that "edit object"
+      const stringified = JSON.stringify(editObject);
+      // create headers
+      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+      // make the put to server
+      return fetch("http://localhost:3001/posts/"+post.id,{
+        headers:headers,
+        method:'PUT',
+        body:stringified
+        }).then(res=>console.log('response: edited post to server',res))
   }
 }
 
