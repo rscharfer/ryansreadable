@@ -50,8 +50,32 @@ function entities(
 
   switch (action.type) {
     
-    // case "REQUEST_POSTS":
-    //   return state
+    case "SAVE_EDITED_POST_TO_STORE":
+
+    const postId = action.post.id
+    const postsCopy = Object.assign({},state.posts,{
+
+      postId: post
+    })
+
+    return Object.assign({},store,{
+
+      posts: postsCopy
+    })
+
+    case "SAVE_NEW_POST_TO_STORE":{
+
+    const postId = action.post.id
+    const postsCopy = Object.assign({},state.posts)
+    postsCopy[postId] = action.post
+
+    return Object.assign({},store,{
+
+      posts: postsCopy
+    })
+}
+
+
 
     case "REMOVE_POST_FROM_STORE":
     let newStore = Object.assign({},state);
