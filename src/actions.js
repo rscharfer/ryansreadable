@@ -34,9 +34,10 @@ export function saveEditedPostToStore(post){
 
 export function saveNewPostToStore(post){
 
+  const newPost = new PostConstructor(post);
   return {
     type:"SAVE_NEW_POST_TO_STORE",
-    post
+    post : newPost
   }
 }
 

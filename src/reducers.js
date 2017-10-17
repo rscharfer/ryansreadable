@@ -67,6 +67,7 @@ function entities(
 
     console.log('SAVE_NEW_POST_TO_STORE was dispatched and heard by reducer')
     const postId = action.post.id
+    console.log('here is the posts id',postId)
     const postsCopy = Object.assign({},state.posts)
     postsCopy[postId] = action.post
 
