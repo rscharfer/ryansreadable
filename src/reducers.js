@@ -187,6 +187,17 @@ function postsByCategory(state = {
       return Object.assign({},state,{
         [action.category] : orig
       })
+
+    case "SAVE_NEW_POST_TO_STORE":
+    const cat = action.post.category;
+    const id = action.post.id;
+    console.log('her is the post',action.post);
+    return Object.assign({},state,{
+      [cat] : state[cat].concat(id)
+    })
+
+
+
     case "RECEIVE_POSTS":
       return Object.assign({}, state, {
         react: action.posts.reduce((result,post)=>{
