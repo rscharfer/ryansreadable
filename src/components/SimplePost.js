@@ -5,8 +5,12 @@ import Edit from './buttons/Edit.js'
 import Delete from './buttons/Delete.js'
 import SimplePostTitle from './buttons/SimplePostTitle.js'
 import { connect } from 'react-redux'
+import dateFormat from 'dateformat'
 
 const SimplePost = (props)=>{
+
+
+    const time = dateFormat(props.post.timestamp, "mmmm dS, yyyy")
 
     return (      
 
@@ -20,7 +24,7 @@ const SimplePost = (props)=>{
              <nav className="breadcrumb" aria-label="breadcrumbs">
                 <ul>
                 <li><span>{props.post.author}&nbsp;&nbsp;&nbsp;</span></li>
-                  <li><span>&nbsp;&nbsp;&nbsp;{props.post.timeStamp}&nbsp;&nbsp;&nbsp;</span></li>
+                  <li><span>&nbsp;&nbsp;&nbsp;{time}&nbsp;&nbsp;&nbsp;</span></li>
                   <li><span>&nbsp;&nbsp;&nbsp;{props.commentNumber} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp meta={props.post}/>
                   <VoteDown meta={props.post}/>
