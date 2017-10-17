@@ -44,6 +44,8 @@ class PostForm extends Component{
 
     postToServer(){
 
+      console.log('does the state have the title in it?',this.state)
+
       this.props.saveNewPost(this.state)
 
       this.props.closeWindow();

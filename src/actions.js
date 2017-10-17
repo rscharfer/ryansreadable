@@ -1,7 +1,7 @@
 import fetch from 'isomorphic-fetch'
 import VoteConstructor from './constructors/VoteConstructor.js'
 import CommentConstructor from './constructors/CommentConstructor.js'
-import PostConstructor from './constructors/CommentConstructor.js'
+import PostConstructor from './constructors/PostConstructor.js'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 function requestPosts() {
@@ -34,7 +34,9 @@ export function saveEditedPostToStore(post){
 
 export function saveNewPostToStore(post){
 
+  console.log('here is what is coming in',post)
   const newPost = new PostConstructor(post);
+  console.log('here is what is coming out',newPost)
   return {
     type:"SAVE_NEW_POST_TO_STORE",
     post : newPost
