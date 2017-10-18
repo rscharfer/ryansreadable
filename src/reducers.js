@@ -66,6 +66,8 @@ function commentWhichIsBeingEdited(state=null,action){
 
     case "SHOW_POPULATED_COMMENT_FORM":
 
+    console.log('show populated comment form action was received',action.comment)
+
     return action.comment;
 
      case "SHOW_POPULATED_POST_FORM":

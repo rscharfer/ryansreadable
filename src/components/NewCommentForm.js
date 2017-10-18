@@ -6,7 +6,9 @@ import { submitNewCommentToServer, addNewCommentToStore, submitEditedCommentToSt
 class NewCommentForm extends Component {
 
     constructor(props) {
+
         super();
+        console.log('here are the props in new comment form',props)
         this.state = {
             message: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.body:"",
             userName: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.author:"",
