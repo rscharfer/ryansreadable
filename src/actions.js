@@ -24,6 +24,15 @@ export function sortByVoteTotal(){
 }
 
 
+export function showPopulatedCommentForm(comment){
+
+  return {
+    type:"SHOW_POPULATED_COMMENT_FORM",
+    comment
+  }
+}
+
+
 export function saveEditedPostToStore(post){
 
   const newPost = new EditedPostConstructor(post);
