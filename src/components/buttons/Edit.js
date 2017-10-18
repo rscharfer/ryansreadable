@@ -3,6 +3,7 @@ import { connect } from 'react-redux'
 import { submitEditedCommentToStore, submitEditedCommentToServer } from '../../actions'
 
 
+
 class Edit extends Component{
 
 	// props include the meta data for the post being edited and the showPopulatedForm
@@ -22,8 +23,8 @@ class Edit extends Component{
 		
 		if(!this.props.comment) this.props.showPopulatedForm(this.props.meta)
 		if(this.props.comment){
-			this.props.showPopulatedCommentForm(this.props.meta)
-			this.props.changeEditId(this.props.meta.id)
+			this.props.saveEditedComment(this.props.meta)
+			
 		} 
 		
 
@@ -43,7 +44,7 @@ class Edit extends Component{
 //submitEditedCommentToStore
 //submitEditedCommentToServer
 
-function mapDispatchToProps(){
+function mapDispatchToProps(dispatch){
 
 	return {
 		saveEditedComment:(comment)=>{
@@ -53,6 +54,6 @@ function mapDispatchToProps(){
 	}
 }
 
-export default connect(mapStateToProps,mapDispatchToProps)(Edit)
+export default connect(null,mapDispatchToProps)(Edit)
 
 
