@@ -37,7 +37,12 @@ class PostForm extends Component{
 
     saveEdit (){
 
-      this.props.saveEditedPost(this.state)
+      const post = Object.assign({},this.state,{
+        voteScore:this.props.meta.voteScore,
+        id:this.props.meta.id
+      })
+
+      this.props.saveEditedPost(post)
 
       this.props.closeWindow();
     }

@@ -2,6 +2,7 @@ import fetch from 'isomorphic-fetch'
 import VoteConstructor from './constructors/VoteConstructor.js'
 import CommentConstructor from './constructors/CommentConstructor.js'
 import PostConstructor from './constructors/PostConstructor.js'
+import EditedPostConstructor from './constructors/EditedPostConstructor.js'
 
 export const REQUEST_POSTS = 'REQUEST_POSTS'
 function requestPosts() {
@@ -25,9 +26,10 @@ export function sortByVoteTotal(){
 
 export function saveEditedPostToStore(post){
 
+  const newPost = new EditedPostConstructor(post);
   return {
     type:"SAVE_EDITED_POST_TO_STORE",
-    post
+    newPost
   }
 }
 
@@ -323,7 +325,7 @@ export function saveNewPostToServer(post){
 
 export function saveEditedPostToServer(post){
 
-
+  console.log('save edited post to server',post)
   return function(dispatch){
 
       const editObject = {title:post.title,body:post.message};

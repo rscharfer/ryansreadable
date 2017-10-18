@@ -51,11 +51,11 @@ function entities(
   switch (action.type) {
     
     case "SAVE_EDITED_POST_TO_STORE":
-
-    const postId = action.post.id
+    console.log('here is action.post',action)
+    const postId = action.newPost.id
     const postsCopy = Object.assign({},state.posts,{
 
-      postId: action.post
+      [action.newPost.id]: action.newPost
     })
 
     return Object.assign({},state,{
