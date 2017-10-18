@@ -23,7 +23,7 @@ class Edit extends Component{
 		
 		if(!this.props.comment) this.props.showPopulatedForm(this.props.meta)
 		if(this.props.comment){
-			this.props.saveEditedComment(this.props.meta)
+			this.props.showPopulatedCommentForm(this.props.meta)
 			
 		} 
 		
