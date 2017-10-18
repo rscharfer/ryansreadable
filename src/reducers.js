@@ -39,11 +39,48 @@ function sortType(state='byDate', action){
 
 function commentIsBeingEdited(state=false,action){
 
+  switch(action.type){
+
+    case "SUBMIT_EDITED_COMMENT_TO_STORE":
+
+    return true;
+
+    case "SAVE_EDITED_POST_TO_STORE":
+
+    return false;
+
+    default:
+
+    return state
+
+  }
+  
+
 
 
 }
 
-function commentWhichIsBeingEdited(state=null,action){}
+function commentWhichIsBeingEdited(state=null,action){
+
+  switch(action.type) {
+
+    case "SUBMIT_EDITED_COMMENT_TO_STORE":
+
+    return action.comment.id;
+
+     case "SAVE_EDITED_POST_TO_STORE":
+
+     return null;
+
+     default:
+
+     return state;
+
+  }
+ 
+
+
+}
 
 function entities(
   state = {
