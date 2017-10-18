@@ -66,7 +66,7 @@ function commentWhichIsBeingEdited(state=null,action){
 
     case "SUBMIT_EDITED_COMMENT_TO_STORE":
 
-    return action.comment.id;
+    return action.comment;
 
      case "SAVE_EDITED_POST_TO_STORE":
 
