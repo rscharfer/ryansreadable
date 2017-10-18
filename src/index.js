@@ -22,7 +22,9 @@ const store = createStore(
   	react:[],
   	redux:[],
   	udacity:[]
-  }
+  },
+  commentIsBeingEdited:false,
+  commentWhichIsBeingEdited:null
 
 },
   composeWithDevTools(applyMiddleware(
