@@ -17,6 +17,7 @@ class Edit extends Component{
 
 	fillForm(){
 
+		
 		if(!this.props.comment) this.props.showPopulatedForm(this.props.meta)
 		if(this.props.comment){
 			this.props.showPopulatedCommentForm(this.props.meta)
