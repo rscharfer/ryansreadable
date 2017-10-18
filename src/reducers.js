@@ -41,11 +41,11 @@ function commentIsBeingEdited(state=false,action){
 
   switch(action.type){
 
-    case "SUBMIT_EDITED_COMMENT_TO_STORE":
+    case "SHOW_POPULATED_COMMENT_FORM":
 
     return true;
 
-    case "SAVE_EDITED_POST_TO_STORE":
+    case "SHOW_POPULATED_POST_FORM":
 
     return false;
 
@@ -64,11 +64,11 @@ function commentWhichIsBeingEdited(state=null,action){
 
   switch(action.type) {
 
-    case "SUBMIT_EDITED_COMMENT_TO_STORE":
+    case "SHOW_POPULATED_COMMENT_FORM":
 
     return action.comment;
 
-     case "SAVE_EDITED_POST_TO_STORE":
+     case "SHOW_POPULATED_POST_FORM":
 
      return null;
 
