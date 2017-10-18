@@ -8,8 +8,8 @@ class NewCommentForm extends Component {
     constructor(props) {
         super();
         this.state = {
-            message: "",
-            userName: "",
+            message: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.body:"",
+            userName: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.author:"",
             newComment: true,
             id: undefined,
         }
