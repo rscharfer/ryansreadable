@@ -172,7 +172,8 @@ const mapStateToProps = state =>{
 
    return {
     commentIsBeingEdited:state.commentIsBeingEdited,
-    commentWhichIsBeingEdited:state.commentWhichIsBeingEdited
+    commentWhichIsBeingEditedId:state.commentWhichIsBeingEdited
+
     }
 }
 
