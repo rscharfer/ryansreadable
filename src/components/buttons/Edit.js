@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { submitEditedCommentToStore, submitEditedCommentToServer } from '../../actions'
+import { showPopulatedCommentForm } from '../../actions'
 
 
 
@@ -48,8 +48,8 @@ function mapDispatchToProps(dispatch){
 
 	return {
 		saveEditedComment:(comment)=>{
-			dispatch(submitEditedCommentToStore(comment));
-			dispatch(submitEditedCommentToServer(comment));
+			dispatch(showPopulatedCommentForm(comment));
+			
 		}
 	}
 }
