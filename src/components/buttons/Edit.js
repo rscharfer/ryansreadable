@@ -63,6 +63,6 @@ function mapStateToProps(state){
 	}
 }
 
-export default connect(null,mapDispatchToProps)(Edit)
+export default connect(mapStateToProps,mapDispatchToProps)(Edit)
 
 

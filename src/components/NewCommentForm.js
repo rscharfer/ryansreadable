@@ -168,8 +168,14 @@ const mapDispatchToProps = dispatch => {
 }
 
 
+const mapStateToProps = state =>{
+
+   return {
+    commentIsBeingEdited:state.commentIsBeingEdited,
+    commentWhichIsBeingEdited:state.commentWhichIsBeingEdited
+    }
+}
 
 
 
-
-export default connect(null,mapDispatchToProps)(NewCommentForm)
+export default connect(mapStateToProps,mapDispatchToProps)(NewCommentForm)
