@@ -54,6 +54,15 @@ function mapDispatchToProps(dispatch){
 	}
 }
 
+
+function mapStateToProps(state){
+
+	return {
+		commentIsBeingEdited:state.commentIsBeingEdited,
+		commentWhichIsBeingEdited:state.commentWhichIsBeingEdited
+	}
+}
+
 export default connect(null,mapDispatchToProps)(Edit)
 
 
