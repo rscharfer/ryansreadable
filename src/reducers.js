@@ -37,6 +37,13 @@ function sortType(state='byDate', action){
 
 // }
 
+function commentIsBeingEdited(state=false,action){
+
+
+
+}
+
+function commentWhichIsBeingEdited(state=null,action){}
 
 function entities(
   state = {
@@ -222,7 +229,9 @@ const rootReducer = combineReducers({
   
   sortType,
   entities,
-  postsByCategory
+  postsByCategory,
+  commentIsBeingEdited,
+  commentWhichIsBeingEdited
 
 })
 
