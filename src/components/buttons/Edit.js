@@ -1,4 +1,6 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
+import { submitEditedCommentToStore, submitEditedCommentToServer } from '../../actions'
 
 
 class Edit extends Component{
@@ -38,8 +40,19 @@ class Edit extends Component{
 
 }
 
+//submitEditedCommentToStore
+//submitEditedCommentToServer
 
+function mapDispatchToProps(){
 
-export default Edit
+	return {
+		saveEditedComment:(comment)=>{
+			dispatch(submitEditedCommentToStore(comment));
+			dispatch(submitEditedCommentToServer(comment));
+		}
+	}
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(Edit)
 
 
