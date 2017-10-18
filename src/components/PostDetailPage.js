@@ -1,12 +1,10 @@
-import React, { Component } from 'react'
-import TopBar from './TopBar.js';
+import React from 'react'
 import DetailedPost from './DetailedPost.js';
 import Comment from './Comment.js';
 import NewCommentForm from './NewCommentForm.js';
 import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
-import _orderBy from 'lodash.orderby';
-import _map from 'lodash.map';    
+import _orderBy from 'lodash.orderby';  
 
 const PostDetailPage = (props) => {
 

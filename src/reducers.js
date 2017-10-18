@@ -1,6 +1,5 @@
 import { combineReducers } from 'redux'
-import { _map } from 'lodash.map'
-import { _orderby } from 'lodash.orderby' 
+
 
 
 function selectedView(state = 'all', action) {
@@ -51,8 +50,8 @@ function entities(
   switch (action.type) {
     
     case "SAVE_EDITED_POST_TO_STORE":
-    console.log('here is action.post',action)
-    const postId = action.newPost.id
+    
+    
     const postsCopy = Object.assign({},state.posts,{
 
       [action.newPost.id]: action.newPost
@@ -65,9 +64,9 @@ function entities(
 
     case "SAVE_NEW_POST_TO_STORE":{
 
-    console.log('SAVE_NEW_POST_TO_STORE was dispatched and heard by reducer')
+    
     const postId = action.post.id
-    console.log('here is the posts id',postId)
+  
     const postsCopy = Object.assign({},state.posts)
     postsCopy[postId] = action.post
 
@@ -106,7 +105,7 @@ function entities(
 
     case "VOTE_UP_ON_STORE":{
 
-      let entityInQuestion;
+      
       if(action.isComment){
         for (let comment in state.comments){
           if (comment === action.id) state.comments[comment].voteScore++
@@ -124,7 +123,7 @@ function entities(
 
     case "VOTE_DOWN_ON_STORE":{
 
-      let entityInQuestion;
+      
       if(action.isComment){
         for (let comment in state.comments){
           if (comment === action.id) state.comments[comment].voteScore--
