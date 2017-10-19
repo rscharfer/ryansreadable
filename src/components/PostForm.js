@@ -75,7 +75,7 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.props.postBeingEdited?this.props.saveEditedPost:this.props.saveNewPost}>Save</button>
+    <button className="button is-primary" onClick={this.props.postBeingEdited?()=>{this.props.saveEditedPost(this.state)}:()=>{this.props.saveNewPost(this.state)}}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closePostForm}>Cancel</button>
