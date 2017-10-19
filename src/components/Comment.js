@@ -13,19 +13,19 @@ class Comment extends Component{
 
   constructor(props){
     super()
-    this.changeVoteTotal = this.changeVoteTotal.bind(this)
-    this.state={
-      voteTotal:props.comment.voteScore
-    }
+    // this.changeVoteTotal = this.changeVoteTotal.bind(this)
+    // this.state={
+    //   voteTotal:props.comment.voteScore
+    // }
   }
 
 
-  changeVoteTotal(direction){
+  // changeVoteTotal(direction){
 
-    if (direction==='up') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal++})
-    else if (direction='down') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal--})
+  //   if (direction==='up') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal++})
+  //   else if (direction='down') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal--})
 
-  }
+  // }
 
   render(){
 
@@ -38,7 +38,7 @@ class Comment extends Component{
               <article className="media">
               <figure className="media-left">
                 <p className="image is-64x64">
-                  <img src={"http://bulma.io/images/placeholders/128x128.png"}/>
+                  <img src={"http://bulma.io/images/placeholders/128x128.png"} alt="placeholder"/>
                 </p>
               </figure>
               <div className="media-content">
@@ -55,8 +55,8 @@ class Comment extends Component{
                   <ul>
                     <Edit meta={this.props.comment} comment={true}  changeEditId={this.props.changeEditId} showPopulatedCommentForm={this.props.showPopulatedCommentForm}/>
                     <Delete meta={this.props.comment} comment={true} removeComment={this.props.removeComment}/>  
-                    <VoteUp meta={this.props.comment} isComment={true} changeVote={this.changeVoteTotal}/>
-                    <VoteDown meta={this.props.comment} isComment={true} changeVote={this.changeVoteTotal}/>
+                    <VoteUp meta={this.props.comment} isComment={true} />
+                    <VoteDown meta={this.props.comment} isComment={true} />
                   </ul>
               </nav>
             </div>

@@ -1,5 +1,4 @@
 import uuid from 'uuid/v1'
-import dateFormat from 'dateformat'
 
 class PostConstructor {
   constructor({userName,title,category,message}) {

@@ -1,5 +1,3 @@
-import dateFormat from 'dateformat'
-
 class EditedPostConstructor {
   constructor({id,userName,title,category,message,voteScore}) {
 

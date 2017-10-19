@@ -1,5 +1,3 @@
-import dateFormat from 'dateformat'
-
 class EditedCommentConstructor {
   constructor({id, body, author, parentId, voteScore}) {
 

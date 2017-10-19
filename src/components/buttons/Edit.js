@@ -23,7 +23,7 @@ class Edit extends Component{
 		
 		if(!this.props.comment) this.props.showPopulatedForm(this.props.meta)
 		if(this.props.comment){
-			console.log('edit was clicked and it was a comment')
+			
 			this.props.showPopulatedCommentForm(this.props.meta)
 			
 		} 

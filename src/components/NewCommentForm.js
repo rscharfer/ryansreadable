@@ -31,7 +31,7 @@ class NewCommentForm extends Component {
         if (newComment) {
 
             return () => {
-                console.log('this is a new comment')
+                // console.log('this is a new comment')
                 this.props.saveNewCommentToServer({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
                 this.props.saveNewCommentToStore({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
 

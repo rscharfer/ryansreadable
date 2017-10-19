@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import VoteUp from './buttons/VoteUp.js'
 import VoteDown from './buttons/VoteDown.js'
 import Edit from './buttons/Edit.js'
