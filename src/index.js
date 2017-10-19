@@ -24,7 +24,9 @@ const store = createStore(
   	udacity:[]
   },
   commentIsBeingEdited:false,
-  commentWhichIsBeingEdited:null
+  commentWhichIsBeingEdited:null,
+  postFormIsShown:false,
+  postFormIsEmpty:true
 
 },
   composeWithDevTools(applyMiddleware(

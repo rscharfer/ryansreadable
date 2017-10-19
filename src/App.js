@@ -15,11 +15,11 @@ class App extends Component {
 
     this.state = {
 
-      showPostForm:false,
-      emptyForm:false,
-      currentlyEditedObject:undefined,
-      posts : [],
-      categories : []
+    //  showPostForm:false,
+    //  emptyForm:false,
+    //  currentlyEditedObject:undefined,
+    //  posts : [],
+    //  categories : []
     }
 
   
@@ -73,7 +73,7 @@ class App extends Component {
       <div>
 
 
-      {!this.state.showPostForm && (
+      {!this.props.postFormIsShown && (
 
            <section className="section">
               <div className="container">        
@@ -121,7 +121,7 @@ class App extends Component {
       }
 
 
-      {this.state.showPostForm && (
+      {this.props.postFormIsShown && (
 
           <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject} closeWindow={this.closePostForm}/>
         )
@@ -135,4 +135,21 @@ class App extends Component {
 
 }
 
-export default App;
+function mapStateToProps(state){
+
+
+  return {
+    postFormIsShown:state.postFormIsShown
+  }
+}
+
+
+function mapDispatchToProps(dispatch){
+
+  return{
+
+  }
+}
+
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

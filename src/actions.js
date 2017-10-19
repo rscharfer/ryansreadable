@@ -25,13 +25,27 @@ export function sortByVoteTotal(){
 }
 
 
-export function openNewPostForm(){
+export function openPostForm(){
 
   return {
-    type:"OPEN_NEW_POST_FORM"
+    type:"OPEN_POST_FORM"
   }
 }
 
+
+export function populatePostFrom(){
+
+  return {
+    type:"POPULATE_POST_FORM"
+  }
+}
+
+export function closePostFrom(){
+
+  return {
+    type:"CLOSE_POST_FORM"
+  }
+}
 
 export function showPopulatedCommentForm(comment){
 

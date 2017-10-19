@@ -63,6 +63,9 @@ function commentIsBeingEdited(state = false, action) {
 
 }
 
+
+
+
 function commentWhichIsBeingEdited(state = null, action) {
 
     switch (action.type) {
@@ -92,6 +95,41 @@ function commentWhichIsBeingEdited(state = null, action) {
 
 
 
+}
+
+
+function postFormIsShown(state=false,action){
+
+
+    switch(action.type){
+
+        case "OPEN_POST_FORM":
+        return true;
+
+        case "CLOSE_POST_FORM":
+
+        return false;
+
+        default:
+        return state;
+    }
+}
+
+function postFormIsEmpty(state=true,action){
+
+
+    switch(action.type){
+
+        case "POPULATE_POST_FORM":
+        return true
+
+        case "CLOSE_POST_FORM":
+        return false
+        default:
+        return state;
+
+ 
+    }
 }
 
 function entities(
@@ -307,7 +345,8 @@ const rootReducer = combineReducers({
     entities,
     postsByCategory,
     commentIsBeingEdited,
-    commentWhichIsBeingEdited
+    commentWhichIsBeingEdited,
+    postFormIsShown
 
 })
 

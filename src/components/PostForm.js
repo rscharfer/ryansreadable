@@ -72,9 +72,7 @@ class PostForm extends Component{
   <div className="field">
     <label className="label">Username</label>
     <div className="control has-icons-left">
-      <input className="input is-success" value={this.state.userName} type="text" onChange={
-        (e)=>this.setState( {userName:e.target.value} )
-      }placeholder="Joe Smith"/>
+      <input className="input is-success" value={this.state.userName} type="text" onChange={ (e)=>this.setState( {userName:e.target.value} )}placeholder="Joe Smith"/>
       <span className="icon is-small is-left">
         <i className="fa fa-user"></i>
       </span>
@@ -102,17 +100,14 @@ class PostForm extends Component{
 <div className="field">
   <label className="label">Message</label>
   <div className="control">
-    <textarea className="textarea" value={this.state.message} onChange={
-      (e)=>this.setState( {message:e.target.value} )
-    }placeholder="Post your message here"></textarea>
+    <textarea className="textarea" value={this.state.message} onChange={ (e)=>this.setState( {message:e.target.value} ) }placeholder="Post your message here"></textarea>
   </div>
 </div>
 
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.saveEdit
-}>Save</button>
+    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.saveEdit}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closeWindow}>Cancel</button>
@@ -135,11 +130,14 @@ function mapDispatchToProps(dispatch) {
     saveEditedPost:(post)=>{
       dispatch(saveEditedPostToStore(post))
       dispatch(saveEditedPostToServer(post))
+      dispatch(closePostForm())
     },
 
     saveNewPost:(post)=>{
       dispatch(saveNewPostToStore(post))
       dispatch(saveNewPostToServer(post))
+      dispatch(closePostForm())
+
     }
 
   }
