@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import PostConstructor from '../constructors/PostConstructor.js'
 import { connect } from 'react-redux'
 import { saveEditedPostToStore, saveEditedPostToServer, saveNewPostToStore, saveNewPostToServer  } from '../actions'
 

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { submitNewCommentToServer, addNewCommentToStore, submitEditedCommentToStore, submitEditedCommentToServer  } from '../actions'
+import { saveNewCommentToServer, saveNewCommentToStore, saveEditedCommentToStore, saveEditedCommentToServer  } from '../actions'
 
 
 class NewCommentForm extends Component {
@@ -8,12 +8,12 @@ class NewCommentForm extends Component {
     constructor(props) {
 
         super();
-        console.log('here are the props in new comment form',props)
+        
         this.state = {
             message: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.body:"",
             userName: props.commentIsBeingEdited? props.commentWhichIsBeingEdited.author:"",
             newComment: true,
-            id: undefined,
+            comment:null
         }
         this.handleSumbit = this.handleSumbit.bind(this);
 
@@ -31,9 +31,9 @@ class NewCommentForm extends Component {
         if (newComment) {
 
             return () => {
-                console.log('here is the parent id passed to the action createor', this.props.postId)
-                this.props.submitNewCommentToServer({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
-                this.props.submitNewCommentToStore({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
+                console.log('this is a new comment')
+                this.props.saveNewCommentToServer({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
+                this.props.saveNewCommentToStore({ userName: this.state.userName, message: this.state.message, parentId:this.props.postId });
 
                // const newPost = new CommentConstructor(this.state);
                 // stringify that comment
@@ -54,10 +54,10 @@ class NewCommentForm extends Component {
 
             return () => {
 
-               
-                const editObject = { author: this.state.userName, body: this.state.message, timestamp: Date.now() };
-                 this.props.submitEditedCommentToServer(editObject);
-                this.props.submitEditedCommentToStore(editObject);
+               console.log('this is an editd comment')
+                const editObject = { author: this.state.userName, body: this.state.message, id:this.state.comment.id, parentId:this.state.comment.parentId, voteScore:this.state.comment.voteScore };
+                 this.props.saveEditedCommentToServer(editObject);
+                 this.props.saveEditedCommentToStore(editObject);
                 // stringify that "edit object"
                // const stringified = JSON.stringify(editObject);
                 // create headers
@@ -102,10 +102,13 @@ class NewCommentForm extends Component {
 
     componentWillReceiveProps(nextProps) {
 
-        if (this.props.formMessage !== nextProps.formMessage || this.props.formUserName !== nextProps.formUserName)
-            this.setState({ message: nextProps.formMessage, userName: nextProps.formUserName })
-        if (this.props.commentBeingEdited !== nextProps.commentBeingEdited)
-            this.setState({ newComment: !nextProps.commentBeingEdited })
+      //  if (this.props.formMessage !== nextProps.formMessage || this.props.formUserName !== nextProps.formUserName)
+            this.setState({ message: nextProps.commentWhichIsBeingEditedId? nextProps.commentWhichIsBeingEditedId.body:'', 
+                            userName: nextProps.commentWhichIsBeingEditedId? nextProps.commentWhichIsBeingEditedId.author:'',
+                            comment: nextProps.commentWhichIsBeingEditedId? nextProps.commentWhichIsBeingEditedId:'', 
+                            newComment:!nextProps.commentIsBeingEdited })
+        // if (this.props.commentBeingEdited !== nextProps.commentBeingEdited)
+        //     this.setState({ newComment: !nextProps.commentBeingEdited })
     }
 
 
@@ -158,13 +161,13 @@ class NewCommentForm extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    submitNewCommentToServer : (comment) =>dispatch(submitNewCommentToServer(comment)),
+    saveNewCommentToServer : (comment) =>dispatch(saveNewCommentToServer(comment)),
 
-    submitNewCommentToStore : (comment) =>dispatch(addNewCommentToStore(comment)),
+    saveNewCommentToStore : (comment) =>dispatch(saveNewCommentToStore(comment)),
 
-    submitEditedCommentToServer : (comment) =>dispatch(submitEditedCommentToServer(comment)),
+    saveEditedCommentToServer : (comment) =>dispatch(saveEditedCommentToServer(comment)),
 
-    submitEditedCommentToStore : (comment) =>dispatch(submitEditedCommentToStore(comment)),
+    saveEditedCommentToStore : (comment) =>dispatch(saveEditedCommentToStore(comment)),
 
   }
 }

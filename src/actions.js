@@ -3,14 +3,15 @@ import VoteConstructor from './constructors/VoteConstructor.js'
 import CommentConstructor from './constructors/CommentConstructor.js'
 import PostConstructor from './constructors/PostConstructor.js'
 import EditedPostConstructor from './constructors/EditedPostConstructor.js'
+import EditedCommentConstructor from './constructors/EditedCommentConstructor.js'
 
-export const REQUEST_POSTS = 'REQUEST_POSTS'
-function requestPosts() {
-  return {
-    type: REQUEST_POSTS,
+// export const REQUEST_POSTS = 'REQUEST_POSTS'
+// function requestPosts() {
+//   return {
+//     type: REQUEST_POSTS,
     
-  }
-}
+//   }
+// }
 
 
 export function sortByDate() {
@@ -71,21 +72,22 @@ export function removeCommentfromStore(id){
   }
 }
 
-export function submitEditedCommentToStore(comment){
+export function saveEditedCommentToStore(comment){
   
+  const commentObject = new EditedCommentConstructor(comment) 
   return {
-      type : 'SUBMIT_EDITED_COMMENT_TO_STORE',
-      comment
+      type : 'SAVE_EDITED_COMMENT_TO_STORE',
+      comment:commentObject
   }
 }
 
 
-export function addNewCommentToStore(comment){
+export function saveNewCommentToStore(comment){
 
   const newComment = new CommentConstructor(comment);
 
   return {
-    type : 'ADD_NEW_COMMENT_TO_STORE',
+    type : 'SAVE_NEW_COMMENT_TO_STORE',
     comment : newComment
   }
 }
@@ -126,21 +128,21 @@ export function removePostfromStore(id,category){
   }
 }
 
-export const REQUEST_COMMENTS = 'REQUEST_POSTS'
-function requestComments(id) {
-  return {
-    type: REQUEST_COMMENTS,
-    id
-  }
-}
+// export const REQUEST_COMMENTS = 'REQUEST_COMMENTS'
+// function requestComments(id) {
+//   return {
+//     type: REQUEST_COMMENTS,
+//     id
+//   }
+// }
 
-export const RECEIVE_COMMENTS = 'RECEIVE_POSTS'
-function receiveComments(json) {
-  return {
-    type: RECEIVE_COMMENTS,
-    posts: json.data.children.map(child => child.data),
-  }
-}
+// export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
+// function receiveComments(json) {
+//   return {
+//     type: RECEIVE_COMMENTS,
+//     posts: json.data.children.map(child => child.data),
+//   }
+// }
 
 
 
@@ -233,7 +235,7 @@ export function deleteComment(id) {
 }
 
 
-export function submitEditedCommentToServer(comment){
+export function saveEditedCommentToServer(comment){
 
   return function(dispatch){
 
@@ -257,7 +259,7 @@ export function submitEditedCommentToServer(comment){
 }
 
 
-export function submitNewCommentToServer(comment){
+export function saveNewCommentToServer(comment){
 
   return function(dispatch){
 

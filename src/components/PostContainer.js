@@ -1,9 +1,7 @@
-import React, { Component } from 'react';
-import { Route } from 'react-router-dom';
+import React from 'react';
 import SimplePost from './SimplePost.js';
 import {connect} from 'react-redux';
 import _orderBy from 'lodash.orderby'
-import _map from 'lodash.map'
 
 
 const PostContainer = props => {
