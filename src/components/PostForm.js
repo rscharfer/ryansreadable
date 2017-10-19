@@ -6,22 +6,9 @@ import { saveEditedPostToStore, saveEditedPostToServer, saveNewPostToStore, save
 
 class PostForm extends Component{
 
-    // props object includes 
-      // 'newPost' - is the form empty or not?  
-      // 'meta' - if the form is not empty, will be used to populate fields
-      // 'closeWindow' - this will hide the form on click
-
-    // 'meta' props object contains author, body, category, deleted, id, timestamp, title, voteScore properties, if the form is empty, the meta prop will be ignored and represents last post to get edited
-    // if the form is empty, it will get the default values, it it's to be populated, will use the meta object
-    // every instance of PostForm has a postToServer and save
-
 
     constructor(props){
       super();
-
-      
-    
-    
 
       this.state = {
         userName : props.postBeingEdited ? props.postBeingEdited.author : "" ,
@@ -66,9 +53,7 @@ class PostForm extends Component{
   <label className="label">Category</label>
   <div className="control">
     <div className="select">
-      <select value={this.state.category} onChange={
-        (e)=>this.setState( {category:e.target.value} )
-      }>
+      <select value={this.state.category} onChange={ (e)=>this.setState( {category:e.target.value} ) }>
 
         <option>udacity</option>
         <option>react</option>
@@ -90,7 +75,7 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.props.postBeingEdited?this.props.saveNewPost:this.props.saveEditedPost}>Save</button>
+    <button className="button is-primary" onClick={this.props.postBeingEdited?this.props.saveEditedPost:this.props.saveNewPost}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closePostForm}>Cancel</button>
