@@ -8,6 +8,9 @@ import _orderBy from 'lodash.orderby';
 
 const PostDetailPage = (props) => {
 
+
+
+    console.log('PostDetailPage: here are the props',props)
     const valid = props.validPost;
 
     const nonDeletedComments = props.comments.filter(comment=>!comment.deleted);
@@ -30,7 +33,7 @@ const PostDetailPage = (props) => {
         { valid ?(
         <section className="section">
               <div className="container">             
-                  <DetailedPost showPopulatedForm={props.showPopulatedPostForm} commentNumber = {props.comments.length} post={props.post}/>
+                  <DetailedPost showPopulatedForm={props.showPopulatedForm} commentNumber = {props.comments.length} post={props.post}/>
                   {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm postId={props.post.id}/>
               </div>
