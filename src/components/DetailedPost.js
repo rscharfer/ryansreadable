@@ -29,7 +29,7 @@ const DetailedPost = (props) =>{
                   <li><span>&nbsp;&nbsp;&nbsp;{props.commentNumber} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp meta={props.post} changeVote={this.changeVoteTotal}/>
                   <VoteDown meta={props.post} changeVote={this.changeVoteTotal}/>
-                  <li><a href="#"><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>
+                  <Edit meta={props.post} showPopulatedForm={props.showPopulatedForm}/>
                 
                   <Delete meta={props.post}/>    
                   
