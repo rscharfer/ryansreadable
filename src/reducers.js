@@ -121,10 +121,27 @@ function postFormIsEmpty(state=true,action){
     switch(action.type){
 
         case "POPULATE_POST_FORM":
-        return true
+        return false
 
         case "CLOSE_POST_FORM":
-        return false
+        return true
+        default:
+        return state;
+
+ 
+    }
+}
+
+
+function postBeingEdited(state=null,action){
+
+
+    switch(action.type){
+
+        case "POPULATE_POST_FORM":
+        return action.post
+
+        
         default:
         return state;
 
@@ -347,7 +364,8 @@ const rootReducer = combineReducers({
     commentIsBeingEdited,
     commentWhichIsBeingEdited,
     postFormIsShown,
-    postFormIsEmpty
+    postFormIsEmpty,
+    postBeingEdited
 
 })
 

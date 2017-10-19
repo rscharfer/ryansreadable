@@ -26,7 +26,8 @@ const store = createStore(
   commentIsBeingEdited:false,
   commentWhichIsBeingEdited:null,
   postFormIsShown:false,
-  postFormIsEmpty:true
+  postFormIsEmpty:true,
+  postBeingEdited:null
 
 },
   composeWithDevTools(applyMiddleware(

@@ -19,14 +19,15 @@ class PostForm extends Component{
     constructor(props){
       super();
 
+      console.log('here are the props in constructor',props)
       this.postToServer = this.postToServer.bind(this);
       this.saveEdit = this.saveEdit.bind(this);
 
       this.state = {
-        userName : props.newPost ? '' : props.meta.author ,
-        title : props.newPost ? '' : props.meta.title,
-        category : props.newPost ? 'udacity' : props.meta.category,
-        message : props.newPost ? '' : props.meta.body,
+        userName : props.postBeingEdited ? props.postBeingEdited.author : "" ,
+        title : props.postBeingEdited ? props.postBeingEdited.title : "",
+        category : props.postBeingEdited ? props.postBeingEdited.category : 'udacity',
+        message : props.postBeingEdited ? props.postBeingEdited.body : "",
         newPost : props.newPost
       }
     
@@ -37,8 +38,8 @@ class PostForm extends Component{
     saveEdit (){
 
       const post = Object.assign({},this.state,{
-        voteScore:this.props.meta.voteScore,
-        id:this.props.meta.id
+        voteScore:this.props.postBeingEdited.voteScore,
+        id:this.props.postBeingEdited.id
       })
 
       this.props.saveEditedPost(post)
@@ -146,6 +147,9 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state){
 
   return {
+
+
+    postBeingEdited:state.postBeingEdited
 
   }
 }

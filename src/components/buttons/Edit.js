@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React from 'react'
 import { connect } from 'react-redux'
 import { showPopulatedCommentForm, openPostForm, populatePostForm } from '../../actions'
 
@@ -14,6 +14,7 @@ const Edit = (props) =>{
 
 		
 		if(!props.comment){
+			
 			
 			props.openPostForm();
 			props.populatePostForm(props.meta)
