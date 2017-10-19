@@ -141,6 +141,9 @@ function postBeingEdited(state=null,action){
         case "POPULATE_POST_FORM":
         return action.post
 
+        case "CLOSE_POST_FORM":
+        return null
+
         
         default:
         return state;

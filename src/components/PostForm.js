@@ -19,42 +19,24 @@ class PostForm extends Component{
     constructor(props){
       super();
 
-      console.log('here are the props in constructor',props)
-      this.postToServer = this.postToServer.bind(this);
-      this.saveEdit = this.saveEdit.bind(this);
+      
+    
+    
 
       this.state = {
         userName : props.postBeingEdited ? props.postBeingEdited.author : "" ,
         title : props.postBeingEdited ? props.postBeingEdited.title : "",
         category : props.postBeingEdited ? props.postBeingEdited.category : 'udacity',
         message : props.postBeingEdited ? props.postBeingEdited.body : "",
-        newPost : props.newPost
+      
       }
     
     }
 
 
 
-    saveEdit (){
-
-      const post = Object.assign({},this.state,{
-        voteScore:this.props.postBeingEdited.voteScore,
-        id:this.props.postBeingEdited.id
-      })
-
-      this.props.saveEditedPost(post)
-
-      this.props.closeWindow();
-    }
-
-    postToServer(){
 
 
-
-      this.props.saveNewPost(this.state)
-
-      this.props.closeWindow();
-}
 
 
     render(){
@@ -108,10 +90,10 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.state.newPost?this.postToServer:this.saveEdit}>Save</button>
+    <button className="button is-primary" onClick={this.props.postBeingEdited?this.props.saveNewPost:this.props.saveEditedPost}>Save</button>
   </div>
   <div className="control">
-    <button className="button is-link" onClick={this.props.closeWindow}>Cancel</button>
+    <button className="button is-link" onClick={this.props.closePostForm}>Cancel</button>
   </div>
 </div>
 
@@ -139,6 +121,10 @@ function mapDispatchToProps(dispatch) {
       dispatch(saveNewPostToServer(post))
       dispatch(closePostForm())
 
+    },
+
+    closePostForm:()=>{
+      dispatch(closePostForm())
     }
 
   }
