@@ -11,7 +11,7 @@ import dateFormat from 'dateformat'
 const DetailedPost = (props) =>{
 
     const time = dateFormat(props.post.timestamp, "mmmm dS, yyyy")
-
+    
     return (      
 
       <div className="columns is-centered">

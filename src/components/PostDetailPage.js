@@ -30,7 +30,7 @@ const PostDetailPage = (props) => {
         { valid ?(
         <section className="section">
               <div className="container">             
-                  <DetailedPost showPopulatedForm={this.showPopulatedPostForm} commentNumber = {props.comments.length} post={props.post}/>
+                  <DetailedPost showPopulatedForm={props.showPopulatedPostForm} commentNumber = {props.comments.length} post={props.post}/>
                   {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm postId={props.post.id}/>
               </div>
