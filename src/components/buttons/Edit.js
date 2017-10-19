@@ -14,10 +14,11 @@ const Edit = (props) =>{
 
 		
 		if(!props.comment){
+			
 			props.openPostForm();
 			props.populatePostForm(props.meta)
 		} 
-		
+
 		if(props.comment){
 			
 			props.showPopulatedCommentForm(props.meta)
@@ -27,7 +28,7 @@ const Edit = (props) =>{
 
 	}
 
-     return (<li><a onClick={this.fillForm}><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>)
+     return (<li><a onClick={fillForm}><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>)
 }
 
 
