@@ -95,15 +95,18 @@ class App extends Component {
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
                       }/>
                       <Route path="/udacity/:post" render={props=>(
-                          <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm}/>
+                          // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm}/>
+                          <PostDetailPage {...props}  showPopulatedForm={this.showPopulatedPostForm} />
                         )} />
                        <Route path="/redux/:post" render={props=>(
-                        <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
+                        // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
+                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
                       )} />
                        <Route path="/react/:post" render={props=>{
                         
                         return(
-                        <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
+                        // <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
+                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
                       )}
                       } />
             
