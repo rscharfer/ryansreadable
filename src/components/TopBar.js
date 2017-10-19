@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { sortByDate, sortByVoteTotal } from '../actions'
+import { sortByDate, sortByVoteTotal, openNewPostForm } from '../actions'
 
 
 
@@ -48,7 +48,7 @@ function TopBar(props){
   }}>Date</a>
     </p>
     <p className="level-item">
-      <a className="button is-success" onClick={props.showEmptyPostForm}>Create New Post</a>
+      <a className="button is-success" onClick={props.openNewPostForm}>Create New Post</a>
     </p></div>
 </nav>
 
@@ -69,7 +69,8 @@ function mapDispatchToProps(dispatch){
 
   return {
     sortByDate: ()=>dispatch(sortByDate()),
-    sortByVoteTotal:()=>dispatch(sortByVoteTotal())
+    sortByVoteTotal:()=>dispatch(sortByVoteTotal()),
+    openNewPostForm:()=>dispatch(openNewPostForm())
   }
 }
 
