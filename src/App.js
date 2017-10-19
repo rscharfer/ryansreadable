@@ -4,6 +4,7 @@ import PostContainer from './components/PostContainer.js'
 import PostForm from './components/PostForm.js'
 import PostDetailPage from './components/PostDetailPage.js'
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux'
 
 
 class App extends Component {

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { saveEditedPostToStore, saveEditedPostToServer, saveNewPostToStore, saveNewPostToServer  } from '../actions'
+import { saveEditedPostToStore, saveEditedPostToServer, saveNewPostToStore, saveNewPostToServer, closePostForm  } from '../actions'
 
 
 

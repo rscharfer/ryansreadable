@@ -346,7 +346,8 @@ const rootReducer = combineReducers({
     postsByCategory,
     commentIsBeingEdited,
     commentWhichIsBeingEdited,
-    postFormIsShown
+    postFormIsShown,
+    postFormIsEmpty
 
 })
 

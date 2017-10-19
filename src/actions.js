@@ -33,14 +33,14 @@ export function openPostForm(){
 }
 
 
-export function populatePostFrom(){
+export function populatePostForm(){
 
   return {
     type:"POPULATE_POST_FORM"
   }
 }
 
-export function closePostFrom(){
+export function closePostForm(){
 
   return {
     type:"CLOSE_POST_FORM"

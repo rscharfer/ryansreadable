@@ -1,43 +1,35 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
-import { showPopulatedCommentForm, openPostForm } from '../../actions'
+import { showPopulatedCommentForm, openPostForm, populatePostForm } from '../../actions'
 
 
 
-class Edit extends Component{
+const Edit = (props) =>{
 
-	// props include the meta data for the post being edited and the populatePostForm
 
-	constructor(props){
-		super();
-		this.state={
-			id:''
-		}
-		this.fillForm = this.fillForm.bind(this)
-		
-		
-	}
 
-	fillForm(){
+
+
+	function fillForm(){
 
 		
-		if(!this.props.comment) this.props.populatePostForm(this.props.meta)
-		if(this.props.comment){
+		if(!props.comment) props.populatePostForm(props.meta)
+		if(props.comment){
 			
-			this.props.showPopulatedCommentForm(this.props.meta)
+			props.showPopulatedCommentForm(props.meta)
 			
 		} 
 		
 
 	}
 
-	render(){
+	
 
 	
 
      return (<li><a onClick={this.fillForm}><span className="icon is-small"><i className="fa fa-edit"></i></span><span>Edit</span></a></li>)
 
-	}
+	
 
 
 }
