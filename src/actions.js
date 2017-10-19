@@ -25,6 +25,14 @@ export function sortByVoteTotal(){
 }
 
 
+export function openNewPostForm(){
+
+  return {
+    type:"OPEN_NEW_POST_FORM"
+  }
+}
+
+
 export function showPopulatedCommentForm(comment){
 
   return {
