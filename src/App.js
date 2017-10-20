@@ -29,7 +29,7 @@ class App extends Component {
  
     this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
 
-    this.closePostForm = this.closePostForm.bind(this);
+    
   }
 
   showEmptyPostForm(){
@@ -62,10 +62,7 @@ class App extends Component {
     })
   }
 
-  closePostForm(){
 
-    this.setState({showPostForm:false})
-  }
 
   render() {
  
@@ -124,7 +121,7 @@ class App extends Component {
 
       {this.props.postFormIsShown && (
 
-          <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject} closeWindow={this.closePostForm}/>
+          <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject}/>
         )
       }
 
