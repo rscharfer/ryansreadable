@@ -8,7 +8,7 @@ const PostContainer = props => {
 
 
 
-
+	console.log('post container rendered')
 	const nonDeletedPosts = props.posts.filter(post=>!post.deleted);
 	let orderedPosts;
 
