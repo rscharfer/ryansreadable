@@ -70,6 +70,7 @@ class App extends Component {
     return (
       <div>
 
+      {console.log("true or false",!this.props.postFormIsShown)}
 
       {!this.props.postFormIsShown && (
 

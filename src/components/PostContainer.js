@@ -16,9 +16,10 @@ const PostContainer = props => {
     	orderedPosts = _orderBy(nonDeletedPosts,'timestamp','desc')
     else if (props.sort==="byVoteTotal")
     	orderedPosts = _orderBy(nonDeletedPosts,'voteScore','desc')
-    
+    console.log('ordered posts',orderedPosts)
 
 	return (
+
 		<div>
 				{orderedPosts.map((post)=>{
 					
