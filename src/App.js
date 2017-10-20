@@ -3,7 +3,7 @@ import TopBar from './components/TopBar.js'
 import PostContainer from './components/PostContainer.js'
 import PostForm from './components/PostForm.js'
 import PostDetailPage from './components/PostDetailPage.js'
-import { Route, Switch } from 'react-router-dom';
+import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 
@@ -151,4 +151,4 @@ function mapDispatchToProps(dispatch){
 }
 
 
-export default connect(mapStateToProps,mapDispatchToProps)(App);
+export default withRouter(connect(mapStateToProps,mapDispatchToProps)(App));
