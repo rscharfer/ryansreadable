@@ -66,7 +66,7 @@ class App extends Component {
 
   render() {
  
-  console.log('here are the props for app.js',this.props)
+
     return (
       <div>
 
@@ -121,7 +121,7 @@ class App extends Component {
 
       {this.props.postFormIsShown && (
 
-          <PostForm newPost={this.state.emptyForm} meta={this.state.currentlyEditedObject}/>
+          <PostForm/>
         )
       }
 
