@@ -25,21 +25,21 @@ class App extends Component {
 
   
 
-    this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
+    // this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
  
     this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
 
     
   }
 
-  showEmptyPostForm(){
+  // showEmptyPostForm(){
 
-      this.setState({
-        showPostForm:true,
-        emptyForm:true
-      })
+  //     this.setState({
+  //       showPostForm:true,
+  //       emptyForm:true
+  //     })
     
-  }
+  // }
   // componentDidMount(){
 
   
@@ -75,7 +75,7 @@ class App extends Component {
 
            <section className="section">
               <div className="container">        
-                  <TopBar showEmptyPostForm={this.showEmptyPostForm}/>
+                  <TopBar/>
                   <Switch>   
                        <Route exact path="/udacity" render={
                         ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="udacity"/>
