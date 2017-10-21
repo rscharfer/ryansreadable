@@ -193,7 +193,7 @@ function entities(
         case "SAVE_EDITED_POST_TO_STORE":
             {
 
-
+                console.log(action)
                 const postsCopy = Object.assign({}, state.posts, {
 
                     [action.newPost.id]: action.newPost
