@@ -339,7 +339,7 @@ export function voteUpOnServer(id,isComment) {
 
 export function saveNewPostToServer(post){
 
-
+  console.log('save new post to server is called!')
   return function(dispatch){
 
       const newPost = new PostConstructor(post);
