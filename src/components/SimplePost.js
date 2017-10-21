@@ -28,7 +28,7 @@ const SimplePost = (props)=>{
                   <li><span>&nbsp;&nbsp;&nbsp;{props.commentNumber} Comments&nbsp;&nbsp;&nbsp;</span></li>
                   <VoteUp meta={props.post}/>
                   <VoteDown meta={props.post}/>
-                  <Edit meta={props.post} showPopulatedForm={props.showPopulatedForm}/>
+                  <Edit meta={props.post}/>
                   <Delete meta={props.post}/>                     
                   
               </ul>

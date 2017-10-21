@@ -23,7 +23,7 @@ const PostContainer = props => {
 		<div>
 				{orderedPosts.map((post)=>{
 					
-					return <SimplePost key={post.id} postId={post.id} showPopulatedForm={props.showPopulatedForm}/>
+					return <SimplePost key={post.id} postId={post.id}/>
 				})}
 				</div>
 		)
