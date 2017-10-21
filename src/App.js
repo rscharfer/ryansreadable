@@ -27,7 +27,7 @@ class App extends Component {
 
     // this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
  
-    this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
+    // this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
 
     
   }
@@ -53,14 +53,14 @@ class App extends Component {
             
   // }
 
-  showPopulatedPostForm(parent){
+  // showPopulatedPostForm(parent){
 
-    this.setState({
-      showPostForm:true,
-      emptyForm:false,
-      currentlyEditedObject:parent
-    })
-  }
+  //   this.setState({
+  //     showPostForm:true,
+  //     emptyForm:false,
+  //     currentlyEditedObject:parent
+  //   })
+  // }
 
 
 
@@ -79,33 +79,33 @@ class App extends Component {
                   <TopBar/>
                   <Switch>   
                        <Route exact path="/udacity" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="udacity"/>
+                        ()=><PostContainer cat="udacity"/>
                       }/>
                       <Route exact path="/" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="all"/>
+                        ()=><PostContainer cat="all"/>
                       }/>
                       <Route exact path="/react" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="react"/>
+                        ()=><PostContainer cat="react"/>
                       }/>
                       <Route exact path="/redux" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm} cat="redux"/>
+                        ()=><PostContainer cat="redux"/>
                       }/>
                       <Route exact path="/" render={
-                        ()=><PostContainer showPopulatedForm={this.showPopulatedPostForm}/>
+                        ()=><PostContainer/>
                       }/>
                       <Route path="/udacity/:post" render={props=>(
                           // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm}/>
-                          <PostDetailPage {...props}  showPopulatedForm={this.showPopulatedPostForm} />
+                          <PostDetailPage {...props}  />
                         )} />
                        <Route path="/redux/:post" render={props=>(
                         // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
-                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                        <PostDetailPage {...props} />
                       )} />
                        <Route path="/react/:post" render={props=>{
                         
                         return(
                         // <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
-                        <PostDetailPage {...props} showPopulatedForm={this.showPopulatedPostForm} />
+                        <PostDetailPage {...props}  />
                       )}
                       } />
             
