@@ -16,8 +16,11 @@ While completing this project, we needed to show (among other things) that we un
 
 ### The easiest way to view the app
 
-* Clone the repository to your desktop
-* While inside the root of the repository, tun the `$ npm install`
+* Clone this repository to your desktop 
+* While inside the root of the repository, run the `$ npm install` command
+* After the dependencies have been installed run the command `$ npm start`
+* Clone the server located at https://github.com/udacity/reactnd-project-readable-starter to your desktop
+* While inside the root of that repository, run the `$ npm install` command
 * After the dependencies have been installed run the command `$ npm start`
 * After that, the app should run perfectly!
 

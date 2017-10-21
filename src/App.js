@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TopBar from './components/TopBar.js'
 import PostContainer from './components/PostContainer.js'
 import PostForm from './components/PostForm.js'
