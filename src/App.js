@@ -7,72 +7,15 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 
-class App extends Component {
+const App = (props) => {
 
-  constructor(props){
-
-    super(props)
- 
-
-    this.state = {
-
-    //  showPostForm:false,
-    //  emptyForm:false,
-    //  currentlyEditedObject:undefined,
-    //  posts : [],
-    //  categories : []
-    }
-
-  
-
-    // this.showEmptyPostForm = this.showEmptyPostForm.bind(this)
- 
-    // this.showPopulatedPostForm = this.showPopulatedPostForm.bind(this);
-
-    
-  }
-
-  // showEmptyPostForm(){
-
-  //     this.setState({
-  //       showPostForm:true,
-  //       emptyForm:true
-  //     })
-    
-  // }
-  // componentDidMount(){
-
-  
-  //   fetch(`http://localhost:3001/posts`,{headers:{authorization:'crazypassword'}})
-  //           .then(res=>res.json())
-  //           .then(data=>this.setState({posts:data.filter(post=>!post.deleted)}))
-
-  //   fetch(`http://localhost:3001/categories`,{headers:{authorization:'crazypassword'}})
-  //           .then(res=>res.json())
-  //           .then(data=>this.setState({categories:data.categories}))
-            
-  // }
-
-  // showPopulatedPostForm(parent){
-
-  //   this.setState({
-  //     showPostForm:true,
-  //     emptyForm:false,
-  //     currentlyEditedObject:parent
-  //   })
-  // }
-
-
-
-  render() {
- 
 
     return (
       <div>
 
-      {console.log("true or false",!this.props.postFormIsShown)}
+      {console.log("true or false",!props.postFormIsShown)}
 
-      {!this.props.postFormIsShown && (
+      {!props.postFormIsShown && (
 
            <section className="section">
               <div className="container">        
@@ -120,7 +63,7 @@ class App extends Component {
       }
 
 
-      {this.props.postFormIsShown && (
+      {props.postFormIsShown && (
 
           <PostForm/>
         )
@@ -132,7 +75,7 @@ class App extends Component {
   }
 
 
-}
+
 
 function mapStateToProps(state){
 
