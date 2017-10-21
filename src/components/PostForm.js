@@ -23,7 +23,15 @@ class PostForm extends Component{
 
 
 
+    completeStateForEditingActions(){
 
+      const completeState = Object.assign({},this.state,{
+        id:props.postBeingEdited.id,
+        voteScore:props.postBeingEdited.voteScore
+      })
+
+      return completeState;
+    }
 
 
     render(){
@@ -75,7 +83,7 @@ class PostForm extends Component{
 
 <div className="field is-grouped">
   <div className="control">
-    <button className="button is-primary" onClick={this.props.postBeingEdited?()=>{this.props.saveEditedPost(this.state)}:()=>{this.props.saveNewPost(this.state)}}>Save</button>
+    <button className="button is-primary" onClick={this.props.postBeingEdited?()=>{this.props.saveEditedPost(completeStateForEditingActions())}:()=>{this.props.saveNewPost(this.state)}}>Save</button>
   </div>
   <div className="control">
     <button className="button is-link" onClick={this.props.closePostForm}>Cancel</button>
