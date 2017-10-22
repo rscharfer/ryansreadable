@@ -5,13 +5,14 @@ import PostConstructor from './constructors/PostConstructor.js'
 import EditedPostConstructor from './constructors/EditedPostConstructor.js'
 import EditedCommentConstructor from './constructors/EditedCommentConstructor.js'
 
-// export const REQUEST_POSTS = 'REQUEST_POSTS'
-// function requestPosts() {
-//   return {
-//     type: REQUEST_POSTS,
-    
-//   }
-// }
+
+const api = "http://localhost:3001"
+
+let token = localStorage.token
+if (!token)
+   token = localStorage.token = Math.random().toString(36).substr(-8)
+
+ 
 
 
 export function sortByDate() {
