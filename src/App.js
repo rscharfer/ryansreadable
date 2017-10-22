@@ -37,20 +37,17 @@ const App = (props) => {
                         ()=><PostContainer/>
                       }/>
                       <Route path="/udacity/:post" render={props=>(
-                          // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm}/>
+                          
                           <PostDetailPage {...props}  />
                         )} />
                        <Route path="/redux/:post" render={props=>(
-                        // <PostDetailPage {...props}  validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
+                       
                         <PostDetailPage {...props} />
                       )} />
-                       <Route path="/react/:post" render={props=>{
+                       <Route path="/react/:post" render={props=>(
                         
-                        return(
-                        // <PostDetailPage {...props} validPosts={this.state.posts} showPopulatedForm={this.showPopulatedPostForm} />
                         <PostDetailPage {...props}  />
-                      )}
-                      } />
+                      )} />
             
                       
                   </Switch>
