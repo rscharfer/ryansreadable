@@ -74,9 +74,9 @@ export function saveEditedPostToStore(post){
 
 export function saveNewPostToStore(post){
 
-  console.log('here is what is coming in',post)
+  
   const newPost = new PostConstructor(post);
-  console.log('here is what is coming out',newPost)
+  
   return {
     type:"SAVE_NEW_POST_TO_STORE",
     post : newPost
@@ -156,47 +156,15 @@ export function removePostfromStore(id,category){
   }
 }
 
-// export const REQUEST_COMMENTS = 'REQUEST_COMMENTS'
-// function requestComments(id) {
-//   return {
-//     type: REQUEST_COMMENTS,
-//     id
-//   }
-// }
 
-// export const RECEIVE_COMMENTS = 'RECEIVE_COMMENTS'
-// function receiveComments(json) {
-//   return {
-//     type: RECEIVE_COMMENTS,
-//     posts: json.data.children.map(child => child.data),
-//   }
-// }
-
-
-
-
-// Meet our first thunk action creator!
-// Though its insides are different, you would use it just like any other action creator:
-// store.dispatch(fetchPosts('reactjs'))
 
 export function fetchPosts() {
-  // Thunk middleware knows how to handle functions.
-  // It passes the dispatch method as an argument to the function,
-  // thus making it able to dispatch actions itself.
+  
 
   return function (dispatch) {
-    // First dispatch: the app state is updated to inform
-    // that the API call is starting.
 
-  //  dispatch(requestPosts())
 
-    // The function called by the thunk middleware can return a value,
-    // that is passed on as the return value of the dispatch method.
-
-    // In this case, we return a promise to wait for.
-    // This is not required by thunk middleware, but it is convenient for us.
-
-    return fetch("http://localhost:3001/posts",{
+    return fetch(`${api}/posts`,{
         headers: { 'Authorization': 'whatever-you-want' }
     })
       .then(
@@ -206,16 +174,14 @@ export function fetchPosts() {
 
         return dispatch(receivePosts(json))
       }
-        // We can dispatch many times!
-        // // Here, we update the app state with the results of the API call.
-        // console.log('response from server',json),
+       
        
 
       ).then((action)=>{
 
         const postIDs = action.posts.map(post=>post.id);
         postIDs.forEach(id=>{
-          fetch("http://localhost:3001/posts/"+id+"/comments",{
+          fetch(`${api}/posts/${id}/comments`,{
         headers: { 'Authorization': 'whatever-you-want' }
     }).then(res=>res.json()).then(json=>{
       
@@ -239,7 +205,7 @@ export function deletePost(id) {
 
   return function(dispatch){
 
-    return fetch("http://localhost:3001/posts/"+id,{
+    return fetch(`${api}/posts/${id}`,{
         headers: { 'Authorization': 'whatever-you-want' },
         method: 'DELETE'
     })
@@ -253,7 +219,7 @@ export function deleteComment(id) {
   
   return function(dispatch){
     
-    return fetch("http://localhost:3001/comments/"+id,{
+    return fetch(`${api}/comments/${id}`,{
         headers: { 'Authorization': 'whatever-you-want' },
         method: 'DELETE'
     })
@@ -275,7 +241,7 @@ export function saveEditedCommentToServer(comment){
               
                 const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
                 // make the put to server
-                return fetch("http://localhost:3001/comments/" + comment.id, {
+                return fetch(`${api}/comments/${comment.id}`, {
                     headers: headers,
                     method: 'PUT',
                     body: stringified
@@ -292,15 +258,15 @@ export function saveNewCommentToServer(comment){
   return function(dispatch){
 
 
-                console.log('submit is being called ')
+            
                 const newPost = new CommentConstructor(comment);
-                console.log('this is what the new post looks like',newPost)
-                // stringify that comment
+          
+      
                 const stringified = JSON.stringify(newPost);
-                // create headers
+      
                 const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
-                // make the post to server
-                return fetch("http://localhost:3001/comments", {
+        
+                return fetch(`${api}/comments`, {
                     headers: headers,
                     method: 'POST',
                     body: stringified
@@ -320,7 +286,7 @@ export function voteUpOnServer(id,isComment) {
   
     if(!isComment){
 
-      const voteUrl = 'http://localhost:3001/posts/'+id;
+      const voteUrl = `${api}/posts/${id}`;
       const vote = new VoteConstructor('upVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
@@ -329,7 +295,7 @@ export function voteUpOnServer(id,isComment) {
     else {
 
 
-      const voteUrl = 'http://localhost:3001/comments/'+id;
+      const voteUrl = `${api}/comments/${id}`;
       const vote = new VoteConstructor('upVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
       return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
@@ -344,16 +310,16 @@ export function voteUpOnServer(id,isComment) {
 
 export function saveNewPostToServer(post){
 
-  console.log('save new post to server is called!')
+
   return function(dispatch){
 
       const newPost = new PostConstructor(post);
-      // stringify that post
+    
       const stringified = JSON.stringify(newPost);
-      // create headers
+
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      // make the post to server
-      return fetch("http://localhost:3001/posts",{
+    
+      return fetch(`${api}/posts`,{
         headers:headers,
         method:'POST',
         body:stringified
@@ -364,16 +330,16 @@ export function saveNewPostToServer(post){
 
 export function saveEditedPostToServer(post){
 
-  console.log('save edited post to server',post)
+
   return function(dispatch){
 
       const editObject = {title:post.title,body:post.message};
-      // stringify that "edit object"
+    
       const stringified = JSON.stringify(editObject);
-      // create headers
+    
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      // make the put to server
-      return fetch("http://localhost:3001/posts/"+post.id,{
+      
+      return fetch(`${api}/posts/${post.id}`,{
         headers:headers,
         method:'PUT',
         body:stringified
@@ -390,7 +356,7 @@ export function voteDownOnServer(id,isComment) {
   
     if(!isComment){
       
-      const voteUrl = 'http://localhost:3001/posts/'+id;
+      const voteUrl = `${api}/posts/${id}`;
       const vote = new VoteConstructor('downVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
@@ -398,9 +364,8 @@ export function voteDownOnServer(id,isComment) {
 
     else {
 
-      console.log('vote down on server is called with comment')
-      console.log('comment id is ',id)
-      const voteUrl = 'http://localhost:3001/comments/'+id;
+      
+      const voteUrl = `${api}/comments/${id}`;
       const vote = new VoteConstructor('downVote');
       const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
       return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
