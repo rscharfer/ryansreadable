@@ -148,7 +148,7 @@ export function voteDownOnStore(id, isComment) {
 
 
 export function removePostfromStore(id,category){
-  console.log("here is the id of the post",id)
+  
   return {
       type : 'REMOVE_POST_FROM_STORE',
       id,
@@ -164,9 +164,7 @@ export function fetchPosts() {
   return function (dispatch) {
 
 
-    return fetch(`${api}/posts`,{
-        headers: { 'Authorization': 'whatever-you-want' }
-    })
+    return fetch(`${api}/posts`,{ headers} )
       .then(
         response => response.json()
       )
@@ -180,10 +178,11 @@ export function fetchPosts() {
       ).then((action)=>{
 
         const postIDs = action.posts.map(post=>post.id);
+
         postIDs.forEach(id=>{
-          fetch(`${api}/posts/${id}/comments`,{
-        headers: { 'Authorization': 'whatever-you-want' }
-    }).then(res=>res.json()).then(json=>{
+          fetch(`${api}/posts/${id}/comments`,{ headers })
+
+          .then(res=>res.json()).then(json=>{
       
       return dispatch({
       type:'COMMENTS_RECEIVED',
@@ -206,7 +205,7 @@ export function deletePost(id) {
   return function(dispatch){
 
     return fetch(`${api}/posts/${id}`,{
-        headers: { 'Authorization': 'whatever-you-want' },
+        headers,
         method: 'DELETE'
     })
       
@@ -220,7 +219,7 @@ export function deleteComment(id) {
   return function(dispatch){
     
     return fetch(`${api}/comments/${id}`,{
-        headers: { 'Authorization': 'whatever-you-want' },
+        headers,
         method: 'DELETE'
     })
       
@@ -234,15 +233,12 @@ export function saveEditedCommentToServer(comment){
   return function(dispatch){
 
 
-   //  const editObject = { author: comment.userName, body: comment.message, timestamp: Date.now() };
-                // stringify that "edit object"
+
                 const stringified = JSON.stringify(comment);
-                // create headers
               
-                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
-                // make the put to server
+              
                 return fetch(`${api}/comments/${comment.id}`, {
-                    headers: headers,
+                    headers,
                     method: 'PUT',
                     body: stringified
                 })
@@ -264,10 +260,10 @@ export function saveNewCommentToServer(comment){
       
                 const stringified = JSON.stringify(newPost);
       
-                const headers = { authorization: 'crazypassword', 'Content-Type': 'application/json' };
+             
         
                 return fetch(`${api}/comments`, {
-                    headers: headers,
+                    headers,
                     method: 'POST',
                     body: stringified
                 })
@@ -288,8 +284,8 @@ export function voteUpOnServer(id,isComment) {
 
       const voteUrl = `${api}/posts/${id}`;
       const vote = new VoteConstructor('upVote');
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-     return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+    
+     return fetch(voteUrl,{headers, method:'POST',body:JSON.stringify(vote)})
     }
 
     else {
@@ -297,8 +293,8 @@ export function voteUpOnServer(id,isComment) {
 
       const voteUrl = `${api}/comments/${id}`;
       const vote = new VoteConstructor('upVote');
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+
+      return fetch(voteUrl,{headers, method:'POST',body:JSON.stringify(vote)})
       
 
     }
@@ -317,10 +313,9 @@ export function saveNewPostToServer(post){
     
       const stringified = JSON.stringify(newPost);
 
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
     
       return fetch(`${api}/posts`,{
-        headers:headers,
+        headers,
         method:'POST',
         body:stringified
         }).then(res=>console.log('response:new post to server',res))
@@ -337,10 +332,10 @@ export function saveEditedPostToServer(post){
     
       const stringified = JSON.stringify(editObject);
     
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
+
       
       return fetch(`${api}/posts/${post.id}`,{
-        headers:headers,
+        headers,
         method:'PUT',
         body:stringified
         }).then(res=>console.log('response: edited post to server',res))
@@ -358,8 +353,8 @@ export function voteDownOnServer(id,isComment) {
       
       const voteUrl = `${api}/posts/${id}`;
       const vote = new VoteConstructor('downVote');
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-     return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+
+     return fetch(voteUrl,{headers, method:'POST',body:JSON.stringify(vote)})
     }
 
     else {
@@ -367,8 +362,8 @@ export function voteDownOnServer(id,isComment) {
       
       const voteUrl = `${api}/comments/${id}`;
       const vote = new VoteConstructor('downVote');
-      const headers = {authorization:'crazypassword', 'Content-Type':'application/json'};
-      return fetch(voteUrl,{headers:headers, method:'POST',body:JSON.stringify(vote)})
+
+      return fetch(voteUrl,{headers, method:'POST',body:JSON.stringify(vote)})
       
 
     }
