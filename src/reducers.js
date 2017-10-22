@@ -286,6 +286,7 @@ function entities(
             return Object.assign({}, state, {
 
                 posts: action.posts.reduce((result, post, index) => {
+                    console.log('next post',post)
                     result[post.id] = post;
                     return result
                 }, {}),

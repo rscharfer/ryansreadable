@@ -49,10 +49,11 @@ const PostDetailPage = (props) => {
 
 const mapStateToProps = (state,ownProps) => {
   
-  
+  console.log(`Here is the state when state gets mapped to PostDetailPage`,state)
 
-  // get the post field from the url
+  
   const postID = ownProps.match.params.post;
+  console.log(`Here is the postID ${postID}`)
   const comments = [];
   const sec = state.entities.comments;
   const allPosts = state.postsByCategory.react.concat(state.postsByCategory.redux).concat(state.postsByCategory.udacity)
@@ -62,7 +63,7 @@ const mapStateToProps = (state,ownProps) => {
     if(sec[prop].parentId===postID) comments.push(sec[prop])
   }
 
-     // map the pertinent post object and each of the comment objects from the redux store
+     
   return {
 
     post:state.entities.posts[postID],
