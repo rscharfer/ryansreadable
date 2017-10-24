@@ -11,6 +11,7 @@ class PostForm extends Component{
       super();
 
       this.state = {
+        // this is for initial seeding purposes, props will never be needed again after the getInitialState is called
         userName : props.postBeingEdited ? props.postBeingEdited.author : "" ,
         title : props.postBeingEdited ? props.postBeingEdited.title : "",
         category : props.postBeingEdited ? props.postBeingEdited.category : 'udacity',
