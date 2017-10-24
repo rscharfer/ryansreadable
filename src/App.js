@@ -20,22 +20,24 @@ const App = (props) => {
            <section className="section">
               <div className="container">        
                   <TopBar/>
-                  <Switch>   
+                  <Switch>
+
+                      <Route exact path="/" render={
+                        ()=><PostContainer cat="all"/>
+                      }/>   
+
                        <Route exact path="/udacity" render={
                         ()=><PostContainer cat="udacity"/>
                       }/>
-                      <Route exact path="/" render={
-                        ()=><PostContainer cat="all"/>
-                      }/>
+                   
                       <Route exact path="/react" render={
                         ()=><PostContainer cat="react"/>
                       }/>
+                      
                       <Route exact path="/redux" render={
                         ()=><PostContainer cat="redux"/>
                       }/>
-                      <Route exact path="/" render={
-                        ()=><PostContainer/>
-                      }/>
+                     
                       <Route path="/udacity/:post" render={props=>(
                           
                           <PostDetailPage {...props}  />
