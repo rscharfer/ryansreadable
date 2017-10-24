@@ -7,6 +7,10 @@ import { Route, Switch, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux'
 
 
+
+
+
+// FOR REVIEWER : there is a fixed amount of categories in the application.  
 const App = (props) => {
 
 
@@ -22,6 +26,7 @@ const App = (props) => {
                   <TopBar/>
                   <Switch>
 
+
                       <Route exact path="/" render={
                         ()=><PostContainer cat="all"/>
                       }/>   
@@ -33,7 +38,7 @@ const App = (props) => {
                       <Route exact path="/react" render={
                         ()=><PostContainer cat="react"/>
                       }/>
-                      
+
                       <Route exact path="/redux" render={
                         ()=><PostContainer cat="redux"/>
                       }/>

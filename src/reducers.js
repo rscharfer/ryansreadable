@@ -12,6 +12,8 @@ function selectedView(state = 'all', action) {
 }
 
 
+// FOR REVIEWER: this is kept in redux state per specification  per specification, the only state allowed to be in component state is that of controlled components.
+
 function sortType(state = 'byDate', action) {
 
     switch (action.type) {
@@ -26,16 +28,9 @@ function sortType(state = 'byDate', action) {
 }
 
 
-// function sortTypePosts(state='byDate', action){
 
-//   switch (action.type) {
-//     case "SELECT_VIEW":
-//       return action.sort
-//     default:
-//       return state
-//   }
 
-// }
+// FOR REVIEWER : this is kept in redux state per specification.  per specification, the only state allowed to be in component state is that of controlled components.
 
 function commentIsBeingEdited(state = false, action) {
 
