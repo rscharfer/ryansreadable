@@ -67,7 +67,7 @@ function commentWhichIsBeingEdited(state = null, action) {
 
         case "SHOW_POPULATED_COMMENT_FORM":
 
-            console.log('show populated comment form action was received', action.comment)
+            
 
             return action.comment;
 
@@ -188,7 +188,7 @@ function entities(
         case "SAVE_EDITED_POST_TO_STORE":
             {
 
-                console.log(action)
+                
                 const postsCopy = Object.assign({}, state.posts, {
 
                     [action.newPost.id]: action.newPost
@@ -204,7 +204,7 @@ function entities(
 
         case "SAVE_EDITED_COMMENT_TO_STORE":
 
-            console.log('save edited comment to store is called', action.comment)
+        
             {
 
               const editedComments = Object.assign({},state.comments,{
@@ -281,7 +281,7 @@ function entities(
             return Object.assign({}, state, {
 
                 posts: action.posts.reduce((result, post, index) => {
-                    console.log('next post',post)
+                    
                     result[post.id] = post;
                     return result
                 }, {}),
@@ -327,7 +327,7 @@ function postsByCategory(state = {
         case "SAVE_NEW_POST_TO_STORE":
             const cat = action.post.category;
             const id = action.post.id;
-            console.log('her is the post', action.post);
+
             return Object.assign({}, state, {
                 [cat]: state[cat].concat(id)
             })

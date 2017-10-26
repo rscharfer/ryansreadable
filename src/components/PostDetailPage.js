@@ -8,8 +8,15 @@ import _orderBy from 'lodash.orderby';
 
 class PostDetailPage extends Component {
 
+  constructor(props){
 
-  
+    super(props)
+    this.state={
+
+
+    }
+  }
+
 
 
   render(){
