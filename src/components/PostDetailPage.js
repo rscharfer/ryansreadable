@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import DetailedPost from './DetailedPost.js';
 import Comment from './Comment.js';
 import NewCommentForm from './NewCommentForm.js';
@@ -6,9 +6,13 @@ import {connect} from 'react-redux';
 import { Redirect } from 'react-router-dom';
 import _orderBy from 'lodash.orderby';  
 
-const PostDetailPage = (props) => {
+class PostDetailPage extends Component {
 
 
+
+
+
+  render(){
 
 
     const valid = props.validPost;
@@ -26,7 +30,6 @@ const PostDetailPage = (props) => {
       
     }
 
-
     return (
 
         <div>
@@ -43,7 +46,21 @@ const PostDetailPage = (props) => {
         </div>
       )
 
-  }
+
+
+
+
+  } 
+}
+
+
+
+
+
+
+    
+
+  
 
 
 
