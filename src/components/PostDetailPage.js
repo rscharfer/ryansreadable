@@ -10,10 +10,13 @@ class PostDetailPage extends Component {
 
   constructor(props){
 
+    // initially set the state and update initial state when api call is returned from server  (componentWillReceiveProps)
     super(props)
     this.state={
 
-
+        post:props.post,
+        validPost:props.post,
+      
     }
   }
 
