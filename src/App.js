@@ -17,7 +17,7 @@ const App = (props) => {
     return (
       <div>
 
-      {console.log("true or false",!props.postFormIsShown)}
+    
 
       {!props.postFormIsShown && (
 
