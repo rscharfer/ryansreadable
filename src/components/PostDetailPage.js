@@ -15,8 +15,20 @@ class PostDetailPage extends Component {
     this.state={
 
         post:props.post,
-        validPost:props.post,
+        validPost:props.validPost,
       
+    }
+  }
+
+
+
+  componentWillReceiveProps(nextProps){
+
+    this.setState={
+
+      post:nextProps.post,
+      validPost:nextProps.validPost
+
     }
   }
 
@@ -25,7 +37,7 @@ class PostDetailPage extends Component {
   render(){
 
 
-    const valid = this.props.validPost;
+    const valid = this.state.validPost;
 
     const nonDeletedComments = this.props.comments.filter(comment=>!comment.deleted);
     let orderedComments;
