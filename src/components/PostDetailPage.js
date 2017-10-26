@@ -9,7 +9,7 @@ import _orderBy from 'lodash.orderby';
 class PostDetailPage extends Component {
 
 
-
+  
 
 
   render(){
