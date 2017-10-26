@@ -15,17 +15,17 @@ class PostDetailPage extends Component {
   render(){
 
 
-    const valid = props.validPost;
+    const valid = this.props.validPost;
 
-    const nonDeletedComments = props.comments.filter(comment=>!comment.deleted);
+    const nonDeletedComments = this.props.comments.filter(comment=>!comment.deleted);
     let orderedComments;
 
     
-    if (props.sort==="byDate"){
+    if (this.props.sort==="byDate"){
       orderedComments = _orderBy(nonDeletedComments,'timestamp','desc')
     
     }
-    else if (props.sort==="byVoteTotal"){
+    else if (this.props.sort==="byVoteTotal"){
       orderedComments = _orderBy(nonDeletedComments,'voteScore','desc')
       
     }
@@ -36,9 +36,9 @@ class PostDetailPage extends Component {
         { valid ?(
         <section className="section">
               <div className="container">             
-                  <DetailedPost commentNumber = {props.comments.length} post={props.post}/>
+                  <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post}/>
                   {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
-                  <NewCommentForm postId={props.post.id}/>
+                  <NewCommentForm postId={this.props.post.id}/>
               </div>
           </section>) 
 
