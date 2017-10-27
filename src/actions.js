@@ -148,7 +148,7 @@ export function voteDownOnStore(id, isComment) {
 
 
 export function removePostfromStore(id,category){
-  
+  if (/\/(udacity|redux|react)\/(.){5,}/.exec(window.location.pathname)) window.location.pathname = "/"
   return {
       type : 'REMOVE_POST_FROM_STORE',
       id,
