@@ -13,14 +13,14 @@ const Edit = (props) =>{
 	function fillForm(){
 
 		
-		if(!props.comment){
+		if(!props.isComment){
 			
 			
 			props.openPostForm();
 			props.populatePostForm(props.meta)
 		} 
 
-		if(props.comment){
+		if(props.isComment){
 			
 			props.showPopulatedCommentForm(props.meta)
 			

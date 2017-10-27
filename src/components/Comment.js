@@ -45,8 +45,8 @@ class Comment extends Component{
             <div className="media-right">
               <nav className="breadcrumb" aria-label="breadcrumbs">
                   <ul>
-                    <Edit meta={this.props.comment} comment={true} showPopulatedCommentForm={this.props.showPopulatedCommentForm}/>
-                    <Delete meta={this.props.comment} comment={true}/>  
+                    <Edit meta={this.props.comment} isComment={true} showPopulatedCommentForm={this.props.showPopulatedCommentForm}/>
+                    <Delete meta={this.props.comment}/>  
                     <VoteUp meta={this.props.comment} isComment={true} />
                     <VoteDown meta={this.props.comment} isComment={true} />
                   </ul>
