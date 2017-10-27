@@ -3,7 +3,6 @@ import DetailedPost from './DetailedPost.js';
 import Comment from './Comment.js';
 import NewCommentForm from './NewCommentForm.js';
 import {connect} from 'react-redux';
-import { Redirect } from 'react-router-dom';
 import _orderBy from 'lodash.orderby';  
 
 class PostDetailPage extends Component {
@@ -64,7 +63,7 @@ class PostDetailPage extends Component {
               </div>
           </section>) 
 
-        :(<Redirect to="/"/>)} 
+        :(<h3>You have entered an invalid url.</h3>)} 
         </div>
       )
 
