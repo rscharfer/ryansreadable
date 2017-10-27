@@ -9,7 +9,7 @@ class PostDetailPage extends Component {
 
   constructor(props){
 
-    // initially set the state and update initial state when api call is returned from server  (componentWillReceiveProps)
+    // initially set the state and update initial state when api call is returned from server which will update the redux state and then mapStateToProps will be called (componentWillReceiveProps)
     super(props)
     this.state={
 
@@ -23,18 +23,23 @@ class PostDetailPage extends Component {
 
   componentWillReceiveProps(nextProps){
 
-    this.setState={
 
-      post:nextProps.post,
-      validPost:nextProps.validPost
 
-    }
+    this.setState((prevState, props) => {
+      return {
+
+         post:nextProps.post,
+         validPost:nextProps.validPost
+
+      };
+    });
   }
 
 
 
   render(){
 
+  
 
     const valid = this.state.validPost;
 
@@ -58,12 +63,12 @@ class PostDetailPage extends Component {
         <section className="section">
               <div className="container">             
                   <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post}/>
-                  {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} changeEditId={this.changeCommentBeingEditedID} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
+                  {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
                   <NewCommentForm postId={this.props.post.id}/>
               </div>
           </section>) 
 
-        :(<h3>You have entered an invalid url.</h3>)} 
+        :(<h3>The url you have entered is invalid.</h3>)} 
         </div>
       )
 

@@ -13,19 +13,11 @@ class Comment extends Component{
 
   constructor(props){
     super()
-    // this.changeVoteTotal = this.changeVoteTotal.bind(this)
-    // this.state={
-    //   voteTotal:props.comment.voteScore
-    // }
+
   }
 
 
-  // changeVoteTotal(direction){
 
-  //   if (direction==='up') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal++})
-  //   else if (direction='down') this.setState((prevState,props)=>{voteTotal:prevState.voteTotal--})
-
-  // }
 
   render(){
 
@@ -53,7 +45,7 @@ class Comment extends Component{
             <div className="media-right">
               <nav className="breadcrumb" aria-label="breadcrumbs">
                   <ul>
-                    <Edit meta={this.props.comment} comment={true}  changeEditId={this.props.changeEditId} showPopulatedCommentForm={this.props.showPopulatedCommentForm}/>
+                    <Edit meta={this.props.comment} comment={true} showPopulatedCommentForm={this.props.showPopulatedCommentForm}/>
                     <Delete meta={this.props.comment} comment={true} removeComment={this.props.removeComment}/>  
                     <VoteUp meta={this.props.comment} isComment={true} />
                     <VoteDown meta={this.props.comment} isComment={true} />
