@@ -221,8 +221,9 @@ function entities(
 
         case "REMOVE_POST_FROM_STORE":
             {
+                
+                if (/\/(udacity|redux|react)\/(.){5,}/.exec(window.location.pathname)) window.location.pathname = "/"
                 let newStore = Object.assign({}, state);
-
                 for (let commentID in newStore.comments) {
                     if (newStore.comments[commentID].parentId === action.id) delete newStore.comments[commentID]
                 }
