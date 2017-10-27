@@ -63,7 +63,7 @@ class PostDetailPage extends Component {
         <section className="section">
               <div className="container">             
                   <DetailedPost commentNumber = {this.props.comments.length} post={this.props.post}/>
-                  {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} showPopulatedCommentForm={this.showPopulatedCommentForm} removeComment={this.removeComment} comment={comment}/>)}
+                  {orderedComments.map(comment=><Comment key={comment.id} id={comment.id} showPopulatedCommentForm={this.showPopulatedCommentForm} comment={comment}/>)}
                   <NewCommentForm postId={this.props.post.id}/>
               </div>
           </section>) 
